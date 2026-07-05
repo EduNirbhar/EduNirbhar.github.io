@@ -1,0 +1,142 @@
+<header class="custom-liquid-header">
+  <div class="nav-container">
+    
+   <a href="/index.qmd" class="nav-brand">
+      <img src="/images/edunirbhar.png" alt="" class="brand-logo logo-light-mode">
+    </a>
+
+    <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="/index.qmd">Home</a></li>
+        <li><a href="/services/index.qmd">Services</a></li>
+        
+
+        <li class="liquid-drop-item">
+          <button class="liquid-drop-btn" aria-expanded="false">
+            Learn <i class="fa-solid fa-angle-down drop-icon"></i>
+          </button>
+          <ul class="liquid-drop-menu">
+            <li><a href="/courses/all_courses.qmd">All Courses</a></li>
+            <li><a href="/courses/clouds.qmd">Cloud Technologies</a></li>
+            <li><a href="/courses/linux.qmd">Linux Distributions</a></li>
+            <li><a href="/courses/languages.qmd">Programming Languages</a></li>
+          </ul>
+        </li>
+
+        <li><a href="/contact.qmd">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        
+        <div class="custom-search-container">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" placeholder="Search..." class="custom-search-input" id="my-custom-search">
+          <span class="search-shortcut">⌘ K</span>
+        </div>
+
+        <button id="custom-theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon dark-icon"></i>
+          <i class="fa-solid fa-sun light-icon"></i>
+        </button>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("custom-theme-toggle");
+    const htmlElement = document.documentElement;
+    const mobileToggle = document.getElementById("mobile-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const dropdownToggles = document.querySelectorAll(".liquid-drop-btn");
+
+    // Theme logic
+    const currentTheme = localStorage.getItem("theme") || "light";
+    if (currentTheme === "dark") htmlElement.setAttribute("data-bs-theme", "dark");
+
+    themeToggle.addEventListener("click", () => {
+      if (htmlElement.getAttribute("data-bs-theme") === "dark") {
+        htmlElement.removeAttribute("data-bs-theme");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.setAttribute("data-bs-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Mobile menu logic
+    mobileToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
+
+    // Dropdown logic
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault(); 
+        const parentLi = toggle.parentElement;
+        document.querySelectorAll('.liquid-drop-item').forEach(item => {
+          if (item !== parentLi) {
+            item.classList.remove('open');
+            item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+          }
+        });
+        parentLi.classList.toggle("open");
+        const icon = toggle.querySelector('.drop-icon');
+        icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+    });
+    
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.liquid-drop-item')) {
+        document.querySelectorAll('.liquid-drop-item').forEach(item => {
+          item.classList.remove('open');
+          item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // SEARCH LOGIC (Connects your custom box to Quarto natively)
+    const searchInput = document.getElementById("my-custom-search");
+
+    if (searchInput) {
+      document.addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+          e.preventDefault(); 
+          searchInput.focus(); 
+        }
+      });
+
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault(); 
+          const query = searchInput.value.trim();
+          
+          if (query !== "") {
+            // Find Quarto's real hidden search button
+            const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
+            
+            if (quartoBtn) {
+              quartoBtn.click(); // Open the modal
+              
+              // Wait for modal to appear, then type the query
+              setTimeout(() => {
+                const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
+                if (modalInput) {
+                  modalInput.value = query;
+                  modalInput.dispatchEvent(new Event("input", { bubbles: true }));
+                  modalInput.focus();
+                }
+              }, 200); 
+            } else {
+              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+            }
+          }
+        }
+      });
+    }
+  });
+</script>

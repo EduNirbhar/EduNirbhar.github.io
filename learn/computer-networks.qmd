@@ -1,0 +1,121 @@
+---
+title: "Computer Networks"
+format:
+  html:
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+page-layout: full
+---
+
+```{=html}
+<style>
+:root{--ac:#14b8a6;--ac-rgb:20,184,166;--bg:#07070b;--surface:#0e0e14;--card:#13131a;--card-h:#18181f;--border:rgba(255,255,255,.07);--border-h:rgba(255,255,255,.14);--t1:#f0eee8;--t2:#8a8a9a;--t3:#45454f;--fn-head:'Outfit',sans-serif;--fn-body:'Instrument Sans',sans-serif;--fn-mono:'JetBrains Mono',monospace;--r:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg)!important;font-family:var(--fn-body);color:var(--t1)}
+#quarto-content{padding:0!important;max-width:100%!important}nav.navbar,footer,.quarto-title-banner{display:none!important}a{text-decoration:none}
+.page{overflow-x:hidden}
+.c-hero{min-height:85vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(5rem,10vw,8rem) clamp(1.5rem,7vw,7rem) clamp(3rem,5vw,4rem);position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 10% 50%,rgba(var(--ac-rgb),.07) 0%,transparent 70%),var(--bg)}
+.c-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 60% 80% at 0% 50%,black 0%,transparent 70%)}
+.c-kicker{font-family:var(--fn-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;position:relative;z-index:2}.c-kicker::before{content:'';width:22px;height:1.5px;background:var(--ac)}
+.c-h1{font-family:var(--fn-head)!important;font-size:clamp(3rem,7vw,6rem)!important;font-weight:900!important;line-height:.97!important;color:var(--t1)!important;letter-spacing:-.03em;margin-bottom:.4em!important;max-width:16ch;position:relative;z-index:2}
+.hi{color:var(--ac)}.it{font-style:italic;color:var(--t2)}
+.c-desc{font-family:var(--fn-body);font-size:clamp(.95rem,1.5vw,1.08rem);color:var(--t2);line-height:1.75;max-width:50ch;margin-bottom:2rem;position:relative;z-index:2}
+.c-meta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.8rem;position:relative;z-index:2}
+.c-chip{font-family:var(--fn-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);background:rgba(255,255,255,.05);border:1px solid var(--border-h);padding:.38rem 1rem;border-radius:100px;display:flex;align-items:center;gap:.4rem}.c-chip b{color:var(--ac)}
+.c-hero-btns{display:flex;flex-wrap:wrap;gap:.9rem;position:relative;z-index:2}
+.btn-ac{font-family:var(--fn-head);font-weight:700;font-size:.9rem;color:#07070b!important;background:var(--ac);padding:.95rem 2.3rem;border-radius:6px;transition:all .22s;box-shadow:0 4px 24px rgba(var(--ac-rgb),.35);display:inline-flex;align-items:center;gap:.4rem}.btn-ac:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn-ghost{font-family:var(--fn-head);font-weight:600;font-size:.9rem;color:var(--t2)!important;background:transparent;padding:.95rem 2rem;border-radius:6px;border:1px solid var(--border-h);transition:all .22s}.btn-ghost:hover{border-color:var(--ac);color:var(--t1)!important}
+.s{padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,7vw,7rem);max-width:1400px;margin:0 auto}
+.s-alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.s-lbl{font-family:var(--fn-mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}.s-lbl::after{content:'';display:block;height:1px;width:28px;background:var(--ac);opacity:.5}
+.s-title{font-family:var(--fn-head)!important;font-size:clamp(1.8rem,3.5vw,2.8rem)!important;font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;margin-bottom:.4rem!important;line-height:1.08!important}.s-title em{font-style:italic;color:var(--ac)}
+.s-desc{font-family:var(--fn-body);font-size:.97rem;color:var(--t2);max-width:58ch;line-height:1.72;margin-bottom:2.8rem}
+/* OSI stack visual */
+.osi-stack{display:flex;flex-direction:column;gap:2px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border)}
+.osi-row{display:grid;grid-template-columns:120px 1fr 1fr;align-items:center;gap:0;transition:background .2s;cursor:default}
+.osi-row:hover{background:var(--card-h)}
+.osi-layer{background:var(--card);padding:.9rem 1.2rem;font-family:var(--fn-mono);font-size:.72rem;font-weight:500;color:var(--ac);border-right:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
+.osi-row:hover .osi-layer{color:var(--t1)}
+.osi-name{background:var(--card);padding:.9rem 1.4rem;font-family:var(--fn-head);font-size:.88rem;font-weight:700;color:var(--t1);border-right:1px solid var(--border)}
+.osi-detail{background:var(--card);padding:.9rem 1.4rem;font-family:var(--fn-body);font-size:.78rem;color:var(--t2);line-height:1.4}
+/* module grid */
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.mc{background:var(--card);padding:1.8rem;transition:background .2s;cursor:default}.mc:hover{background:var(--card-h)}
+.mc-num{font-family:var(--fn-head);font-size:2.5rem;font-weight:900;color:rgba(var(--ac-rgb),.1);line-height:1;margin-bottom:.4rem;display:block}
+.mc-name{font-family:var(--fn-head);font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:.5rem}
+.mc-desc{font-family:var(--fn-body);font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:.8rem}
+.pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-family:var(--fn-mono);font-size:.6rem;color:var(--t3);background:rgba(255,255,255,.03);border:1px solid var(--border);padding:.18rem .5rem;border-radius:3px;transition:color .2s,border-color .2s}.mc:hover .pill{color:var(--ac);border-color:rgba(var(--ac-rgb),.25)}
+.c-cta{text-align:center;padding:clamp(4rem,8vw,6rem) clamp(1.5rem,7vw,7rem);background:var(--surface);border-top:1px solid var(--border);position:relative;overflow:hidden}
+.c-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 60% at 50% 100%,rgba(var(--ac-rgb),.06) 0%,transparent 70%)}
+.cta-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fn-mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);background:rgba(var(--ac-rgb),.1);border:1px solid rgba(var(--ac-rgb),.25);padding:.35rem 1rem;border-radius:100px;margin-bottom:1.8rem}
+.cta-dot{width:5px;height:5px;border-radius:50%;background:var(--ac);animation:pd 2s ease-in-out infinite}
+@keyframes pd{0%,100%{transform:scale(1)}50%{transform:scale(1.6);opacity:.5}}
+.c-cta h2{font-family:var(--fn-head)!important;font-size:clamp(2rem,4.5vw,3.2rem)!important;font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;margin:0 auto 1rem!important;max-width:22ch;line-height:1.08!important;position:relative;z-index:1}.c-cta h2 em{font-style:italic;color:var(--ac)}
+.c-cta p{font-family:var(--fn-body);font-size:1rem;color:var(--t2);max-width:46ch;margin:0 auto 2.5rem;line-height:1.7;position:relative;z-index:1}
+.cta-btns{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;position:relative;z-index:1}
+@media(max-width:640px){.c-hero{padding:4rem 1.5rem 2.5rem}.s{padding:3rem 1.5rem}.osi-row{grid-template-columns:80px 1fr}}
+</style>
+
+<div class="page">
+<section class="c-hero">
+  <div class="c-kicker">Track 05 · Networking</div>
+  <h1 class="c-h1">Computer<br><span class="hi">Networks</span>:<br><span class="it">under the hood.</span></h1>
+  <p class="c-desc">Everything you take for granted — websites loading, emails arriving, video calls working — happens through protocols you'll fully understand after this course. Essential for developers, sysadmins, and cloud engineers alike.</p>
+  <div class="c-meta">
+    <span class="c-chip">⏱ Duration <b>8 Weeks</b></span>
+    <span class="c-chip">👥 Level <b>All Levels</b></span>
+    <span class="c-chip">🌐 Scope <b>Layer 1 → Layer 7</b></span>
+    <span class="c-chip">🔑 Prereq <b>Git &amp; GitHub</b></span>
+  </div>
+  <div class="c-hero-btns">
+    <a href="/contact.qmd" class="btn-ac">Enroll Now →</a>
+    <a href="#curriculum" class="btn-ghost">View Curriculum</a>
+  </div>
+</section>
+
+<section class="s-alt">
+  <div class="s">
+    <div class="s-lbl">The OSI Model</div>
+    <h2 class="s-title">Seven layers.<br><em>One internet.</em></h2>
+    <p class="s-desc">You'll understand every layer — not just memorise the names. Each session builds up one layer at a time.</p>
+    <div class="osi-stack">
+      <div class="osi-row"><div class="osi-layer">Layer 7</div><div class="osi-name">Application</div><div class="osi-detail">HTTP, HTTPS, DNS, FTP, SMTP — the protocols your applications use every day</div></div>
+      <div class="osi-row"><div class="osi-layer">Layer 6</div><div class="osi-name">Presentation</div><div class="osi-detail">Encryption (TLS/SSL), encoding, data format translation between systems</div></div>
+      <div class="osi-row"><div class="osi-layer">Layer 5</div><div class="osi-name">Session</div><div class="osi-detail">Session establishment, maintenance, and termination — WebSockets, RPC</div></div>
+      <div class="osi-row"><div class="osi-layer">Layer 4</div><div class="osi-name">Transport</div><div class="osi-detail">TCP vs UDP, ports, flow control, congestion control, 3-way handshake</div></div>
+      <div class="osi-row"><div class="osi-layer">Layer 3</div><div class="osi-name">Network</div><div class="osi-detail">IP addressing, subnetting, CIDR, routing — how packets find their way</div></div>
+      <div class="osi-row"><div class="osi-layer">Layer 2</div><div class="osi-name">Data Link</div><div class="osi-detail">MAC addresses, Ethernet, switches, ARP, and frame structure</div></div>
+      <div class="osi-row"><div class="osi-layer">Layer 1</div><div class="osi-name">Physical</div><div class="osi-detail">Cables, signals, Wi-Fi radio waves — how bits become electricity and light</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="s" id="curriculum">
+  <div class="s-lbl">Curriculum</div>
+  <h2 class="s-title">8 Weeks, <em>Full Stack Networking</em></h2>
+  <p class="s-desc">Practical and theoretical in equal measure — you'll use Wireshark, build socket programs, and configure real network setups.</p>
+  <div class="mgrid">
+    <div class="mc"><span class="mc-num">01</span><div class="mc-name">How the Internet Works</div><div class="mc-desc">Big picture: clients, servers, ISPs, DNS, and what actually happens when you type a URL.</div><div class="pills"><span class="pill">DNS resolution</span><span class="pill">IP routing</span><span class="pill">Packet journey</span></div></div>
+    <div class="mc"><span class="mc-num">02</span><div class="mc-name">IP Addressing &amp; Subnetting</div><div class="mc-desc">IPv4/IPv6, CIDR notation, subnet masks, network vs host bits, and VLSM calculations.</div><div class="pills"><span class="pill">IPv4/IPv6</span><span class="pill">CIDR</span><span class="pill">Subnetting</span></div></div>
+    <div class="mc"><span class="mc-num">03</span><div class="mc-name">TCP/IP in Depth</div><div class="mc-desc">3-way handshake, sequence numbers, ACKs, flow control, congestion control, and TCP teardown.</div><div class="pills"><span class="pill">SYN/ACK</span><span class="pill">Sliding window</span><span class="pill">Congestion ctrl</span></div></div>
+    <div class="mc"><span class="mc-num">04</span><div class="mc-name">UDP &amp; Real-Time Protocols</div><div class="mc-desc">When to use UDP, QUIC, DTLS, and how video conferencing and gaming handle unreliable transport.</div><div class="pills"><span class="pill">UDP</span><span class="pill">QUIC</span><span class="pill">Multicast</span></div></div>
+    <div class="mc"><span class="mc-num">05</span><div class="mc-name">HTTP/1.1, HTTP/2 &amp; HTTP/3</div><div class="mc-desc">Request/response cycle, headers, methods, status codes, keep-alive, multiplexing, and gRPC basics.</div><div class="pills"><span class="pill">Headers</span><span class="pill">HTTP/2 streams</span><span class="pill">REST</span></div></div>
+    <div class="mc"><span class="mc-num">06</span><div class="mc-name">TLS/SSL &amp; Security</div><div class="mc-desc">PKI, certificates, TLS handshake, HTTPS, certificate authorities, and common attacks (MITM, SSL stripping).</div><div class="pills"><span class="pill">TLS handshake</span><span class="pill">PKI</span><span class="pill">MITM attack</span></div></div>
+    <div class="mc"><span class="mc-num">07</span><div class="mc-name">DNS Deep Dive</div><div class="mc-desc">Recursive vs authoritative resolvers, record types (A, AAAA, CNAME, MX, TXT), TTL, and DNS caching.</div><div class="pills"><span class="pill">A/CNAME/MX</span><span class="pill">TTL</span><span class="pill">DNSSEC</span></div></div>
+    <div class="mc"><span class="mc-num">08</span><div class="mc-name">Sockets &amp; Network Programming</div><div class="mc-desc">Build a TCP client/server in Python from scratch. Understand bind, listen, accept, connect — and build a simple HTTP server.</div><div class="pills"><span class="pill">TCP sockets</span><span class="pill">Python socket</span><span class="pill">Mini HTTP server</span></div></div>
+  </div>
+</div>
+
+<section class="c-cta">
+  <div class="cta-badge"><span class="cta-dot"></span>Track 05 · Open</div>
+  <h2>Know how<br><em>everything connects.</em></h2>
+  <p>Networks underpin every cloud service, every web app, every API call. Understanding them makes you a better developer at every layer.</p>
+  <div class="cta-btns">
+    <a href="/contact.qmd" class="btn-ac">Enroll Now →</a>
+    <a href="learn.qmd" class="btn-ghost">← All Courses</a>
+  </div>
+</section>
+</div>
+```

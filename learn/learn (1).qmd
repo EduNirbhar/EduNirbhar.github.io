@@ -1,0 +1,490 @@
+---
+title: "Learn With Us"
+format:
+  html:
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+page-layout: full
+---
+
+```{=html}
+<style>
+/* ============================================================
+   LEARN WITH US — Hover-Expand Category Overview
+   ============================================================ */
+:root {
+  --bg:#080910; --surface:#0d0e12; --card:#12131a; --card-h:#17181f;
+  --border:rgba(255,255,255,.07); --bh:rgba(255,255,255,.13);
+  --t1:#eeeaf2; --t2:#7f7d8e; --t3:#3d3c4a;
+  --fn-h:'Outfit',sans-serif; --fn-b:'Instrument Sans',sans-serif; --fn-m:'JetBrains Mono',monospace;
+  --c1:#f59e0b; --c2:#ef4444; --c3:#3b82f6; --c4:#10b981; --c5:#f97316;
+  --git:#a78bfa;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg)!important;font-family:var(--fn-b);color:var(--t1)}
+#quarto-content{padding:0!important;max-width:100%!important}
+nav.navbar,footer,.quarto-title-banner{display:none!important}
+a{text-decoration:none}
+.lp{overflow-x:hidden;position:relative}
+
+/* noise */
+.lp::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:1;padding:clamp(4.5rem,9vw,7rem) clamp(1.5rem,6vw,6rem) clamp(2rem,4vw,3rem);text-align:center;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(167,139,250,.09) 0%,transparent 70%),var(--bg);overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,black 0%,transparent 100%)}
+.hero-kicker{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--fn-m);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--git);background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);padding:.38rem 1.1rem;border-radius:100px;margin-bottom:1.8rem;position:relative;z-index:2}
+.kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--git);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-family:var(--fn-h)!important;font-size:clamp(3rem,7.5vw,7rem)!important;font-weight:900!important;line-height:.95!important;color:var(--t1)!important;letter-spacing:-.035em;margin-bottom:.3em!important;position:relative;z-index:2}
+.grd{background:linear-gradient(135deg,#f59e0b 0%,#ec4899 45%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-family:var(--fn-b);font-size:clamp(1rem,1.8vw,1.18rem);color:var(--t2);line-height:1.7;max-width:56ch;margin:0 auto 1rem;position:relative;z-index:2}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:2rem;position:relative;z-index:2}
+.h-chip{font-family:var(--fn-m);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.35rem .9rem;border-radius:100px}
+.h-chip b{color:var(--t1)}
+
+/* ── GIT BANNER ── */
+.git-banner{position:relative;z-index:1;margin:0 clamp(1.5rem,6vw,6rem) 3rem;background:linear-gradient(135deg,rgba(167,139,250,.1) 0%,rgba(139,92,246,.06) 100%);border:1px solid rgba(167,139,250,.28);border-radius:14px;padding:1.4rem 2rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem}
+.git-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--git),transparent);border-radius:14px 14px 0 0}
+.git-icon{width:44px;height:44px;border-radius:10px;background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.3);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.git-info{flex:1;min-width:220px}
+.git-label{font-family:var(--fn-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--git);margin-bottom:.3rem;display:block}
+.git-title{font-family:var(--fn-h);font-size:1.05rem;font-weight:700;color:var(--t1);margin-bottom:.2rem}
+.git-desc{font-family:var(--fn-b);font-size:.82rem;color:var(--t2);line-height:1.5}
+.git-pills{display:flex;flex-wrap:wrap;gap:.45rem}
+.git-pill{font-family:var(--fn-m);font-size:.62rem;color:var(--git);background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);padding:.22rem .65rem;border-radius:100px}
+
+/* ── CATEGORIES ── */
+.cat-area{position:relative;z-index:1;padding:0 clamp(1.5rem,6vw,6rem) clamp(3rem,6vw,5rem)}
+.hint-text{text-align:center;font-family:var(--fn-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:1.4rem}
+
+.cat-tabs{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-bottom:0}
+.cat-tab{font-family:var(--fn-h);font-size:.88rem;font-weight:700;letter-spacing:.02em;padding:.75rem 1.8rem;border-radius:100px;border:1.5px solid var(--border);background:var(--card);color:var(--t2);cursor:pointer;transition:all .28s ease;display:flex;align-items:center;gap:.55rem;white-space:nowrap;position:relative;overflow:hidden;user-select:none}
+.cat-tab::before{content:'';position:absolute;inset:0;border-radius:100px;background:var(--tab-bg);opacity:0;transition:opacity .28s ease}
+.tab-label,.tab-icon,.tab-count,.tab-arrow{position:relative;z-index:1}
+.tab-count{font-family:var(--fn-m);font-size:.6rem;letter-spacing:.1em;background:rgba(255,255,255,.08);padding:.15rem .5rem;border-radius:100px;transition:background .28s}
+.tab-arrow{font-size:.65rem;transition:transform .3s;color:var(--tab-clr)}
+
+.cat-tab[data-c="1"]{--tab-bg:rgba(245,158,11,.12);--tab-clr:var(--c1)}
+.cat-tab[data-c="2"]{--tab-bg:rgba(239,68,68,.12);--tab-clr:var(--c2)}
+.cat-tab[data-c="3"]{--tab-bg:rgba(59,130,246,.12);--tab-clr:var(--c3)}
+.cat-tab[data-c="4"]{--tab-bg:rgba(16,185,129,.12);--tab-clr:var(--c4)}
+.cat-tab[data-c="5"]{--tab-bg:rgba(249,115,22,.12);--tab-clr:var(--c5)}
+
+.cat-tab:hover,.cat-tab.open{border-color:var(--tab-clr);color:var(--t1)}
+.cat-tab:hover::before,.cat-tab.open::before{opacity:1}
+.cat-tab.open .tab-arrow{transform:rotate(180deg)}
+
+/* ── PANEL ── */
+.cat-panel{display:none;margin-top:1.8rem;animation:pIn .38s ease forwards}
+.cat-panel.show{display:block}
+@keyframes pIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.ph{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.ph-bar{width:4px;height:44px;border-radius:2px;background:var(--pac);flex-shrink:0}
+.ph-title{font-family:var(--fn-h);font-size:1.4rem;font-weight:900;color:var(--t1);letter-spacing:-.02em}
+.ph-desc{font-family:var(--fn-b);font-size:.87rem;color:var(--t2);line-height:1.5;margin-top:.15rem}
+.ph-badge{margin-left:auto;font-family:var(--fn-m);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pac);background:color-mix(in srgb,var(--pac) 12%,transparent);border:1px solid color-mix(in srgb,var(--pac) 28%,transparent);padding:.3rem .9rem;border-radius:100px}
+
+/* ── COURSE GRID ── */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.3rem}
+.cc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.9rem;position:relative;overflow:hidden;transition:border-color .28s,transform .28s,box-shadow .28s;display:flex;flex-direction:column}
+.cc:hover{border-color:var(--ca);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.cc::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:var(--ca);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.cc:hover::before{transform:scaleX(1)}
+.cc::after{content:'';position:absolute;top:-50%;right:-30%;width:200px;height:200px;border-radius:50%;background:radial-gradient(ellipse,var(--cg) 0%,transparent 70%);pointer-events:none;opacity:0;transition:opacity .4s}
+.cc:hover::after{opacity:1}
+.wm{position:absolute;bottom:-10px;right:8px;font-family:var(--fn-h);font-size:5.5rem;font-weight:900;color:rgba(255,255,255,.03);line-height:1;user-select:none;pointer-events:none;letter-spacing:-.04em}
+.ch{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1.1rem}
+.ci{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;background:color-mix(in srgb,var(--ca) 12%,transparent);border:1px solid color-mix(in srgb,var(--ca) 25%,transparent);transition:transform .2s}
+.cc:hover .ci{transform:scale(1.08) rotate(-4deg)}
+.ct{font-family:var(--fn-m);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ca);margin-bottom:.25rem;display:block}
+.cn{font-family:var(--fn-h);font-size:1.08rem;font-weight:700;color:var(--t1);line-height:1.25}
+.cd{font-family:var(--fn-b);font-size:.83rem;color:var(--t2);line-height:1.68;margin-bottom:1.2rem}
+.cl{list-style:none;display:flex;flex-direction:column;gap:.38rem;margin-bottom:1.4rem}
+.cl li{font-family:var(--fn-b);font-size:.78rem;color:var(--t2);display:flex;align-items:flex-start;gap:.5rem;line-height:1.45}
+.cl li::before{content:'▸';color:var(--ca);font-size:.6rem;margin-top:.18rem;flex-shrink:0}
+.ci-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
+.cic{font-family:var(--fn-m);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.2rem .6rem;border-radius:100px;display:flex;align-items:center;gap:.3rem}
+.cic b{color:var(--t2)}
+.git-tag{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--fn-m);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--git);background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);padding:.18rem .55rem;border-radius:100px;margin-bottom:.8rem}
+.cf{margin-top:auto}
+.enroll{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.85rem 1.5rem;border-radius:8px;font-family:var(--fn-h);font-weight:700;font-size:.88rem;color:var(--bg)!important;background:var(--ca);border:none;cursor:pointer;transition:all .22s ease;box-shadow:0 4px 20px color-mix(in srgb,var(--ca) 35%,transparent)}
+.enroll:hover{filter:brightness(1.12);box-shadow:0 6px 32px color-mix(in srgb,var(--ca) 50%,transparent);transform:translateY(-1px)}
+.enroll svg{width:15px;height:15px;flex-shrink:0}
+
+/* standalone full-width card */
+.cc.solo{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+@media(max-width:760px){.cc.solo{grid-template-columns:1fr}}
+.solo-r{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+@media(max-width:500px){.solo-r{grid-template-columns:1fr}}
+.mc{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;transition:border-color .2s,background .2s}
+.cc.solo:hover .mc{border-color:color-mix(in srgb,var(--ca) 30%,transparent);background:color-mix(in srgb,var(--ca) 5%,transparent)}
+.mi{font-size:.9rem;margin-bottom:.3rem;display:block}
+.mn{font-family:var(--fn-h);font-size:.8rem;font-weight:700;color:var(--t1);margin-bottom:.2rem}
+.md{font-family:var(--fn-b);font-size:.72rem;color:var(--t2);line-height:1.4}
+
+/* ── CTA ── */
+.cta{position:relative;z-index:1;margin:clamp(2rem,5vw,4rem) clamp(1.5rem,6vw,6rem) clamp(3rem,6vw,5rem);padding:clamp(3.5rem,7vw,5rem) clamp(2rem,5vw,4rem);text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(167,139,250,.06) 0%,transparent 70%)}
+.cta-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fn-m);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--git);background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.22);padding:.35rem 1rem;border-radius:100px;margin-bottom:1.6rem}
+.cta h2{font-family:var(--fn-h)!important;font-size:clamp(2rem,4.5vw,3.5rem)!important;font-weight:900!important;line-height:1.06!important;color:var(--t1)!important;letter-spacing:-.025em;margin-bottom:.8rem!important;position:relative;z-index:1}
+.cta h2 em{font-style:italic;color:var(--git)}
+.cta p{font-family:var(--fn-b);font-size:1rem;color:var(--t2);max-width:50ch;margin:0 auto 2.5rem;line-height:1.72;position:relative;z-index:1}
+.cta-btns{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;position:relative;z-index:1}
+.btn-m{font-family:var(--fn-h);font-weight:700;font-size:.9rem;color:var(--bg)!important;background:var(--git);padding:.95rem 2.4rem;border-radius:8px;transition:all .22s;box-shadow:0 4px 24px rgba(167,139,250,.35);display:inline-flex;align-items:center;gap:.5rem}
+.btn-m:hover{filter:brightness(1.12);transform:translateY(-2px);box-shadow:0 6px 36px rgba(167,139,250,.5)}
+.btn-o{font-family:var(--fn-h);font-weight:600;font-size:.9rem;color:var(--t2)!important;background:transparent;padding:.95rem 2rem;border-radius:8px;border:1px solid var(--bh);transition:all .22s}
+.btn-o:hover{border-color:var(--git);color:var(--t1)!important}
+
+@media(max-width:640px){
+  .hero{padding:4rem 1.5rem 2rem}
+  .git-banner{margin:0 1.2rem 2rem;padding:1rem 1.2rem}
+  .cat-area{padding:0 1.2rem 3rem}
+  .cta{margin:2rem 1.2rem}
+  .cg{grid-template-columns:1fr}
+  .cat-tab .tab-arrow{display:inline-block}
+}
+</style>
+
+<div class="lp">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-kicker"><span class="kicker-dot"></span>Learn With Us · All Courses</div>
+  <h1 class="hero-title">Discover. Learn.<br><span class="grd">Go Pro.</span></h1>
+  <p class="hero-sub">Well-structured, carefully curated courses — from computer fundamentals to cloud deployment. Every course is independent, hands-on, and taught by a practitioner who ships real software.</p>
+  <div class="hero-chips">
+    <span class="h-chip"><b>12</b> Independent Courses</span>
+    <span class="h-chip"><b>5</b> Categories</span>
+    <span class="h-chip">Git &amp; GitHub <b>Included</b></span>
+    <span class="h-chip">Real <b>Projects</b> Every Course</span>
+    <span class="h-chip">All <b>Levels Welcome</b></span>
+  </div>
+</section>
+
+<!-- GIT BANNER -->
+<div class="git-banner">
+  <div class="git-icon">🔀</div>
+  <div class="git-info">
+    <span class="git-label">🔁 Mandatory · Included Automatically</span>
+    <div class="git-title">Git &amp; GitHub — Common for All Programming &amp; Build Students</div>
+    <div class="git-desc">Every student enrolled in a <strong style="color:var(--c3)">Programming Language</strong> or <strong style="color:var(--c4)">Build</strong> course is automatically enrolled in Git &amp; GitHub. Version control is non-negotiable — your code needs a proper home from day one.</div>
+  </div>
+  <div>
+    <div class="git-pills">
+      <span class="git-pill">git init · add · commit</span>
+      <span class="git-pill">Branching &amp; Merging</span>
+      <span class="git-pill">Pull Requests &amp; Reviews</span>
+      <span class="git-pill">GitHub Actions CI/CD</span>
+      <span class="git-pill">2 weeks · Free with course</span>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="cat-area">
+  <p class="hint-text">↓ Hover or tap a category to explore individual courses</p>
+
+  <div class="cat-tabs">
+    <button class="cat-tab" data-c="1" onclick="tog(1)"><span class="tab-icon">🖥️</span><span class="tab-label">Computer Foundation</span><span class="tab-count">Standalone</span><span class="tab-arrow">▾</span></button>
+    <button class="cat-tab" data-c="2" onclick="tog(2)"><span class="tab-icon">🧩</span><span class="tab-label">CS Essentials</span><span class="tab-count">2 Courses</span><span class="tab-arrow">▾</span></button>
+    <button class="cat-tab" data-c="3" onclick="tog(3)"><span class="tab-icon">⌨️</span><span class="tab-label">Programming Languages</span><span class="tab-count">4 Courses</span><span class="tab-arrow">▾</span></button>
+    <button class="cat-tab" data-c="4" onclick="tog(4)"><span class="tab-icon">🌐</span><span class="tab-label">Build</span><span class="tab-count">3 Courses</span><span class="tab-arrow">▾</span></button>
+    <button class="cat-tab" data-c="5" onclick="tog(5)"><span class="tab-icon">🚀</span><span class="tab-label">Deployment</span><span class="tab-count">2 Courses</span><span class="tab-arrow">▾</span></button>
+  </div>
+
+  <!-- ═══ PANEL 1: COMPUTER FOUNDATION ═══ -->
+  <div class="cat-panel" id="p1" style="--pac:var(--c1)">
+    <div class="ph"><div class="ph-bar"></div><div><div class="ph-title">Computer Foundation</div><div class="ph-desc">A standalone all-in-one course. Start from absolute zero — this is where every non-technical person begins.</div></div><span class="ph-badge">Standalone · Beginner Friendly</span></div>
+    <div class="cg">
+      <div class="cc solo" style="--ca:var(--c1);--cg:rgba(245,158,11,.08)">
+        <div class="wm">CF</div>
+        <div>
+          <div class="ch"><div class="ci">🖥️</div><div><span class="ct">Standalone Course · Foundation</span><div class="cn">Computer Foundation — Zero to Confident Tech User</div></div></div>
+          <div class="cd">Everything a non-technical person needs to become a confident computer user and tech-aware professional. Covers hardware, software, OS, productivity tools, internet skills, and an overview of where tech is headed — Cloud, GenAI, Web Dev, and Software Development.</div>
+          <div class="ci-row"><span class="cic">⏱ <b>8 Weeks</b></span><span class="cic">👥 <b>Absolute Beginner</b></span><span class="cic">🎓 <b>Certificate</b></span><span class="cic">🔑 No Prerequisites</span></div>
+          <div class="cf"><a href="/contact.qmd" class="enroll"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in Computer Foundation</a></div>
+        </div>
+        <div class="solo-r">
+          <div class="mc"><span class="mi">💻</span><div class="mn">Computer Basics</div><div class="md">Hardware, how a computer works, input/output, storage types</div></div>
+          <div class="mc"><span class="mi">⚙️</span><div class="mn">Intro to OS</div><div class="md">Windows &amp; Linux — navigating, file system, settings, shortcuts</div></div>
+          <div class="mc"><span class="mi">📊</span><div class="mn">MS Office + Advanced Excel</div><div class="md">Word, PowerPoint, Excel — formulas, pivot tables, data tools</div></div>
+          <div class="mc"><span class="mi">🔧</span><div class="mn">OS Tools &amp; Usage</div><div class="md">Task Manager, disk tools, backups, system maintenance</div></div>
+          <div class="mc"><span class="mi">🌐</span><div class="mn">Internet &amp; Email</div><div class="md">Browsers, search, email etiquette, digital safety, cloud drives</div></div>
+          <div class="mc"><span class="mi">✨</span><div class="mn">Tech Overview</div><div class="md">Cloud, GenAI, Web Dev, Software Development — what they are and where they go</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PANEL 2: CS ESSENTIALS ═══ -->
+  <div class="cat-panel" id="p2" style="--pac:var(--c2)">
+    <div class="ph"><div class="ph-bar"></div><div><div class="ph-title">CS Essentials</div><div class="ph-desc">The two pillars of computer science every developer must know — algorithms and networks. Fully independent courses.</div></div><span class="ph-badge">2 Independent Courses</span></div>
+    <div class="cg">
+
+      <div class="cc" style="--ca:var(--c2);--cg:rgba(239,68,68,.08)">
+        <div class="wm">DSA</div>
+        <div class="ch"><div class="ci">🧩</div><div><span class="ct">CS Essentials · Course 01</span><div class="cn">Data Structures &amp; Algorithms</div></div></div>
+        <div class="cd">100+ carefully selected problems. Every major data structure and algorithmic pattern — arrays to dynamic programming. Taught in Python and C++. The course that makes every other skill sharper and cracks technical interviews.</div>
+        <ul class="cl">
+          <li>Arrays, strings, linked lists, stacks &amp; queues</li>
+          <li>Trees, graphs — BFS, DFS, shortest paths</li>
+          <li>Recursion, backtracking &amp; divide &amp; conquer</li>
+          <li>Sorting, binary search &amp; sliding window</li>
+          <li>Dynamic programming — memoisation &amp; tabulation</li>
+          <li>Hashing, greedy algorithms &amp; bit manipulation</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>12 Weeks</b></span><span class="cic">🧩 <b>100+ Problems</b></span><span class="cic">👥 <b>Intermediate</b></span><span class="cic">🔑 Python or C++</span></div>
+        <div class="cf"><a href="/contact.qmd" class="enroll"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in DSA</a></div>
+      </div>
+
+      <div class="cc" style="--ca:#14b8a6;--cg:rgba(20,184,166,.08)">
+        <div class="wm">CN</div>
+        <div class="ch"><div class="ci">🌍</div><div><span class="ct" style="color:#14b8a6">CS Essentials · Course 02</span><div class="cn">Computer Networks</div></div></div>
+        <div class="cd">How the internet actually works — from cables and signals to HTTP and TLS. Essential for developers, sysadmins, and cloud engineers. You'll understand all 7 OSI layers, write Python socket programs, and analyse live traffic with Wireshark.</div>
+        <ul class="cl">
+          <li>OSI model — all 7 layers explained practically</li>
+          <li>IP addressing, subnetting &amp; CIDR notation</li>
+          <li>TCP vs UDP — handshake, flow &amp; congestion control</li>
+          <li>HTTP/1.1, HTTP/2, HTTPS &amp; TLS/SSL in depth</li>
+          <li>DNS — records, resolution, caching &amp; DNSSEC</li>
+          <li>Socket programming — build a TCP server in Python</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>8 Weeks</b></span><span class="cic">🌐 <b>Layer 1–7</b></span><span class="cic">👥 <b>All Levels</b></span></div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#14b8a6;box-shadow:0 4px 20px rgba(20,184,166,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in Computer Networks</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ PANEL 3: PROGRAMMING LANGUAGES ═══ -->
+  <div class="cat-panel" id="p3" style="--pac:var(--c3)">
+    <div class="ph"><div class="ph-bar"></div><div><div class="ph-title">Programming Languages</div><div class="ph-desc">Four independent language courses. Git &amp; GitHub automatically included for every enrollee.</div></div><span class="ph-badge">4 Courses · Git Included</span></div>
+    <div class="cg">
+
+      <div class="cc" style="--ca:#0ea5e9;--cg:rgba(14,165,233,.08)">
+        <div class="wm">C</div>
+        <div class="ch"><div class="ci">🔩</div><div><span class="ct" style="color:#0ea5e9">Prog Languages · Course 01</span><div class="cn">C Programming</div></div></div>
+        <div class="cd">The language closest to the machine. Understand memory, pointers, and how computers actually work at the system level. Every other language makes more sense after learning C properly.</div>
+        <ul class="cl">
+          <li>Variables, control flow, functions &amp; recursion</li>
+          <li>Pointers, arrays &amp; pointer arithmetic</li>
+          <li>Dynamic memory — malloc, calloc, free, Valgrind</li>
+          <li>Structs, unions &amp; typedef</li>
+          <li>File I/O — text &amp; binary files, errno</li>
+          <li>Build linked list, stack, queue &amp; hash table from scratch</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>8 Weeks</b></span><span class="cic">👥 <b>Beginner</b></span><span class="cic">📦 <b>4 Projects</b></span></div>
+        <div class="git-tag">🔀 Git &amp; GitHub included</div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#0ea5e9;box-shadow:0 4px 20px rgba(14,165,233,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in C Programming</a></div>
+      </div>
+
+      <div class="cc" style="--ca:#a855f7;--cg:rgba(168,85,247,.08)">
+        <div class="wm">C++</div>
+        <div class="ch"><div class="ci">⚡</div><div><span class="ct" style="color:#a855f7">Prog Languages · Course 02</span><div class="cn">C++ Programming</div></div></div>
+        <div class="cd">Object-oriented design, templates, the full STL, and modern C++17/20. The language of competitive programming, game engines, and performance-critical systems.</div>
+        <ul class="cl">
+          <li>Classes, constructors, destructors &amp; this pointer</li>
+          <li>Inheritance, polymorphism &amp; virtual functions</li>
+          <li>Operator overloading &amp; friend functions</li>
+          <li>Templates &amp; STL — vector, map, set, priority_queue</li>
+          <li>Smart pointers — unique_ptr, shared_ptr &amp; RAII</li>
+          <li>Modern C++17/20 — lambdas, ranges, concepts</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>10 Weeks</b></span><span class="cic">👥 <b>Intermediate</b></span><span class="cic">📦 <b>4 Projects</b></span><span class="cic">🔑 C Programming</span></div>
+        <div class="git-tag">🔀 Git &amp; GitHub included</div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#a855f7;box-shadow:0 4px 20px rgba(168,85,247,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in C++</a></div>
+      </div>
+
+      <div class="cc" style="--ca:#f59e0b;--cg:rgba(245,158,11,.08)">
+        <div class="wm">Py</div>
+        <div class="ch"><div class="ci">🐍</div><div><span class="ct" style="color:#f59e0b">Prog Languages · Course 03</span><div class="cn">Python</div></div></div>
+        <div class="cd">The most versatile language in tech. From scripting and automation to data analysis and machine learning — Python opens every door in modern software and AI development.</div>
+        <ul class="cl">
+          <li>Python fundamentals — clean, idiomatic code</li>
+          <li>OOP, decorators, generators &amp; comprehensions</li>
+          <li>File I/O, REST APIs &amp; web scraping</li>
+          <li>NumPy, Pandas &amp; real data manipulation</li>
+          <li>Matplotlib, Seaborn &amp; Plotly visualisation</li>
+          <li>ML basics with scikit-learn + FastAPI deployment</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>10 Weeks</b></span><span class="cic">👥 <b>Beginner → Advanced</b></span><span class="cic">📦 <b>5 Projects</b></span></div>
+        <div class="git-tag">🔀 Git &amp; GitHub included</div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#f59e0b;box-shadow:0 4px 20px rgba(245,158,11,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in Python</a></div>
+      </div>
+
+      <div class="cc" style="--ca:#ec4899;--cg:rgba(236,72,153,.08)">
+        <div class="wm">AI</div>
+        <div class="ch"><div class="ci">✨</div><div><span class="ct" style="color:#ec4899">Prog Languages · Course 04</span><div class="cn">Vibecoding — AI-Assisted Development</div></div></div>
+        <div class="cd">The newest way to build software. Write code using AI tools like Claude, Cursor, and GitHub Copilot as genuine co-developers. Describe what you want, guide the AI, review it properly, and ship real products.</div>
+        <ul class="cl">
+          <li>Prompt engineering for code generation</li>
+          <li>Using Cursor IDE &amp; GitHub Copilot effectively</li>
+          <li>AI-assisted debugging, refactoring &amp; testing</li>
+          <li>Build full apps with Claude &amp; ChatGPT</li>
+          <li>Quality control — reviewing &amp; correcting AI code</li>
+          <li>Capstone: ship a complete product using AI tools</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>4 Weeks</b></span><span class="cic">👥 <b>All Levels</b></span><span class="cic">📦 <b>3 Projects</b></span></div>
+        <div class="git-tag">🔀 Git &amp; GitHub included</div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#ec4899;box-shadow:0 4px 20px rgba(236,72,153,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in Vibecoding</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ PANEL 4: BUILD ═══ -->
+  <div class="cat-panel" id="p4" style="--pac:var(--c4)">
+    <div class="ph"><div class="ph-bar"></div><div><div class="ph-title">Build</div><div class="ph-desc">Three independent courses — from web fundamentals to publishing complete websites with AI. Git &amp; GitHub included for all.</div></div><span class="ph-badge">3 Courses · Git Included</span></div>
+    <div class="cg">
+
+      <div class="cc" style="--ca:#10b981;--cg:rgba(16,185,129,.08)">
+        <div class="wm">HTML</div>
+        <div class="ch"><div class="ci">🎨</div><div><span class="ct" style="color:#10b981">Build · Course 01</span><div class="cn">HTML + CSS</div></div></div>
+        <div class="cd">The building blocks of everything on the web. Write semantic, accessible HTML and beautiful, responsive CSS. Build pixel-perfect layouts using Flexbox and Grid — from scratch, with proper UI/UX design sense.</div>
+        <ul class="cl">
+          <li>Semantic HTML5 — structure &amp; accessibility</li>
+          <li>CSS fundamentals — cascade, specificity, box model</li>
+          <li>Flexbox &amp; CSS Grid — modern responsive layouts</li>
+          <li>CSS variables, animations &amp; transitions</li>
+          <li>Mobile-first design &amp; media queries</li>
+          <li>UI/UX principles — spacing, colour, visual hierarchy</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>6 Weeks</b></span><span class="cic">👥 <b>Beginner</b></span><span class="cic">📦 <b>4 Live Sites</b></span></div>
+        <div class="git-tag">🔀 Git &amp; GitHub included</div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#10b981;box-shadow:0 4px 20px rgba(16,185,129,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in HTML + CSS</a></div>
+      </div>
+
+      <div class="cc" style="--ca:#eab308;--cg:rgba(234,179,8,.08)">
+        <div class="wm">JS</div>
+        <div class="ch"><div class="ci">⚡</div><div><span class="ct" style="color:#eab308">Build · Course 02</span><div class="cn">JavaScript</div></div></div>
+        <div class="cd">Make the web interactive. The only programming language that runs in every browser — essential for any web developer. Learn ES6+, DOM manipulation, asynchronous patterns, and real API integration.</div>
+        <ul class="cl">
+          <li>JS fundamentals — variables, functions, arrays, objects</li>
+          <li>DOM manipulation &amp; event handling</li>
+          <li>async/await, Promises &amp; the event loop</li>
+          <li>Fetch API — working with JSON &amp; REST APIs</li>
+          <li>Local Storage, Drag &amp; Drop &amp; browser APIs</li>
+          <li>Build: quiz app, weather dashboard, kanban board</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>6 Weeks</b></span><span class="cic">👥 <b>Beginner → Intermediate</b></span><span class="cic">📦 <b>5 Projects</b></span><span class="cic">🔑 HTML + CSS</span></div>
+        <div class="git-tag">🔀 Git &amp; GitHub included</div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#eab308;box-shadow:0 4px 20px rgba(234,179,8,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in JavaScript</a></div>
+      </div>
+
+      <div class="cc" style="--ca:#ec4899;--cg:rgba(236,72,153,.08)">
+        <div class="wm">Qto</div>
+        <div class="ch"><div class="ci">🌐</div><div><span class="ct" style="color:#ec4899">Build · Course 03</span><div class="cn">Quarto + Vibecoding + GitHub → Website</div></div></div>
+        <div class="cd">Build a stunning, fully functional website using Quarto — and supercharge every step with AI. Write Markdown, embed live code and charts, theme with CSS generated by AI, and deploy to GitHub Pages automatically. No prior web dev knowledge required.</div>
+        <ul class="cl">
+          <li>Quarto document structure &amp; YAML configuration</li>
+          <li>Multi-page websites — navigation, search, sidebars</li>
+          <li>Custom CSS themes — hand-crafted &amp; AI-generated</li>
+          <li>Embed live Python/R charts &amp; interactive data</li>
+          <li>Use AI (Claude, ChatGPT) to write, design &amp; refine</li>
+          <li>Auto-deploy to GitHub Pages via GitHub Actions CI/CD</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>4 Weeks</b></span><span class="cic">👥 <b>All Levels</b></span><span class="cic">🌐 <b>Live URL by Day 7</b></span></div>
+        <div class="git-tag">🔀 Git &amp; GitHub included</div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#ec4899;box-shadow:0 4px 20px rgba(236,72,153,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in Quarto + AI Website</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ PANEL 5: DEPLOYMENT ═══ -->
+  <div class="cat-panel" id="p5" style="--pac:var(--c5)">
+    <div class="ph"><div class="ph-bar"></div><div><div class="ph-title">Deployment</div><div class="ph-desc">Take your projects from local machine to the real internet. Two fully independent infrastructure courses.</div></div><span class="ph-badge">2 Independent Courses</span></div>
+    <div class="cg">
+
+      <div class="cc" style="--ca:#22c55e;--cg:rgba(34,197,94,.08)">
+        <div class="wm">LNX</div>
+        <div class="ch"><div class="ci">🐧</div><div><span class="ct" style="color:#22c55e">Deployment · Course 01</span><div class="cn">Linux &amp; RHEL Administration</div></div></div>
+        <div class="cd">Linux powers every server, cloud VM, and Docker container on the internet. Master the command line, system services, storage, security, and automation — structured around the industry-standard RHCSA certification.</div>
+        <ul class="cl">
+          <li>Linux fundamentals — CLI, filesystem hierarchy, permissions</li>
+          <li>RHEL package management — dnf, rpm, repositories</li>
+          <li>User &amp; group administration</li>
+          <li>systemd — services, timers, targets &amp; journalctl</li>
+          <li>Storage — LVM, partitioning, filesystems, NFS</li>
+          <li>Security — SELinux, firewalld, SSH hardening, PAM</li>
+          <li>Shell scripting &amp; cron automation</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>10 Weeks</b></span><span class="cic">👥 <b>Beginner → Advanced</b></span><span class="cic">🎓 <b>RHCSA Aligned</b></span></div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#22c55e;box-shadow:0 4px 20px rgba(34,197,94,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in Linux &amp; RHEL</a></div>
+      </div>
+
+      <div class="cc" style="--ca:#ff9900;--cg:rgba(255,153,0,.08)">
+        <div class="wm">AWS</div>
+        <div class="ch"><div class="ci">☁️</div><div><span class="ct" style="color:#ff9900">Deployment · Course 02</span><div class="cn">AWS &amp; Cloud — Docker Included</div></div></div>
+        <div class="cd">From cloud fundamentals to production-grade deployments on Amazon Web Services. Core AWS services, Docker containerisation, Nginx web deployment, serverless functions, and a full capstone project — aligned to SAA-C03 certification.</div>
+        <ul class="cl">
+          <li>Cloud fundamentals — IaaS, PaaS, SaaS, billing models</li>
+          <li>AWS core — EC2, S3, VPC, IAM, Route 53</li>
+          <li>Docker — images, containers, Compose, ECR, ECS</li>
+          <li>Web deployment — Nginx, SSL/TLS, Let's Encrypt</li>
+          <li>Serverless — Lambda, API Gateway, DynamoDB</li>
+          <li>Monitoring — CloudWatch, Auto Scaling, Load Balancers</li>
+          <li>Capstone: full-stack production app on AWS</li>
+        </ul>
+        <div class="ci-row"><span class="cic">⏱ <b>10 Weeks</b></span><span class="cic">👥 <b>Intermediate</b></span><span class="cic">🎓 <b>SAA-C03 Aligned</b></span><span class="cic">📦 <b>6 Projects</b></span></div>
+        <div class="cf"><a href="/contact.qmd" class="enroll" style="background:#ff9900;color:#080910!important;box-shadow:0 4px 20px rgba(255,153,0,.3)"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in AWS &amp; Cloud</a></div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /cat-area -->
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-badge"><span class="kicker-dot"></span>All Courses · Enrolling Now</div>
+  <h2>Not sure where<br>to <em>start?</em></h2>
+  <p>Start with Computer Foundation if you're brand new to tech. Start with Git &amp; GitHub + any language if you want to code. Book a free call and we'll map the right path for your goals.</p>
+  <div class="cta-btns">
+    <a href="/contact.qmd" class="btn-m"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Book a Free Consultation</a>
+    <a href="/contact.qmd" class="btn-o">Browse All Schedules</a>
+  </div>
+</div>
+
+</div>
+
+<script>
+var cur = null;
+function tog(n) {
+  var panel = document.getElementById('p'+n);
+  var tab   = document.querySelector('.cat-tab[data-c="'+n+'"]');
+  if (cur === n) {
+    panel.classList.remove('show');
+    tab.classList.remove('open');
+    cur = null;
+    return;
+  }
+  if (cur) {
+    document.getElementById('p'+cur).classList.remove('show');
+    document.querySelector('.cat-tab[data-c="'+cur+'"]').classList.remove('open');
+  }
+  panel.classList.add('show');
+  tab.classList.add('open');
+  cur = n;
+  setTimeout(function(){ panel.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 100);
+}
+
+// hover on desktop
+document.querySelectorAll('.cat-tab').forEach(function(tab) {
+  var n = tab.dataset.c;
+  var t;
+  tab.addEventListener('mouseenter', function() {
+    t = setTimeout(function(){ if(cur !== parseInt(n)) tog(n); }, 220);
+  });
+  tab.addEventListener('mouseleave', function() { clearTimeout(t); });
+});
+
+// auto-open first
+setTimeout(function(){ tog(1); }, 500);
+</script>
+```

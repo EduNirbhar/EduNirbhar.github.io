@@ -1,0 +1,97 @@
+---
+title: " "
+format: html
+include-in-header:
+  - text: |
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+---
+
+# Get in Touch
+
+We are available for questions, feedback, or collaboration opportunities. Let us know how we can help! We're here to help you move your projects forward. Whether it is professional academic documentation or a custom cloud curriculum, let's start a conversation.
+
+:::::: contact-card
+::::: {.grid style="margin: 0;"}
+::: {.g-col-12 .g-col-lg-5 .contact-sidebar}
+```{=html}
+<p>CONTACT US</p>
+  <div class="contact-info-block mt-4">
+    <i class="fas fa-phone"></i>
+    <span>+91-7908812993</span>
+  </div>
+
+
+<p>Service related Queries:</p>
+  <div class="contact-info-block">
+    <i class="fas fa-envelope"></i>
+    <span>connect.akademiya@gmail.com</span>
+  </div>
+  
+  
+<p>Course related Queries:</p>
+  <div class="contact-info-block">
+    <i class="fas fa-envelope"></i>
+    <span>info.akademiyaa@yahoo.com</span>
+  </div>
+
+  <div class="contact-info-block">
+    <i class="fas fa-map-marker-alt"></i>
+    <span>India</span>
+  </div>
+
+  <div class="hours-block">
+    Monday–Friday<br>
+    9:00 AM – 6:00 PM
+  </div>
+
+  <div class="social-icons-contact">
+    <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+```
+:::
+
+::: {.g-col-12 .g-col-lg-7 .contact-form-area}
+```{=html}
+  <form action="https://api.web3forms.com/submit" method="POST" class="needs-validation">
+    
+    <input type="hidden" name="access_key" value="94f5a920-7b1a-48fb-b7fc-bf44231dda32">
+    
+    <div class="grid">
+      <div class="g-col-12 g-col-sm-6">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" name="First Name" class="form-control" placeholder="Name" required>
+      </div>
+      <div class="g-col-12 g-col-sm-6">
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" name="Last Name" class="form-control" placeholder="Surname" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="janedoe@example.com" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" name="Phone" class="form-control" placeholder="+1 (555) 000-0000">
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="Message" class="form-control" rows="5" placeholder="Your message..." required></textarea>
+    </div>
+
+    <div class="text-end mt-3">
+      <button type="submit" class="btn-primary-wd">Send message</button>
+    </div>
+  
+  </form>
+```
+:::
+:::::
+::::::
+
+:::::::

@@ -1,0 +1,113 @@
+{
+  "index.qmd": {
+    "index.html": "cd013107"
+  },
+  "about.qmd": {
+    "about.html": "bc257988"
+  },
+  "services/assistance.qmd": {
+    "assistance.html": "91c8b7c0"
+  },
+  "courses/clouds.qmd": {
+    "clouds.html": "1df60e19"
+  },
+  "courses/coding.qmd": {
+    "coding.html": "3fa56b22"
+  },
+  "courses/foundation.qmd": {
+    "foundation.html": "3a573498"
+  },
+  "courses/linux.qmd": {
+    "linux.html": "3af0268b"
+  },
+  "services/webdev.qmd": {
+    "webdev.html": "860c7eec"
+  },
+  "contact.qmd": {
+    "contact.html": "07c42969"
+  },
+  "services/assistance_1.qmd": {
+    "assistance_1.html": "69c7b721"
+  },
+  "services/webdev_1.qmd": {
+    "webdev_1.html": "56ad5546"
+  },
+  "services/webdev1.qmd": {
+    "webdev1.html": "c6ae0fc0"
+  },
+  "courses/linux1.qmd": {
+    "linux1.html": "6f492554"
+  },
+  "scikitrom.qmd": {
+    "scikitrom.html": "5189ea0b"
+  },
+  "courses/clouds1.qmd": {
+    "clouds1.html": "84749e37"
+  },
+  "courses/clouds2.qmd": {
+    "clouds2.html": "07a08009"
+  },
+  "learn/c-programming.qmd": {
+    "c-programming.html": "02d42ed4"
+  },
+  "learn/cloud (1).qmd": {
+    "cloud (1).html": "3938c34b"
+  },
+  "learn/coding.qmd": {
+    "coding.html": "3bbf9aad"
+  },
+  "learn/computer-networks.qmd": {
+    "computer-networks.html": "f872688c"
+  },
+  "learn/cpp.qmd": {
+    "cpp.html": "53c76c50"
+  },
+  "learn/dsa.qmd": {
+    "dsa.html": "38c86fe9"
+  },
+  "learn/git-github.qmd": {
+    "git-github.html": "78b48643"
+  },
+  "learn/learn (1).qmd": {
+    "learn (1).html": "26725440"
+  },
+  "learn/learn (2).qmd": {
+    "learn (2).html": "050fa385"
+  },
+  "learn/learn.qmd": {
+    "learn.html": "726cf7d8"
+  },
+  "learn/linux.qmd": {
+    "linux.html": "02e798ef"
+  },
+  "learn/python.qmd": {
+    "python.html": "51accb78"
+  },
+  "learn/quarto-ai.qmd": {
+    "quarto-ai.html": "e4672197"
+  },
+  "learn/webdev.qmd": {
+    "webdev.html": "aacedac3"
+  },
+  "courses/all_courses.qmd": {
+    "all_courses.html": "c415d28f"
+  },
+  "courses/languages.qmd": {
+    "languages.html": "0e757bb7"
+  },
+  "Untitled.qmd": {
+    "Untitled.html": "a6121bd1"
+  },
+  "services/assit.qmd": {
+    "assit.html": "3df405d5"
+  },
+  "assistance.qmd": {
+    "assistance.html": "c441ff32"
+  },
+  "services/index.qmd": {
+    "index.html": "a0dad573"
+  },
+  "all_courses.qmd": {
+    "all_courses.html": "a310974f"
+  }
+}

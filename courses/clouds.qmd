@@ -1,0 +1,337 @@
+---
+format: html
+---
+
+```{=html}
+<div class="aws-page">
+
+  <div class="wd-hero content-section" style="padding-top: 4rem; padding-bottom: 2rem;">
+
+    <div class="wd-hero-copy">
+      
+      <div class="wd-hero-title">
+        Master<br>
+        <span class="accent">Amazon</span><br>
+        <span class="aws-text">Web Services</span>
+      </div>
+      
+      <p class="wd-hero-subtitle">
+        A structured, practitioner-built program covering cloud fundamentals,
+        core AWS services, Docker containerisation, and production deployment 
+        — from absolute zero to job-ready.
+      </p>
+
+      <div class="hero-note">
+        <span style="color: var(--color-orange); font-weight: bold;">//</span> Starts with cloud basics. No prior experience required.
+      </div>
+
+      <div class="wd-hero-actions">
+        <a href="/contact.qmd" class="btn-primary-wd">Start Learning</a>
+        <a href="#modules" class="btn-ghost-wd">View Curriculum ↓</a>
+      </div>
+    </div>
+
+    <div class="wd-hero-visual" style="position: relative;">
+      <div class="aws-hero-services">
+        <div class="aws-svc-pill"><div class="svc-icon">☁️</div><div><div class="svc-name">EC2</div><div class="svc-cat">Compute</div></div></div>
+        <div class="aws-svc-pill"><div class="svc-icon">🪣</div><div><div class="svc-name">S3</div><div class="svc-cat">Storage</div></div></div>
+        <div class="aws-svc-pill"><div class="svc-icon docker">🐳</div><div><div class="svc-name">Docker</div><div class="svc-cat">Containers</div></div></div>
+        <div class="aws-svc-pill"><div class="svc-icon">🔒</div><div><div class="svc-name">IAM</div><div class="svc-cat">Identity &amp; Access</div></div></div>
+        <div class="aws-svc-pill"><div class="svc-icon">🌐</div><div><div class="svc-name">VPC</div><div class="svc-cat">Networking</div></div></div>
+        <div class="aws-svc-pill"><div class="svc-icon green">λ</div><div><div class="svc-name">Lambda</div><div class="svc-cat">Serverless</div></div></div>
+      </div>
+    </div>
+
+  </div>
+  
+  <section class="tools-strip content-section" style="margin-top: 1rem; padding-top: 2rem; padding-bottom: 4rem;">
+    <div style="text-align: center;">
+      <div class="tools-label">Learning Phases</div>
+      <div class="tools-row">
+        <span class="tool-box"><span class="dot"></span>Cloud Fundamentals</span>
+        <span class="tool-box"><span class="dot"></span>AWS Core Services</span>
+        <span class="tool-box"><span class="dot"></span>Docker &amp; Containers</span>
+        <span class="tool-box"><span class="dot"></span>Web Deployment</span>
+        <span class="tool-box"><span class="dot"></span>Serverless Architecture</span>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" style="padding-top: 0;">
+    <div style="max-width: 100%; margin-bottom: 4rem;">
+      <div class="section-label" style="margin-bottom: 1rem;">Learning Path</div>
+      <h2 class="section-title">Your Road to AWS Mastery</h2>
+      <p class="section-body">
+        Five progressive phases — engineered so each week builds directly on the last, from cloud theory to certified practitioner.
+      </p>
+    </div>
+
+    <div class="aws-timeline">
+      <div class="aws-step">
+        <div class="aws-dot"></div>
+        <div class="aws-content">
+          <h4>Cloud Computing Fundamentals</h4>
+          <p>IaaS, PaaS, SaaS, cloud economics, and the why behind cloud migration.</p>
+          <span class="aws-duration">⏱ Weeks 1–2</span>
+        </div>
+      </div>
+      <div class="aws-step">
+        <div class="aws-dot"></div>
+        <div class="aws-content">
+          <h4>AWS Core: Compute &amp; Networking</h4>
+          <p>EC2, S3, VPC, IAM — launching and securing real infrastructure.</p>
+          <span class="aws-duration">⏱ Weeks 3–4</span>
+        </div>
+      </div>
+      <div class="aws-step">
+        <div class="aws-dot"></div>
+        <div class="aws-content">
+          <h4>Docker &amp; Containerisation</h4>
+          <p>Build images, compose multi-service apps, and push to ECR.</p>
+          <span class="aws-duration">⏱ Weeks 5–6</span>
+        </div>
+      </div>
+      <div class="aws-step">
+        <div class="aws-dot"></div>
+        <div class="aws-content">
+          <h4>Web Deployment &amp; Serverless</h4>
+          <p>Nginx on EC2, SSL, Lambda, API Gateway, and event-driven patterns.</p>
+          <span class="aws-duration">⏱ Weeks 7–9</span>
+        </div>
+      </div>
+      <div class="aws-step">
+        <div class="aws-dot" style="background: #f59e0b; box-shadow: 0 0 0 6px var(--page-bg), 0 0 0 8px rgba(245,158,11,0.2);"></div>
+        <div class="aws-content">
+          <h4>Capstone + Certification Prep</h4>
+          <p>Deploy a full production app and prepare for SAA-C03.</p>
+          <span class="aws-duration" style="color: #f59e0b; border-color: rgba(245,158,11,0.3);">🏆 Week 10 — Cert Ready</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="modules" class="content-section" style="padding-top: 2rem;">
+    <div style="max-width: 100%; margin-bottom: 3rem;">
+      <div class="section-label">Curriculum</div>
+      <h2 class="section-title">Five Core Modules</h2>
+      <p class="section-body" style="max-width: 100%;">
+        Each module is a self-contained, hands-on unit with labs on real AWS infrastructure — not simulated environments.
+      </p>
+    </div>
+
+    <div class="aws-modules-grid">
+
+      <div class="aws-mod-card mod-1" data-num="01">
+        <div class="mod-header">
+          <div class="mod-icon">☁️</div>
+          <h3 class="mod-title">Cloud Fundamentals</h3>
+        </div>
+        <p class="mod-desc">Build the mental model every cloud practitioner needs. Understand how cloud providers work, what you pay for, and why cloud has replaced on-premise infrastructure.</p>
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">IaaS, PaaS &amp; SaaS</span>
+            <span class="mod-topic">Cloud economics</span>
+            <span class="mod-topic">AWS global infrastructure</span>
+            <span class="mod-topic">Shared Responsibility</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="aws-mod-card mod-2" data-num="02">
+        <div class="mod-header">
+          <div class="mod-icon">⚙️</div>
+          <h3 class="mod-title">AWS Core Services</h3>
+        </div>
+        <p class="mod-desc">Get hands on with the services that power 70% of cloud workloads. Launch EC2 instances, configure secure networks, store objects in S3, and lock down IAM.</p>
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">EC2 &amp; AMIs</span>
+            <span class="mod-topic">S3 policies</span>
+            <span class="mod-topic">VPC &amp; subnets</span>
+            <span class="mod-topic">IAM roles</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="aws-mod-card mod-3" data-num="03">
+        <div class="mod-header">
+          <div class="mod-icon">🐳</div>
+          <h3 class="mod-title">Docker &amp; Containers</h3>
+        </div>
+        <p class="mod-desc">Package your applications once, run them anywhere. Master Docker from first principles and integrate containers natively into AWS using ECR and ECS.</p>
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">Docker architecture</span>
+            <span class="mod-topic">Dockerfiles</span>
+            <span class="mod-topic">Amazon ECR</span>
+            <span class="mod-topic">ECS Fargate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="aws-mod-card mod-4" data-num="04">
+        <div class="mod-header">
+          <div class="mod-icon">🌐</div>
+          <h3 class="mod-title">Web &amp; Serverless</h3>
+        </div>
+        <p class="mod-desc">Take real applications live. Configure Nginx on EC2, automate SSL with Let's Encrypt, build APIs with Lambda, and connect services with event patterns.</p>
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">Nginx proxy</span>
+            <span class="mod-topic">SSL / Let's Encrypt</span>
+            <span class="mod-topic">Route 53 DNS</span>
+            <span class="mod-topic">AWS Lambda</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="aws-mod-card mod-1 wide-card" data-num="05">
+        <div class="mod-header">
+          <div class="mod-icon">🏗️</div>
+          <h3 class="mod-title">Architecture &amp; Cert Prep</h3>
+        </div>
+        <p class="mod-desc">Tie everything together. Design scalable architectures using AWS Well-Architected Framework pillars. Add managed databases, caching, and monitoring — then build a complete capstone project.</p>
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">RDS backups &amp; replicas</span>
+            <span class="mod-topic">Load Balancers</span>
+            <span class="mod-topic">Auto Scaling</span>
+            <span class="mod-topic">CloudWatch</span>
+            <span class="mod-topic">SAA-C03 mock tests</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+    
+    
+  
+  <section class="content-section" style="padding-top: 4rem;">
+    <div style="text-align: left; margin-bottom: 3rem;">
+      <div class="section-label" style="justify-content: left;">Services</div>
+      <h2 class="section-title">AWS Services You'll Learn</h2>
+      <p class="section-body" style="margin: 0 auto;">
+        Hands-on labs with the most in-demand AWS services — grouped by category so you understand how they interconnect.
+      </p>
+    </div>
+
+    <div class="aws-svc-categories">
+      <div class="aws-cat-card">
+        <div class="aws-cat-header"><div class="cat-icon">⚡</div><h4>Compute</h4></div>
+        <div class="aws-svc-list"><span class="tool-box">EC2</span><span class="tool-box">Lambda</span><span class="tool-box">ECS Fargate</span></div>
+      </div>
+      <div class="aws-cat-card">
+        <div class="aws-cat-header"><div class="cat-icon">🗃️</div><h4>Storage &amp; DBs</h4></div>
+        <div class="aws-svc-list"><span class="tool-box">S3</span><span class="tool-box">EBS</span><span class="tool-box">RDS</span><span class="tool-box">DynamoDB</span></div>
+      </div>
+      <div class="aws-cat-card">
+        <div class="aws-cat-header"><div class="cat-icon">🌐</div><h4>Networking</h4></div>
+        <div class="aws-svc-list"><span class="tool-box">VPC</span><span class="tool-box">Route 53</span><span class="tool-box">ALB / NLB</span></div>
+      </div>
+      <div class="aws-cat-card">
+        <div class="aws-cat-header"><div class="cat-icon">🔒</div><h4>Security</h4></div>
+        <div class="aws-svc-list"><span class="tool-box">IAM</span><span class="tool-box">Security Groups</span><span class="tool-box">KMS</span></div>
+      </div>
+      <div class="aws-cat-card">
+        <div class="aws-cat-header"><div class="cat-icon">📊</div><h4>Monitoring</h4></div>
+        <div class="aws-svc-list"><span class="tool-box">CloudWatch</span><span class="tool-box">CloudTrail</span><span class="tool-box">SNS</span></div>
+      </div>
+      <div class="aws-cat-card">
+        <div class="aws-cat-header"><div class="cat-icon">🐳</div><h4>Containers</h4></div>
+        <div class="aws-svc-list"><span class="tool-box">Docker</span><span class="tool-box">ECR</span><span class="tool-box">ECS</span></div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" style="padding-top: 4rem;">
+    <div style="max-width: 100%; margin-bottom: 3rem;">
+      <div class="section-label">Hands-On Projects</div>
+      <h2 class="section-title">Build Real Things</h2>
+      <p class="section-body">
+        Every module culminates in a project deployed to live AWS infrastructure — not sandboxed demos.
+      </p>
+    </div>
+
+    <div class="aws-projects-grid">
+      <div class="proj-card shape-1">
+        <span class="proj-num">Project 01</span>
+        <h4 class="proj-name">Secure Multi-Tier VPC</h4>
+        <p class="proj-desc">Design and deploy a VPC with public/private subnets, NAT gateways, bastion host, and security group rules.</p>
+      </div>
+      <div class="proj-card shape-2">
+        <span class="proj-num">Project 02</span>
+        <h4 class="proj-name">App on ECS Fargate</h4>
+        <p class="proj-desc">Dockerise a web application, push to ECR, and deploy as a managed ECS Fargate service behind an ALB.</p>
+      </div>
+      <div class="proj-card shape-2">
+        <span class="proj-num">Project 03</span>
+        <h4 class="proj-name">Serverless REST API</h4>
+        <p class="proj-desc">Build an API using Lambda + API Gateway backed by DynamoDB, with IAM-secured endpoints.</p>
+      </div>
+      <div class="proj-card shape-1">
+        <span class="proj-num">Project 04</span>
+        <h4 class="proj-name">Global Static Website</h4>
+        <p class="proj-desc">Host a site on S3, front it with CloudFront CDN, attach an ACM SSL certificate, and configure Route 53.</p>
+      </div>
+      <div class="proj-card shape-1">
+        <span class="proj-num">Project 05</span>
+        <h4 class="proj-name">Auto-Scaling Web App</h4>
+        <p class="proj-desc">Deploy an app across multiple AZs with an ALB, Auto Scaling Group, RDS Multi-AZ, and CloudWatch alarms.</p>
+      </div>
+      <div class="proj-card shape-2">
+        <span class="proj-num">Capstone</span>
+        <h4 class="proj-name">Production Platform</h4>
+        <p class="proj-desc">Synthesise all modules into a single full-stack platform: containers, databases, monitoring, and CI/CD.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" style="padding-top: 4rem;">
+    <div style="max-width: 100%; margin-bottom: 3rem;">
+      <div class="section-label">Coming Soon</div>
+      <h2 class="section-title">More Cloud Providers on the Way</h2>
+      <p class="section-body" style="max-width: 100%;">
+        AWS is just the beginning. Dedicated tracks for Google Cloud and Azure are currently being developed — with the same hands-on, practitioner-first approach.
+      </p>
+    </div>
+
+    <div class="aws-teaser-row">
+      <div class="teaser-card active">
+        <div class="t-logo">Amazon Web Services</div>
+        <div class="t-status">● Now Enrolling</div>
+        <div class="t-info">Full curriculum live. Certification aligned to SAA-C03.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="t-logo">Google Cloud Platform</div>
+        <div class="t-status" style="color: var(--text-dim);">◌ In Development</div>
+        <div class="t-info">GCP Associate Cloud Engineer track — launching soon.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="t-logo">Microsoft Azure</div>
+        <div class="t-status" style="color: var(--text-dim);">◌ Planned</div>
+        <div class="t-info">AZ-900 &amp; AZ-104 aligned track coming later this year.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="t-logo">Multi-Cloud Architecture</div>
+        <div class="t-status" style="color: var(--text-dim);">◌ Advanced Track</div>
+        <div class="t-info">Advanced course on designing for multiple CSPs simultaneously.</div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="enrollment-badge">
+    <span class="blink-dot"></span> Limited Seats Per Cohort
+  </div>
+  <div class="wd-cta content-section" style="margin-top: 0; margin-bottom: 5rem;">
+    <h2>Your first AWS project goes live <em>this month.</em></h2>
+    <p>
+      Structured training, real infrastructure, live projects you can put in a portfolio — and a clear path to your first AWS certification.
+    </p>
+    <div class="wd-cta-actions">
+      <a href="/contact.qmd" class="btn-primary-wd">Enroll in AWS Track →</a>
+    </div>
+  </div>
+
+</div>
+```

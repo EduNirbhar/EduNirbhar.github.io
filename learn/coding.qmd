@@ -1,0 +1,1468 @@
+---
+title: "Modern Coding & Development"
+format:
+  html:
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+page-layout: full
+---
+
+```{=html}
+<style>
+/* ═══════════════════════════════════════════════════════
+   CODING MASTERY — Bold Editorial Light Aesthetic
+   Ink-black · Warm cream · Electric indigo · Syntax accents
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  --cream:       #f5f0e8;
+  --cream-dark:  #ede7d9;
+  --cream-mid:   #e8e0cf;
+  --ink:         #0f0d0a;
+  --ink-soft:    #1e1a14;
+  --ink-mid:     #3d3830;
+
+  --indigo:      #4f46e5;
+  --indigo-soft: #6366f1;
+  --indigo-dim:  rgba(79,70,229,0.1);
+  --indigo-glow: rgba(79,70,229,0.2);
+  --indigo-border: rgba(79,70,229,0.25);
+
+  /* Language syntax colors */
+  --c-blue:      #0ea5e9;
+  --c-blue-dim:  rgba(14,165,233,0.1);
+  --cpp-purple:  #a855f7;
+  --cpp-dim:     rgba(168,85,247,0.1);
+  --py-gold:     #f59e0b;
+  --py-dim:      rgba(245,158,11,0.1);
+  --dsa-red:     #ef4444;
+  --dsa-dim:     rgba(239,68,68,0.1);
+  --web-green:   #10b981;
+  --web-dim:     rgba(16,185,129,0.1);
+  --quarto-pink: #ec4899;
+  --quarto-dim:  rgba(236,72,153,0.1);
+
+  --text-primary:  var(--ink);
+  --text-mid:      var(--ink-mid);
+  --text-muted:    #7a6f62;
+  --text-faint:    #b8ad9e;
+
+  --border:        rgba(15,13,10,0.1);
+  --border-mid:    rgba(15,13,10,0.18);
+  --border-dark:   rgba(15,13,10,0.3);
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+  --font-mono:    'Fira Code', monospace;
+
+  --radius-sm:  4px;
+  --radius-md:  10px;
+  --radius-lg:  18px;
+  --shadow-lift: 0 8px 40px rgba(15,13,10,0.12);
+  --shadow-card: 0 2px 16px rgba(15,13,10,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--cream) !important; font-family: var(--font-body); color: var(--ink); }
+#quarto-content { padding: 0 !important; max-width: 100% !important; }
+nav.navbar, footer, .quarto-title-banner { display: none !important; }
+a { text-decoration: none; }
+
+/* ── PAPER GRAIN TEXTURE ── */
+.code-page {
+  position: relative;
+  overflow-x: hidden;
+  background: var(--cream);
+}
+.code-page::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ═══════════ HERO ═══════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  z-index: 1;
+  background: var(--cream);
+}
+
+/* diagonal ink stripe */
+.hero::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 48%; height: 100%;
+  background: var(--ink);
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 0;
+}
+
+.hero-left {
+  padding: clamp(4rem,9vw,8rem) clamp(1.5rem,5vw,6rem) clamp(4rem,9vw,8rem) clamp(1.5rem,7vw,8rem);
+  position: relative; z-index: 2;
+}
+
+.hero-kicker {
+  font-family: var(--font-mono); font-size: .7rem;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: 1.8rem;
+  display: inline-flex; align-items: center; gap: .6rem;
+}
+.hero-kicker::before {
+  content: ''; width: 24px; height: 2px;
+  background: var(--indigo);
+}
+
+.hero-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(3.2rem, 7vw, 6.5rem) !important;
+  font-weight: 900 !important;
+  line-height: 0.95 !important;
+  color: var(--ink) !important;
+  letter-spacing: -.03em;
+  margin-bottom: .5em !important;
+}
+.hero-title .em-line {
+  font-style: italic;
+  color: var(--indigo);
+}
+
+.hero-desc {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: clamp(.95rem, 1.5vw, 1.1rem);
+  color: var(--text-muted); line-height: 1.75;
+  max-width: 46ch; margin-bottom: 2.8rem;
+}
+
+.hero-cta {
+  display: flex; flex-wrap: wrap; gap: .9rem; align-items: center;
+}
+
+.btn-primary-code {
+  font-family: var(--font-body); font-weight: 700;
+  font-size: .9rem; letter-spacing: .03em;
+  color: #fff !important;
+  background: var(--indigo);
+  padding: .95rem 2.4rem; border-radius: var(--radius-sm);
+  transition: all .22s ease;
+  box-shadow: 0 4px 20px rgba(79,70,229,.35);
+  display: inline-flex; align-items: center; gap: .5rem;
+}
+.btn-primary-code:hover {
+  background: var(--indigo-soft);
+  box-shadow: 0 6px 32px rgba(79,70,229,.5);
+  transform: translateY(-2px);
+}
+.btn-secondary-code {
+  font-family: var(--font-body); font-weight: 600;
+  font-size: .9rem;
+  color: var(--ink) !important;
+  background: transparent;
+  padding: .95rem 2rem; border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-dark);
+  transition: all .22s ease;
+}
+.btn-secondary-code:hover {
+  border-color: var(--indigo);
+  color: var(--indigo) !important;
+}
+
+/* Hero right: animated code block */
+.hero-right {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  padding: 3rem 2.5rem;
+  height: 100%;
+}
+
+.code-window {
+  width: 100%; max-width: 480px;
+  background: #1a1612;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,.5);
+  animation: windowFloat 6s ease-in-out infinite;
+}
+@keyframes windowFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+.win-bar {
+  background: #252118;
+  padding: .8rem 1rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.win-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+}
+.win-dot.red   { background: #ff5f57; }
+.win-dot.amber { background: #febc2e; }
+.win-dot.green { background: #28c840; }
+.win-fname {
+  font-family: var(--font-mono); font-size: .7rem;
+  color: #6b6456; margin-left: auto;
+}
+
+.win-body {
+  padding: 1.5rem 1.4rem;
+  font-family: var(--font-mono); font-size: .8rem;
+  line-height: 1.8; min-height: 280px;
+}
+
+/* Syntax colors inside window */
+.t-kw  { color: #c678dd; }
+.t-fn  { color: #61afef; }
+.t-str { color: #98c379; }
+.t-num { color: #d19a66; }
+.t-cm  { color: #5c6370; font-style: italic; }
+.t-op  { color: #56b6c2; }
+.t-var { color: #e06c75; }
+.t-def { color: #e5c07b; }
+.t-wh  { color: #abb2bf; }
+
+/* typing cursor */
+.t-cursor {
+  display: inline-block; width: 2px; height: 1em;
+  background: var(--indigo-soft);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* code line */
+.cl { display: block; }
+.ind1 { padding-left: 1.5rem; }
+.ind2 { padding-left: 3rem; }
+.ind3 { padding-left: 4.5rem; }
+.ln-fade { opacity: 0; animation: fadeIn .4s ease forwards; }
+.ln-fade:nth-child(1)  { animation-delay: .1s; }
+.ln-fade:nth-child(2)  { animation-delay: .4s; }
+.ln-fade:nth-child(3)  { animation-delay: .7s; }
+.ln-fade:nth-child(4)  { animation-delay: 1.0s; }
+.ln-fade:nth-child(5)  { animation-delay: 1.3s; }
+.ln-fade:nth-child(6)  { animation-delay: 1.6s; }
+.ln-fade:nth-child(7)  { animation-delay: 1.9s; }
+.ln-fade:nth-child(8)  { animation-delay: 2.2s; }
+.ln-fade:nth-child(9)  { animation-delay: 2.5s; }
+.ln-fade:nth-child(10) { animation-delay: 2.8s; }
+.ln-fade:nth-child(11) { animation-delay: 3.1s; }
+.ln-fade:nth-child(12) { animation-delay: 3.4s; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* language tabs */
+.lang-tabs {
+  display: flex; gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.lang-tab {
+  font-family: var(--font-mono); font-size: .65rem;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: .5rem .9rem;
+  color: #5c6370; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.lang-tab.active { color: #abb2bf; border-color: var(--indigo-soft); }
+
+/* hero stats row */
+.hero-stats-row {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: var(--cream-dark);
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap;
+  z-index: 3;
+}
+.h-stat-block {
+  flex: 1; min-width: 140px;
+  padding: 1.4rem 2rem;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.h-stat-block:last-child { border-right: none; }
+.h-stat-val {
+  font-family: var(--font-display); font-size: 2.2rem; font-weight: 900;
+  color: var(--ink); line-height: 1; display: block;
+}
+.h-stat-val span { color: var(--indigo); }
+.h-stat-lbl {
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--text-muted); margin-top: .25rem; display: block;
+}
+
+/* ═══════════ LANGUAGE TRACKS ═══════════ */
+.tracks-section {
+  background: var(--ink);
+  position: relative; z-index: 1;
+  padding-bottom: 0;
+}
+
+.tracks-header {
+  padding: clamp(4rem,8vw,6rem) clamp(1.5rem,7vw,8rem) 3rem;
+  max-width: 1400px; margin: 0 auto;
+}
+
+.s-label-light {
+  font-family: var(--font-mono); font-size: .67rem;
+  letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(255,255,255,.35); margin-bottom: .8rem;
+  display: flex; align-items: center; gap: .6rem;
+}
+.s-label-light::after {
+  content: ''; display: block; height: 1px; width: 30px;
+  background: rgba(255,255,255,.2);
+}
+
+.s-title-light {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.2rem,5vw,4rem) !important;
+  font-weight: 900 !important; line-height: 1.04 !important;
+  color: #fff !important; letter-spacing: -.025em;
+  margin-bottom: .5rem !important;
+}
+.s-title-light em { font-style: italic; color: var(--indigo-soft); }
+
+.s-desc-light {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: 1rem; color: rgba(255,255,255,.5);
+  max-width: 56ch; line-height: 1.7; margin-bottom: 0;
+}
+
+/* Language track scroll row */
+.lang-tracks {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+@media(max-width:1100px) { .lang-tracks { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:640px)  { .lang-tracks { grid-template-columns: repeat(2,1fr); } }
+
+.lang-card {
+  padding: 2.5rem 1.8rem;
+  border-right: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  position: relative; overflow: hidden;
+  cursor: default;
+  transition: background .3s;
+}
+.lang-card:hover { background: rgba(255,255,255,.04); }
+.lang-card:last-child { border-right: none; }
+
+.lang-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--lc-color);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s ease;
+}
+.lang-card:hover::before { transform: scaleX(1); }
+
+/* large letter watermark */
+.lang-card::after {
+  content: attr(data-lang);
+  position: absolute; bottom: -12px; right: -4px;
+  font-family: var(--font-display); font-size: 5rem; font-weight: 900;
+  color: rgba(255,255,255,.03); line-height: 1;
+  user-select: none; pointer-events: none;
+  letter-spacing: -.04em;
+}
+
+.lc-c      { --lc-color: var(--c-blue);   }
+.lc-cpp    { --lc-color: var(--cpp-purple);}
+.lc-py     { --lc-color: var(--py-gold);  }
+.lc-dsa    { --lc-color: var(--dsa-red);  }
+.lc-web    { --lc-color: var(--web-green);}
+.lc-quarto { --lc-color: var(--quarto-pink);}
+
+.lc-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--lc-color);
+  box-shadow: 0 0 10px var(--lc-color);
+  margin-bottom: 1.1rem;
+}
+.lc-name {
+  font-family: var(--font-mono); font-size: .72rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--lc-color); margin-bottom: .5rem; display: block;
+}
+.lc-title {
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
+  color: #fff; line-height: 1.2; margin-bottom: .5rem;
+}
+.lc-desc {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: .78rem; color: rgba(255,255,255,.4); line-height: 1.6;
+}
+.lc-count {
+  margin-top: 1.4rem;
+  font-family: var(--font-mono); font-size: .65rem;
+  letter-spacing: .1em; color: rgba(255,255,255,.2);
+}
+.lc-count span { color: var(--lc-color); font-size: .8rem; font-weight: 600; }
+
+/* ═══════════ MODULES ═══════════ */
+.modules-section { background: var(--cream); }
+
+.s-wrap {
+  padding: clamp(4.5rem,9vw,7rem) clamp(1.5rem,7vw,8rem);
+  position: relative; z-index: 1;
+  max-width: 1400px; margin: 0 auto;
+}
+
+.s-label {
+  font-family: var(--font-mono); font-size: .67rem;
+  letter-spacing: .24em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: .8rem;
+  display: flex; align-items: center; gap: .6rem;
+}
+.s-label::after {
+  content: ''; display: block; height: 1.5px; width: 30px;
+  background: var(--indigo);
+}
+
+.s-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.2rem,4.5vw,3.8rem) !important;
+  font-weight: 900 !important; line-height: 1.06 !important;
+  color: var(--ink) !important;
+  letter-spacing: -.03em; margin-bottom: .5rem !important;
+}
+.s-title em { font-style: italic; color: var(--indigo); }
+
+.s-desc {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: 1rem; color: var(--text-muted);
+  max-width: 58ch; line-height: 1.72; margin-bottom: 3.5rem;
+}
+
+/* MODULES GRID */
+.modules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media(max-width:760px) { .modules-grid { grid-template-columns: 1fr; } }
+
+.mod-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative; overflow: hidden;
+  background: #fff;
+  transition: box-shadow .3s, transform .3s, border-color .3s;
+  cursor: default;
+  opacity: 0;
+  animation: modIn .55s ease forwards;
+}
+.mod-card:hover {
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-5px);
+  border-color: var(--mc-color);
+}
+.mod-card:nth-child(1){animation-delay:.08s}
+.mod-card:nth-child(2){animation-delay:.18s}
+.mod-card:nth-child(3){animation-delay:.28s}
+.mod-card:nth-child(4){animation-delay:.38s}
+.mod-card:nth-child(5){animation-delay:.48s}
+.mod-card:nth-child(6){animation-delay:.58s}
+
+@keyframes modIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* left color bar */
+.mod-card::before {
+  content: '';
+  position: absolute; top: 2rem; left: 0; bottom: 2rem; width: 3px;
+  background: var(--mc-color);
+  border-radius: 0 2px 2px 0;
+  transform: scaleY(0); transform-origin: top;
+  transition: transform .35s ease;
+}
+.mod-card:hover::before { transform: scaleY(1); }
+
+/* big number watermark */
+.mod-wm {
+  position: absolute; bottom: -16px; right: 10px;
+  font-family: var(--font-display); font-size: 7rem; font-weight: 900;
+  color: rgba(15,13,10,.04); line-height: 1;
+  user-select: none; pointer-events: none; letter-spacing: -.06em;
+}
+
+.mc-c      { --mc-color: var(--c-blue);    --mc-dim: var(--c-blue-dim); }
+.mc-cpp    { --mc-color: var(--cpp-purple); --mc-dim: var(--cpp-dim); }
+.mc-py     { --mc-color: var(--py-gold);   --mc-dim: var(--py-dim); }
+.mc-dsa    { --mc-color: var(--dsa-red);   --mc-dim: var(--dsa-dim); }
+.mc-web    { --mc-color: var(--web-green); --mc-dim: var(--web-dim); }
+.mc-quarto { --mc-color: var(--quarto-pink);--mc-dim: var(--quarto-dim); }
+
+.mod-head {
+  display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.3rem;
+}
+.mod-icon {
+  width: 48px; height: 48px; flex-shrink: 0; border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+  background: var(--mc-dim);
+  border: 1.5px solid rgba(15,13,10,.06);
+}
+.mod-tag {
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--mc-color); margin-bottom: .25rem; display: block;
+}
+.mod-name {
+  font-family: var(--font-body); font-weight: 700; font-size: 1.1rem;
+  color: var(--ink); line-height: 1.25;
+}
+
+.mod-desc {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: .88rem; color: var(--text-muted); line-height: 1.72; margin-bottom: 1.5rem;
+}
+
+.mod-topics {
+  display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.6rem;
+}
+.mod-topic {
+  font-family: var(--font-mono); font-size: .65rem;
+  color: var(--text-muted);
+  background: var(--cream);
+  border: 1px solid var(--border-mid);
+  padding: .22rem .6rem; border-radius: 3px;
+  transition: all .2s;
+}
+.mod-card:hover .mod-topic {
+  background: var(--mc-dim);
+  border-color: var(--mc-color);
+  color: var(--mc-color);
+}
+
+.mod-footer {
+  padding-top: 1rem; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.mod-dur {
+  font-family: var(--font-mono); font-size: .65rem;
+  color: var(--text-faint); letter-spacing: .08em;
+}
+.mod-lvl {
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: .2rem .65rem; border-radius: 100px;
+  background: var(--mc-dim); color: var(--mc-color);
+  border: 1px solid var(--mc-color);
+}
+
+/* ═══════════ DSA SPECIAL FULL WIDTH ═══════════ */
+.dsa-banner {
+  margin: 1.5rem 0 0;
+  border: 1.5px solid var(--dsa-red);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  padding: 2.5rem;
+  position: relative; overflow: hidden;
+  cursor: default;
+  transition: box-shadow .3s;
+}
+.dsa-banner:hover { box-shadow: 0 8px 40px rgba(239,68,68,.15); }
+.dsa-banner::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--dsa-red), #f97316, var(--py-gold));
+}
+.dsa-inner {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 2rem; align-items: center;
+}
+@media(max-width:700px) { .dsa-inner { grid-template-columns: 1fr; } }
+.dsa-wm {
+  position: absolute; bottom: -20px; right: 10px;
+  font-family: var(--font-display); font-size: 9rem; font-weight: 900;
+  color: rgba(239,68,68,.05); line-height: 1; user-select: none; pointer-events: none;
+}
+.dsa-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--dsa-red); background: var(--dsa-dim);
+  border: 1px solid rgba(239,68,68,.25);
+  padding: .28rem .7rem; border-radius: 100px; margin-bottom: 1rem;
+}
+.dsa-title {
+  font-family: var(--font-display); font-size: 1.8rem; font-weight: 900;
+  color: var(--ink); letter-spacing: -.02em; margin-bottom: .6rem; line-height: 1.1;
+}
+.dsa-desc {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: .9rem; color: var(--text-muted); line-height: 1.7; max-width: 58ch;
+}
+.dsa-topics {
+  display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem;
+}
+.dsa-topic {
+  font-family: var(--font-mono); font-size: .67rem;
+  color: var(--dsa-red); background: var(--dsa-dim);
+  border: 1px solid rgba(239,68,68,.2);
+  padding: .28rem .65rem; border-radius: 3px;
+}
+.dsa-stat {
+  text-align: center; padding: 1.5rem 2.5rem;
+  background: var(--cream);
+  border-radius: var(--radius-md); border: 1px solid var(--border);
+  min-width: 150px;
+}
+.dsa-stat-val {
+  font-family: var(--font-display); font-size: 2.8rem; font-weight: 900;
+  color: var(--dsa-red); line-height: 1;
+}
+.dsa-stat-lbl {
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-faint); margin-top: .3rem; display: block;
+}
+
+/* ═══════════ ROADMAP ═══════════ */
+.roadmap-section { background: var(--cream-dark); }
+
+.roadmap {
+  display: flex; flex-direction: column; gap: 0;
+  margin-top: 3rem; border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+
+.r-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  border-bottom: 1px solid var(--border);
+  transition: background .2s;
+  cursor: default;
+  opacity: 0; animation: stepIn .5s ease forwards;
+}
+.r-step:last-child { border-bottom: none; }
+.r-step:hover { background: #fff; }
+.r-step:nth-child(1){animation-delay:.05s}
+.r-step:nth-child(2){animation-delay:.15s}
+.r-step:nth-child(3){animation-delay:.25s}
+.r-step:nth-child(4){animation-delay:.35s}
+.r-step:nth-child(5){animation-delay:.45s}
+.r-step:nth-child(6){animation-delay:.55s}
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.r-num {
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 1.4rem; font-weight: 900;
+  color: rgba(255,255,255,.25);
+  border-right: 1px solid rgba(255,255,255,.06);
+}
+.r-step.r-final .r-num {
+  background: var(--indigo);
+  color: #fff; font-size: .9rem;
+}
+
+.r-body {
+  padding: 1.6rem 2rem;
+  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+}
+.r-info { flex: 1; min-width: 200px; }
+.r-phase {
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: .3rem; display: block;
+}
+.r-title {
+  font-family: var(--font-body); font-weight: 700; font-size: .95rem;
+  color: var(--ink); margin-bottom: .25rem;
+}
+.r-detail {
+  font-family: var(--font-body); font-weight: 400; font-size: .8rem;
+  color: var(--text-muted); line-height: 1.55;
+}
+.r-langs {
+  display: flex; gap: .4rem; flex-wrap: wrap; align-items: center;
+}
+.r-lang-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  box-shadow: 0 0 6px var(--ld-color);
+  background: var(--ld-color);
+}
+.r-duration {
+  font-family: var(--font-mono); font-size: .65rem;
+  color: var(--text-faint); letter-spacing: .1em; white-space: nowrap;
+}
+
+/* ═══════════ PROJECTS ═══════════ */
+.projects-section { background: var(--cream); }
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem; margin-top: 3rem;
+}
+@media(max-width:800px) { .proj-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:520px) { .proj-grid { grid-template-columns: 1fr; } }
+
+.proj-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.8rem; background: #fff;
+  position: relative; overflow: hidden;
+  transition: all .25s ease; cursor: default;
+}
+.proj-card:hover {
+  border-color: var(--indigo-border);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+.proj-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2.5px;
+  background: var(--pc-color);
+  transform: scaleX(0); transition: transform .35s ease;
+}
+.proj-card:hover::after { transform: scaleX(1); }
+
+.proj-icon { font-size: 1.6rem; margin-bottom: 1rem; display: block; }
+.proj-title {
+  font-family: var(--font-body); font-weight: 700; font-size: .95rem;
+  color: var(--ink); margin-bottom: .5rem; line-height: 1.3;
+}
+.proj-desc {
+  font-family: var(--font-body); font-weight: 400; font-size: .8rem;
+  color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;
+}
+.proj-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+.proj-tag {
+  font-family: var(--font-mono); font-size: .62rem;
+  background: var(--cream); border: 1px solid var(--border-mid);
+  color: var(--text-muted); padding: .18rem .5rem; border-radius: 3px;
+}
+
+/* ═══════════ WHY SECTION ═══════════ */
+.why-section { background: var(--ink); }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  margin-top: 3rem;
+}
+@media(max-width:900px) { .why-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:520px) { .why-grid { grid-template-columns: 1fr; } }
+
+.why-card {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  transition: background .25s; cursor: default;
+}
+.why-card:hover { background: rgba(255,255,255,.03); }
+.why-card:last-child { border-right: none; }
+
+.why-num {
+  font-family: var(--font-display); font-size: 3.5rem; font-weight: 900;
+  color: rgba(255,255,255,.06); line-height: 1; margin-bottom: .8rem;
+  display: block;
+}
+.why-title {
+  font-family: var(--font-body); font-weight: 700; font-size: .95rem;
+  color: rgba(255,255,255,.9); margin-bottom: .6rem;
+}
+.why-body {
+  font-family: var(--font-body); font-weight: 300; font-size: .82rem;
+  color: rgba(255,255,255,.4); line-height: 1.65;
+}
+.why-accent { color: var(--indigo-soft); font-weight: 600; }
+
+/* ═══════════ CTA ═══════════ */
+.cta-section {
+  position: relative; overflow: hidden;
+  background: var(--cream-dark);
+  border-top: 1.5px solid var(--border);
+}
+
+.cta-inner {
+  padding: clamp(5rem,10vw,9rem) clamp(1.5rem,7vw,8rem);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+  max-width: 1400px; margin: 0 auto;
+}
+@media(max-width:800px) { .cta-inner { grid-template-columns: 1fr; gap: 2rem; } }
+
+.cta-left { }
+.cta-label {
+  font-family: var(--font-mono); font-size: .68rem;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: .6rem;
+}
+.cta-label::before { content: ''; width: 20px; height: 2px; background: var(--indigo); }
+
+.cta-title {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.5rem,5.5vw,5rem) !important;
+  font-weight: 900 !important; line-height: 1.03 !important;
+  color: var(--ink) !important;
+  letter-spacing: -.03em; margin-bottom: .3em !important;
+}
+.cta-title em { font-style: italic; color: var(--indigo); }
+
+.cta-sub {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: 1rem; color: var(--text-muted);
+  line-height: 1.72; max-width: 44ch;
+}
+
+.cta-right {
+  background: var(--ink); border-radius: var(--radius-lg);
+  padding: 2.5rem; position: relative; overflow: hidden;
+}
+.cta-right::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--indigo), var(--cpp-purple), var(--quarto-pink));
+}
+
+.offer-row {
+  display: flex; flex-direction: column; gap: .7rem; margin-bottom: 2rem;
+}
+.offer-item {
+  display: flex; align-items: center; gap: .8rem;
+  font-family: var(--font-body); font-weight: 400; font-size: .88rem;
+  color: rgba(255,255,255,.7);
+}
+.offer-check {
+  width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+  background: var(--indigo-dim); border: 1.5px solid var(--indigo);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .6rem; color: var(--indigo-soft);
+}
+
+.cta-btns { display: flex; flex-direction: column; gap: .7rem; }
+.btn-cta-main {
+  font-family: var(--font-body); font-weight: 700; font-size: .92rem;
+  color: var(--ink) !important;
+  background: var(--py-gold);
+  padding: 1rem 2rem; border-radius: var(--radius-sm);
+  text-align: center;
+  transition: all .22s ease;
+  box-shadow: 0 4px 20px rgba(245,158,11,.3);
+}
+.btn-cta-main:hover {
+  background: var(--amber-bright, #fbbf24);
+  box-shadow: 0 6px 30px rgba(245,158,11,.45);
+  transform: translateY(-2px);
+}
+.btn-cta-ghost {
+  font-family: var(--font-body); font-weight: 500; font-size: .88rem;
+  color: rgba(255,255,255,.5) !important;
+  border: 1px solid rgba(255,255,255,.12);
+  padding: .9rem 2rem; border-radius: var(--radius-sm);
+  text-align: center; transition: all .22s;
+}
+.btn-cta-ghost:hover { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.8) !important; }
+
+/* responsive */
+@media(max-width:1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero::before { display: none; }
+  .hero-right { background: var(--ink); padding: 3rem 1.5rem; }
+  .hero-stats-row { position: static; }
+}
+@media(max-width:640px) {
+  .hero-left { padding: 4rem 1.5rem 2rem; }
+  .h-stat-block { padding: 1rem; }
+}
+</style>
+
+<div class="code-page">
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker">Coding Mastery Program</div>
+
+    <h1 class="hero-title">
+      Write Code.<br>
+      <span class="em-line">Think Deeper.</span><br>
+      Build Real.
+    </h1>
+
+    <p class="hero-desc">
+      From your first <code style="font-family:var(--font-mono);font-size:.9em;background:var(--indigo-dim);color:var(--indigo);padding:.1em .35em;border-radius:3px;">Hello World</code> to production-ready applications —
+      a structured program in C, C++, Python, DSA, Web Development,
+      and Quarto that builds real skills, not tutorial fatigue.
+    </p>
+
+    <div class="hero-cta">
+      <a href="/contact.qmd" class="btn-primary-code">
+        Book a Session
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#modules" class="btn-secondary-code">Browse Curriculum</a>
+    </div>
+  </div>
+
+  <!-- Animated code window -->
+  <div class="hero-right">
+    <div class="code-window">
+      <div class="win-bar">
+        <div class="win-dot red"></div>
+        <div class="win-dot amber"></div>
+        <div class="win-dot green"></div>
+        <div class="win-fname">main.py</div>
+      </div>
+      <div class="lang-tabs">
+        <div class="lang-tab active">Python</div>
+        <div class="lang-tab">C++</div>
+        <div class="lang-tab">DSA</div>
+      </div>
+      <div class="win-body">
+        <span class="cl ln-fade"><span class="t-cm"># Binary Search — O(log n)</span></span>
+        <span class="cl ln-fade">&nbsp;</span>
+        <span class="cl ln-fade"><span class="t-kw">def </span><span class="t-fn">binary_search</span><span class="t-wh">(</span><span class="t-def">arr</span><span class="t-wh">, </span><span class="t-def">target</span><span class="t-wh">):</span></span>
+        <span class="cl ind1 ln-fade"><span class="t-def">left</span><span class="t-wh">, </span><span class="t-def">right</span><span class="t-op"> = </span><span class="t-num">0</span><span class="t-wh">, </span><span class="t-fn">len</span><span class="t-wh">(</span><span class="t-def">arr</span><span class="t-wh">) - </span><span class="t-num">1</span></span>
+        <span class="cl ln-fade">&nbsp;</span>
+        <span class="cl ind1 ln-fade"><span class="t-kw">while </span><span class="t-def">left</span><span class="t-op"> &lt;= </span><span class="t-def">right</span><span class="t-wh">:</span></span>
+        <span class="cl ind2 ln-fade"><span class="t-def">mid</span><span class="t-op"> = </span><span class="t-wh">(</span><span class="t-def">left</span><span class="t-op"> + </span><span class="t-def">right</span><span class="t-wh">) </span><span class="t-op">// </span><span class="t-num">2</span></span>
+        <span class="cl ind2 ln-fade"><span class="t-kw">if </span><span class="t-def">arr</span><span class="t-wh">[</span><span class="t-def">mid</span><span class="t-wh">]</span><span class="t-op"> == </span><span class="t-def">target</span><span class="t-wh">:</span></span>
+        <span class="cl ind3 ln-fade"><span class="t-kw">return </span><span class="t-def">mid</span></span>
+        <span class="cl ind2 ln-fade"><span class="t-kw">elif </span><span class="t-def">arr</span><span class="t-wh">[</span><span class="t-def">mid</span><span class="t-wh">]</span><span class="t-op"> &lt; </span><span class="t-def">target</span><span class="t-wh">:</span></span>
+        <span class="cl ind3 ln-fade"><span class="t-def">left</span><span class="t-op"> = </span><span class="t-def">mid</span><span class="t-op"> + </span><span class="t-num">1</span></span>
+        <span class="cl ind2 ln-fade"><span class="t-kw">else</span><span class="t-wh">:</span></span>
+        <span class="cl ind3 ln-fade"><span class="t-def">right</span><span class="t-op"> = </span><span class="t-def">mid</span><span class="t-op"> - </span><span class="t-num">1</span><span class="t-cursor"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats row at bottom -->
+  <div class="hero-stats-row">
+    <div class="h-stat-block">
+      <span class="h-stat-val">6<span>+</span></span>
+      <span class="h-stat-lbl">Languages &amp; Tracks</span>
+    </div>
+    <div class="h-stat-block">
+      <span class="h-stat-val">100<span>+</span></span>
+      <span class="h-stat-lbl">Coding Problems</span>
+    </div>
+    <div class="h-stat-block">
+      <span class="h-stat-val">12<span>wk</span></span>
+      <span class="h-stat-lbl">Full Program</span>
+    </div>
+    <div class="h-stat-block">
+      <span class="h-stat-val">∞</span>
+      <span class="h-stat-lbl">Project-Based Labs</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ LANGUAGE TRACKS ══════════ -->
+<section class="tracks-section">
+  <div class="tracks-header">
+    <div class="s-label-light">Language Tracks</div>
+    <h2 class="s-title-light">Six tracks. One <em>systematic</em> path.</h2>
+    <p class="s-desc-light">Each track is a focused curriculum — not a random collection of tutorials. You build intuition, not dependency on copy-pasting.</p>
+  </div>
+
+  <div class="lang-tracks">
+
+    <div class="lang-card lc-c" data-lang="C">
+      <div class="lc-dot"></div>
+      <span class="lc-name">Track 01</span>
+      <div class="lc-title">C Programming</div>
+      <div class="lc-desc">The foundation of all foundations. Understand memory, pointers, and how computers actually work at the system level.</div>
+      <div class="lc-count"><span>8</span> weeks · 40+ problems</div>
+    </div>
+
+    <div class="lang-card lc-cpp" data-lang="C++">
+      <div class="lc-dot"></div>
+      <span class="lc-name">Track 02</span>
+      <div class="lc-title">C++ Mastery</div>
+      <div class="lc-desc">Object-oriented programming, STL, templates and performance-critical code. The language of competitive programming.</div>
+      <div class="lc-count"><span>10</span> weeks · 60+ problems</div>
+    </div>
+
+    <div class="lang-card lc-py" data-lang="Py">
+      <div class="lc-dot"></div>
+      <span class="lc-name">Track 03</span>
+      <div class="lc-title">Python</div>
+      <div class="lc-desc">From scripting to AI/ML. Clean, expressive Python with real-world data manipulation and automation projects.</div>
+      <div class="lc-count"><span>10</span> weeks · 50+ projects</div>
+    </div>
+
+    <div class="lang-card lc-dsa" data-lang="DSA">
+      <div class="lc-dot"></div>
+      <span class="lc-name">Track 04</span>
+      <div class="lc-title">DSA &amp; Algorithms</div>
+      <div class="lc-desc">Arrays to graphs, recursion to dynamic programming. Crack interviews and think algorithmically in any language.</div>
+      <div class="lc-count"><span>100+</span> curated problems</div>
+    </div>
+
+    <div class="lang-card lc-web" data-lang="Web">
+      <div class="lc-dot"></div>
+      <span class="lc-name">Track 05</span>
+      <div class="lc-title">Web Development</div>
+      <div class="lc-desc">HTML, CSS, JavaScript — responsive, accessible, modern. Build and ship real websites with clean code and sharp design sense.</div>
+      <div class="lc-count"><span>8</span> weeks · 5 projects</div>
+    </div>
+
+    <div class="lang-card lc-quarto" data-lang="Qto">
+      <div class="lc-dot"></div>
+      <span class="lc-name">Track 06</span>
+      <div class="lc-title">Quarto</div>
+      <div class="lc-desc">Turn code, data and prose into beautiful websites, reports and presentations. The future of technical publishing.</div>
+      <div class="lc-count"><span>4</span> weeks · publish live</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ MODULES ══════════ -->
+<section class="modules-section">
+  <div class="s-wrap" id="modules">
+    <div class="s-label">Curriculum Deep-Dive</div>
+    <h2 class="s-title">What You'll <em>Learn</em></h2>
+    <p class="s-desc">Each module is self-contained, with clear learning outcomes, real code labs, and projects you'll be proud to show.</p>
+
+    <div class="modules-grid">
+
+      <!-- C -->
+      <div class="mod-card mc-c">
+        <div class="mod-wm">C</div>
+        <div class="mod-head">
+          <div class="mod-icon">🖥️</div>
+          <div>
+            <span class="mod-tag">Track 01 · C Language</span>
+            <div class="mod-name">C Programming from Scratch</div>
+          </div>
+        </div>
+        <p class="mod-desc">Start at the metal. Learn C to understand how programs really work — memory allocation, pointer arithmetic, file I/O, and building your own data structures from zero.</p>
+        <div class="mod-topics">
+          <span class="mod-topic">Variables &amp; Data Types</span>
+          <span class="mod-topic">Pointers &amp; Memory</span>
+          <span class="mod-topic">malloc / free</span>
+          <span class="mod-topic">Structs &amp; Unions</span>
+          <span class="mod-topic">File I/O</span>
+          <span class="mod-topic">Linked Lists</span>
+          <span class="mod-topic">Stack &amp; Queue</span>
+        </div>
+        <div class="mod-footer">
+          <span class="mod-dur">⏱ 8 weeks · ~24 hrs</span>
+          <span class="mod-lvl">Beginner</span>
+        </div>
+      </div>
+
+      <!-- C++ -->
+      <div class="mod-card mc-cpp">
+        <div class="mod-wm">C++</div>
+        <div class="mod-head">
+          <div class="mod-icon">⚡</div>
+          <div>
+            <span class="mod-tag">Track 02 · C++ Language</span>
+            <div class="mod-name">C++ &amp; Object-Oriented Design</div>
+          </div>
+        </div>
+        <p class="mod-desc">Move beyond C with classes, inheritance, polymorphism, and the full power of the STL. Write fast, correct, expressive C++ code that competitive programmers and systems engineers use.</p>
+        <div class="mod-topics">
+          <span class="mod-topic">OOP: Classes &amp; Objects</span>
+          <span class="mod-topic">Inheritance &amp; Polymorphism</span>
+          <span class="mod-topic">Templates</span>
+          <span class="mod-topic">STL: vector, map, set</span>
+          <span class="mod-topic">Smart Pointers</span>
+          <span class="mod-topic">Lambdas</span>
+          <span class="mod-topic">Move Semantics</span>
+        </div>
+        <div class="mod-footer">
+          <span class="mod-dur">⏱ 10 weeks · ~30 hrs</span>
+          <span class="mod-lvl">Intermediate</span>
+        </div>
+      </div>
+
+      <!-- Python -->
+      <div class="mod-card mc-py">
+        <div class="mod-wm">Py</div>
+        <div class="mod-head">
+          <div class="mod-icon">🐍</div>
+          <div>
+            <span class="mod-tag">Track 03 · Python</span>
+            <div class="mod-name">Python: Scripting to AI/ML</div>
+          </div>
+        </div>
+        <p class="mod-desc">Python done right. Start with fundamentals, build automation tools, manipulate data with pandas and numpy, and write your first machine learning models with scikit-learn.</p>
+        <div class="mod-topics">
+          <span class="mod-topic">Python Fundamentals</span>
+          <span class="mod-topic">Functions &amp; Decorators</span>
+          <span class="mod-topic">NumPy &amp; Pandas</span>
+          <span class="mod-topic">File &amp; API Automation</span>
+          <span class="mod-topic">Matplotlib</span>
+          <span class="mod-topic">scikit-learn basics</span>
+          <span class="mod-topic">ML Model Deployment</span>
+        </div>
+        <div class="mod-footer">
+          <span class="mod-dur">⏱ 10 weeks · ~30 hrs</span>
+          <span class="mod-lvl">Beginner → Advanced</span>
+        </div>
+      </div>
+
+      <!-- Web Dev -->
+      <div class="mod-card mc-web">
+        <div class="mod-wm">Web</div>
+        <div class="mod-head">
+          <div class="mod-icon">🌐</div>
+          <div>
+            <span class="mod-tag">Track 05 · Web Dev</span>
+            <div class="mod-name">Modern Web Development</div>
+          </div>
+        </div>
+        <p class="mod-desc">Build real, responsive websites from scratch. Master semantic HTML, modern CSS layouts (Flexbox/Grid), and JavaScript that actually does things — then deploy live on the web.</p>
+        <div class="mod-topics">
+          <span class="mod-topic">Semantic HTML5</span>
+          <span class="mod-topic">CSS Flexbox &amp; Grid</span>
+          <span class="mod-topic">Responsive Design</span>
+          <span class="mod-topic">JavaScript DOM</span>
+          <span class="mod-topic">Fetch API &amp; JSON</span>
+          <span class="mod-topic">UI/UX Principles</span>
+          <span class="mod-topic">GitHub Pages Deploy</span>
+        </div>
+        <div class="mod-footer">
+          <span class="mod-dur">⏱ 8 weeks · ~24 hrs</span>
+          <span class="mod-lvl">Beginner</span>
+        </div>
+      </div>
+
+      <!-- Quarto full-width -->
+      <div class="mod-card mc-quarto" style="grid-column: 1 / -1;">
+        <div class="mod-wm" style="font-size:9rem;">Qto</div>
+        <div class="mod-head">
+          <div class="mod-icon">📊</div>
+          <div>
+            <span class="mod-tag">Track 06 · Quarto</span>
+            <div class="mod-name">Technical Publishing with Quarto</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;flex-wrap:wrap;">
+          <p class="mod-desc">Quarto is the future of reproducible, beautiful technical content. Weave code, prose, and visualisations into stunning websites, blogs, slide decks, and reports — all from a single source. Perfect for researchers, developers, and data practitioners.</p>
+          <div class="mod-topics">
+            <span class="mod-topic">Quarto Document Structure</span>
+            <span class="mod-topic">Markdown + Code Blocks</span>
+            <span class="mod-topic">HTML &amp; PDF Output</span>
+            <span class="mod-topic">Websites &amp; Blogs</span>
+            <span class="mod-topic">Revealjs Slides</span>
+            <span class="mod-topic">Dynamic Visualisations</span>
+            <span class="mod-topic">GitHub Pages Publish</span>
+            <span class="mod-topic">Custom Themes &amp; CSS</span>
+          </div>
+        </div>
+        <div class="mod-footer" style="margin-top:1.6rem;">
+          <span class="mod-dur">⏱ 4 weeks · ~14 hrs</span>
+          <span class="mod-lvl">All Levels</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DSA special banner -->
+    <div class="dsa-banner">
+      <div class="dsa-wm">DSA</div>
+      <div class="dsa-inner">
+        <div>
+          <div class="dsa-badge">⚡ High-Intensity Track</div>
+          <div class="dsa-title">Data Structures &amp; Algorithms</div>
+          <p class="dsa-desc">The single most important track for cracking technical interviews and writing efficient software. We go from arrays and sorting to graphs, trees, and dynamic programming — solving 100+ problems across all difficulty levels, in Python and C++.</p>
+          <div class="dsa-topics">
+            <span class="dsa-topic">Arrays &amp; Strings</span>
+            <span class="dsa-topic">Linked Lists</span>
+            <span class="dsa-topic">Stacks &amp; Queues</span>
+            <span class="dsa-topic">Trees &amp; Graphs</span>
+            <span class="dsa-topic">Recursion</span>
+            <span class="dsa-topic">Sorting &amp; Searching</span>
+            <span class="dsa-topic">Dynamic Programming</span>
+            <span class="dsa-topic">Greedy Algorithms</span>
+            <span class="dsa-topic">Hashing</span>
+            <span class="dsa-topic">Sliding Window</span>
+            <span class="dsa-topic">Backtracking</span>
+            <span class="dsa-topic">Bit Manipulation</span>
+          </div>
+        </div>
+        <div class="dsa-stat">
+          <div class="dsa-stat-val">100+</div>
+          <span class="dsa-stat-lbl">Curated Problems</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ ROADMAP ══════════ -->
+<section class="roadmap-section">
+  <div class="s-wrap">
+    <div class="s-label">Progression Map</div>
+    <h2 class="s-title">A deliberate <em>sequence</em></h2>
+    <p class="s-desc">Each phase prepares you for the next. Nothing is arbitrary — the order is engineered so you never feel lost.</p>
+
+    <div class="roadmap">
+
+      <div class="r-step">
+        <div class="r-num">1</div>
+        <div class="r-body">
+          <div class="r-info">
+            <span class="r-phase">Phase 1 · Foundation</span>
+            <div class="r-title">Computational Thinking &amp; C Fundamentals</div>
+            <div class="r-detail">Learn how computers store and process data. Variables, loops, functions, and memory — the ideas every language shares.</div>
+          </div>
+          <div class="r-langs">
+            <div class="r-lang-dot" style="--ld-color:var(--c-blue)"></div>
+          </div>
+          <div class="r-duration">Weeks 1–3</div>
+        </div>
+      </div>
+
+      <div class="r-step">
+        <div class="r-num">2</div>
+        <div class="r-body">
+          <div class="r-info">
+            <span class="r-phase">Phase 2 · Systems Thinking</span>
+            <div class="r-title">Pointers, Memory &amp; C++ OOP</div>
+            <div class="r-detail">Go deeper — pointers, heap vs stack, structs — then transition to C++ classes, inheritance, and the STL.</div>
+          </div>
+          <div class="r-langs">
+            <div class="r-lang-dot" style="--ld-color:var(--c-blue)"></div>
+            <div class="r-lang-dot" style="--ld-color:var(--cpp-purple)"></div>
+          </div>
+          <div class="r-duration">Weeks 4–6</div>
+        </div>
+      </div>
+
+      <div class="r-step">
+        <div class="r-num">3</div>
+        <div class="r-body">
+          <div class="r-info">
+            <span class="r-phase">Phase 3 · Algorithmic Thinking</span>
+            <div class="r-title">DSA: From Arrays to Dynamic Programming</div>
+            <div class="r-detail">Solve 100+ problems. Implement classic data structures from scratch. Learn to analyse complexity and choose the right approach.</div>
+          </div>
+          <div class="r-langs">
+            <div class="r-lang-dot" style="--ld-color:var(--cpp-purple)"></div>
+            <div class="r-lang-dot" style="--ld-color:var(--dsa-red)"></div>
+          </div>
+          <div class="r-duration">Weeks 5–9</div>
+        </div>
+      </div>
+
+      <div class="r-step">
+        <div class="r-num">4</div>
+        <div class="r-body">
+          <div class="r-info">
+            <span class="r-phase">Phase 4 · Python &amp; Data</span>
+            <div class="r-title">Python: Scripting, Automation &amp; ML Basics</div>
+            <div class="r-detail">Apply algorithmic thinking in Python. Automate real tasks, manipulate datasets, and build your first ML pipeline.</div>
+          </div>
+          <div class="r-langs">
+            <div class="r-lang-dot" style="--ld-color:var(--py-gold)"></div>
+          </div>
+          <div class="r-duration">Weeks 7–10</div>
+        </div>
+      </div>
+
+      <div class="r-step">
+        <div class="r-num">5</div>
+        <div class="r-body">
+          <div class="r-info">
+            <span class="r-phase">Phase 5 · The Web</span>
+            <div class="r-title">Web Development &amp; Quarto Publishing</div>
+            <div class="r-detail">Build and ship responsive websites. Create technical blogs and data-driven reports with Quarto. Put your portfolio online.</div>
+          </div>
+          <div class="r-langs">
+            <div class="r-lang-dot" style="--ld-color:var(--web-green)"></div>
+            <div class="r-lang-dot" style="--ld-color:var(--quarto-pink)"></div>
+          </div>
+          <div class="r-duration">Weeks 9–12</div>
+        </div>
+      </div>
+
+      <div class="r-step r-final">
+        <div class="r-num">✦</div>
+        <div class="r-body">
+          <div class="r-info">
+            <span class="r-phase">Capstone · Portfolio Ready</span>
+            <div class="r-title">Build Your Developer Portfolio</div>
+            <div class="r-detail">Combine everything — a Quarto-powered personal site featuring your C++/Python projects, DSA solutions, and a live web application.</div>
+          </div>
+          <div class="r-langs">
+            <div class="r-lang-dot" style="--ld-color:var(--c-blue)"></div>
+            <div class="r-lang-dot" style="--ld-color:var(--cpp-purple)"></div>
+            <div class="r-lang-dot" style="--ld-color:var(--py-gold)"></div>
+            <div class="r-lang-dot" style="--ld-color:var(--web-green)"></div>
+            <div class="r-lang-dot" style="--ld-color:var(--quarto-pink)"></div>
+          </div>
+          <div class="r-duration">Week 12</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROJECTS ══════════ -->
+<section class="projects-section">
+  <div class="s-wrap">
+    <div class="s-label">Real Projects</div>
+    <h2 class="s-title">Things you'll <em>actually build</em></h2>
+    <p class="s-desc">Every concept is anchored to a real project — no isolated exercises that never go anywhere.</p>
+
+    <div class="proj-grid">
+
+      <div class="proj-card" style="--pc-color:var(--c-blue)">
+        <span class="proj-icon">🔧</span>
+        <div class="proj-title">Custom Memory Allocator in C</div>
+        <div class="proj-desc">Implement your own malloc() and free() using sbrk. Understand fragmentation, alignment, and why memory management matters.</div>
+        <div class="proj-tags"><span class="proj-tag">C</span><span class="proj-tag">Memory</span><span class="proj-tag">Systems</span></div>
+      </div>
+
+      <div class="proj-card" style="--pc-color:var(--cpp-purple)">
+        <span class="proj-icon">🎮</span>
+        <div class="proj-title">Text-Based Strategy Game in C++</div>
+        <div class="proj-desc">Build a complete game using OOP — classes for players, enemies, and items. Apply polymorphism, inheritance, and file-based save states.</div>
+        <div class="proj-tags"><span class="proj-tag">C++</span><span class="proj-tag">OOP</span><span class="proj-tag">STL</span></div>
+      </div>
+
+      <div class="proj-card" style="--pc-color:var(--dsa-red)">
+        <span class="proj-icon">🌳</span>
+        <div class="proj-title">Graph Pathfinder Visualiser</div>
+        <div class="proj-desc">Implement BFS and Dijkstra's algorithm from scratch. Visualise the search process on a grid — build intuition you can't get from reading.</div>
+        <div class="proj-tags"><span class="proj-tag">DSA</span><span class="proj-tag">Graphs</span><span class="proj-tag">Python</span></div>
+      </div>
+
+      <div class="proj-card" style="--pc-color:var(--py-gold)">
+        <span class="proj-icon">🤖</span>
+        <div class="proj-title">ML Price Predictor</div>
+        <div class="proj-desc">Train a regression model on a real dataset, evaluate it properly, and deploy a simple prediction API using FastAPI and scikit-learn.</div>
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">ML</span><span class="proj-tag">FastAPI</span></div>
+      </div>
+
+      <div class="proj-card" style="--pc-color:var(--web-green)">
+        <span class="proj-icon">🖥️</span>
+        <div class="proj-title">Responsive Developer Portfolio</div>
+        <div class="proj-desc">Design and build a pixel-perfect personal website from scratch — HTML, CSS Grid/Flexbox, JavaScript animations — then deploy live.</div>
+        <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+      </div>
+
+      <div class="proj-card" style="--pc-color:var(--quarto-pink)">
+        <span class="proj-icon">📊</span>
+        <div class="proj-title">Data Report Site with Quarto</div>
+        <div class="proj-desc">Create a Quarto website with interactive charts, embedded Python code blocks, and a custom CSS theme — published on GitHub Pages.</div>
+        <div class="proj-tags"><span class="proj-tag">Quarto</span><span class="proj-tag">Python</span><span class="proj-tag">Data Viz</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHY ══════════ -->
+<section class="why-section">
+  <div class="s-wrap">
+    <div class="s-label-light">Why This Works</div>
+    <h2 class="s-title-light">Taught the way <em>pros</em> learn.</h2>
+    <p class="s-desc-light">Most courses teach you what — this one teaches you why. That's the difference between a coder and an engineer.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-num">01</span>
+        <div class="why-title">First Principles, Always</div>
+        <div class="why-body">We don't skip the boring parts — we make them interesting. Understanding <span class="why-accent">why</span> malloc works is what separates engineers from script-kiddies.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-num">02</span>
+        <div class="why-title">Real Code, Real Feedback</div>
+        <div class="why-body">Your code gets <span class="why-accent">reviewed</span>. Every project, every function. Not auto-graded — actually read and critiqued by someone who's shipped production software.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-num">03</span>
+        <div class="why-title">Sequenced, Not Scattered</div>
+        <div class="why-body">The order of topics is deliberate. C before C++. Recursion before DP. Each session <span class="why-accent">builds on</span> the last — no random jumps that leave gaps in your understanding.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-num">04</span>
+        <div class="why-title">Portfolio You Own</div>
+        <div class="why-body">Everything you build is yours. A live website, a GitHub full of real projects, a Quarto portfolio. By the end, you can <span class="why-accent">show your work</span> — not just talk about it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <div class="cta-label">Ready to Start</div>
+      <h2 class="cta-title">
+        Your first<br>
+        <em>real program</em><br>
+        starts here.
+      </h2>
+      <p class="cta-sub">
+        One session is all it takes to see the difference between
+        learning code and learning to think like a developer.
+        No prerequisites — just curiosity and a willingness to type.
+      </p>
+    </div>
+
+    <div class="cta-right">
+      <div class="offer-row">
+        <div class="offer-item">
+          <div class="offer-check">✓</div>
+          Personalised 1-on-1 or small group sessions
+        </div>
+        <div class="offer-item">
+          <div class="offer-check">✓</div>
+          Structured curriculum — no random YouTube hopping
+        </div>
+        <div class="offer-item">
+          <div class="offer-check">✓</div>
+          Code reviews on every project you build
+        </div>
+        <div class="offer-item">
+          <div class="offer-check">✓</div>
+          Access to all 6 language tracks
+        </div>
+        <div class="offer-item">
+          <div class="offer-check">✓</div>
+          100+ DSA problems with guided solutions
+        </div>
+        <div class="offer-item">
+          <div class="offer-check">✓</div>
+          Portfolio-ready projects from week one
+        </div>
+      </div>
+      <div class="cta-btns">
+        <a href="/contact.qmd" class="btn-cta-main">Book Your First Session</a>
+        <a href="/contact.qmd" class="btn-cta-ghost">Talk to an Instructor First</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+```

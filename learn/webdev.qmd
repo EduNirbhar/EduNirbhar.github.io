@@ -1,0 +1,118 @@
+---
+title: "Web Development"
+format:
+  html:
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+page-layout: full
+---
+
+```{=html}
+<style>
+:root{--ac:#10b981;--ac-rgb:16,185,129;--bg:#07070b;--surface:#0e0e14;--card:#13131a;--card-h:#18181f;--border:rgba(255,255,255,.07);--border-h:rgba(255,255,255,.14);--t1:#f0eee8;--t2:#8a8a9a;--t3:#45454f;--fn-head:'Outfit',sans-serif;--fn-body:'Instrument Sans',sans-serif;--fn-mono:'JetBrains Mono',monospace;--r:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg)!important;font-family:var(--fn-body);color:var(--t1)}
+#quarto-content{padding:0!important;max-width:100%!important}nav.navbar,footer,.quarto-title-banner{display:none!important}a{text-decoration:none}
+.page{overflow-x:hidden}
+.c-hero{min-height:85vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(5rem,10vw,8rem) clamp(1.5rem,7vw,7rem) clamp(3rem,5vw,4rem);position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 10% 50%,rgba(var(--ac-rgb),.07) 0%,transparent 70%),var(--bg)}
+.c-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 60% 80% at 0% 50%,black 0%,transparent 70%)}
+.c-kicker{font-family:var(--fn-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;position:relative;z-index:2}.c-kicker::before{content:'';width:22px;height:1.5px;background:var(--ac)}
+.c-h1{font-family:var(--fn-head)!important;font-size:clamp(3rem,7vw,6rem)!important;font-weight:900!important;line-height:.97!important;color:var(--t1)!important;letter-spacing:-.03em;margin-bottom:.4em!important;max-width:16ch;position:relative;z-index:2}
+.hi{color:var(--ac)}.it{font-style:italic;color:var(--t2)}
+.c-desc{font-family:var(--fn-body);font-size:clamp(.95rem,1.5vw,1.08rem);color:var(--t2);line-height:1.75;max-width:50ch;margin-bottom:2rem;position:relative;z-index:2}
+.c-meta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.8rem;position:relative;z-index:2}
+.c-chip{font-family:var(--fn-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);background:rgba(255,255,255,.05);border:1px solid var(--border-h);padding:.38rem 1rem;border-radius:100px;display:flex;align-items:center;gap:.4rem}.c-chip b{color:var(--ac)}
+.c-hero-btns{display:flex;flex-wrap:wrap;gap:.9rem;position:relative;z-index:2}
+.btn-ac{font-family:var(--fn-head);font-weight:700;font-size:.9rem;color:#07070b!important;background:var(--ac);padding:.95rem 2.3rem;border-radius:6px;transition:all .22s;box-shadow:0 4px 24px rgba(var(--ac-rgb),.35);display:inline-flex;align-items:center;gap:.4rem}.btn-ac:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn-ghost{font-family:var(--fn-head);font-weight:600;font-size:.9rem;color:var(--t2)!important;background:transparent;padding:.95rem 2rem;border-radius:6px;border:1px solid var(--border-h);transition:all .22s}.btn-ghost:hover{border-color:var(--ac);color:var(--t1)!important}
+.s{padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,7vw,7rem);max-width:1400px;margin:0 auto}
+.s-alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.s-lbl{font-family:var(--fn-mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}.s-lbl::after{content:'';display:block;height:1px;width:28px;background:var(--ac);opacity:.5}
+.s-title{font-family:var(--fn-head)!important;font-size:clamp(1.8rem,3.5vw,2.8rem)!important;font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;margin-bottom:.4rem!important;line-height:1.08!important}.s-title em{font-style:italic;color:var(--ac)}
+.s-desc{font-family:var(--fn-body);font-size:.97rem;color:var(--t2);max-width:58ch;line-height:1.72;margin-bottom:2.8rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.gc{background:var(--card);padding:1.8rem;transition:background .2s;cursor:default}.gc:hover{background:var(--card-h)}
+.gc-num{font-family:var(--fn-head);font-size:2.5rem;font-weight:900;color:rgba(var(--ac-rgb),.1);line-height:1;margin-bottom:.4rem;display:block}
+.gc-name{font-family:var(--fn-head);font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:.5rem}
+.gc-desc{font-family:var(--fn-body);font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:.8rem}
+.pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-family:var(--fn-mono);font-size:.6rem;color:var(--t3);background:rgba(255,255,255,.03);border:1px solid var(--border);padding:.18rem .5rem;border-radius:3px;transition:color .2s,border-color .2s}.gc:hover .pill{color:var(--ac);border-color:rgba(var(--ac-rgb),.25)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:all .25s;cursor:default;position:relative;overflow:hidden}.pc:hover{border-color:var(--ac);transform:translateY(-3px)}
+.pc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ac);transform:scaleX(0);transition:transform .35s}.pc:hover::before{transform:scaleX(1)}
+.pc-num{font-family:var(--fn-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:.7rem;display:block}
+.pc-name{font-family:var(--fn-head);font-size:.98rem;font-weight:700;color:var(--t1);margin-bottom:.5rem;line-height:1.3}
+.pc-desc{font-family:var(--fn-body);font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:1rem}
+.pc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.pc-tag{font-family:var(--fn-mono);font-size:.6rem;color:var(--ac);background:rgba(var(--ac-rgb),.1);border:1px solid rgba(var(--ac-rgb),.25);padding:.18rem .5rem;border-radius:3px}
+.c-cta{text-align:center;padding:clamp(4rem,8vw,6rem) clamp(1.5rem,7vw,7rem);background:var(--surface);border-top:1px solid var(--border);position:relative;overflow:hidden}
+.c-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 60% at 50% 100%,rgba(var(--ac-rgb),.06) 0%,transparent 70%)}
+.cta-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fn-mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);background:rgba(var(--ac-rgb),.1);border:1px solid rgba(var(--ac-rgb),.25);padding:.35rem 1rem;border-radius:100px;margin-bottom:1.8rem}
+.cta-dot{width:5px;height:5px;border-radius:50%;background:var(--ac);animation:pd 2s ease-in-out infinite}
+@keyframes pd{0%,100%{transform:scale(1)}50%{transform:scale(1.6);opacity:.5}}
+.c-cta h2{font-family:var(--fn-head)!important;font-size:clamp(2rem,4.5vw,3.2rem)!important;font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;margin:0 auto 1rem!important;max-width:22ch;line-height:1.08!important;position:relative;z-index:1}.c-cta h2 em{font-style:italic;color:var(--ac)}
+.c-cta p{font-family:var(--fn-body);font-size:1rem;color:var(--t2);max-width:46ch;margin:0 auto 2.5rem;line-height:1.7;position:relative;z-index:1}
+.cta-btns{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;position:relative;z-index:1}
+@media(max-width:640px){.c-hero{padding:4rem 1.5rem 2.5rem}.s{padding:3rem 1.5rem}}
+</style>
+
+<div class="page">
+<section class="c-hero">
+  <div class="c-kicker">Track 06 · Frontend Development</div>
+  <h1 class="c-h1">Web Dev:<br><span class="hi">Build</span> it,<br><span class="it">ship it.</span></h1>
+  <p class="c-desc">HTML, CSS, and JavaScript from absolute scratch. Build responsive, accessible, pixel-perfect websites — with real UI/UX design sense — and deploy them live on the internet before the course is even over.</p>
+  <div class="c-meta">
+    <span class="c-chip">⏱ Duration <b>8 Weeks</b></span>
+    <span class="c-chip">👥 Level <b>Beginner</b></span>
+    <span class="c-chip">📦 Projects <b>5 Live Sites</b></span>
+    <span class="c-chip">🔑 Prereq <b>Git &amp; GitHub</b></span>
+  </div>
+  <div class="c-hero-btns">
+    <a href="/contact.qmd" class="btn-ac">Enroll Now →</a>
+    <a href="#curriculum" class="btn-ghost">View Curriculum</a>
+  </div>
+</section>
+
+<div class="s" id="curriculum">
+  <div class="s-lbl">Curriculum</div>
+  <h2 class="s-title">8 Weeks, <em>Real Websites</em></h2>
+  <p class="s-desc">Every session builds toward a deployed website. By week two you'll have something live. By week eight you'll have a portfolio.</p>
+  <div class="grid">
+    <div class="gc"><span class="gc-num">01</span><div class="gc-name">HTML Foundations</div><div class="gc-desc">Semantic HTML5, document structure, headings, links, images, forms, tables, and accessibility basics from day one.</div><div class="pills"><span class="pill">Semantic HTML</span><span class="pill">Forms</span><span class="pill">Accessibility</span><span class="pill">ARIA roles</span></div></div>
+    <div class="gc"><span class="gc-num">02</span><div class="gc-name">CSS Fundamentals</div><div class="gc-desc">Selectors, the cascade, specificity, box model, typography, colours, and custom properties (CSS variables).</div><div class="pills"><span class="pill">Box model</span><span class="pill">Specificity</span><span class="pill">CSS variables</span><span class="pill">Typography</span></div></div>
+    <div class="gc"><span class="gc-num">03</span><div class="gc-name">Flexbox &amp; Grid</div><div class="gc-desc">Master both layout systems — when to use each, complex nested layouts, and building common UI patterns from scratch.</div><div class="pills"><span class="pill">Flexbox</span><span class="pill">CSS Grid</span><span class="pill">Responsive layouts</span><span class="pill">Auto-fill</span></div></div>
+    <div class="gc"><span class="gc-num">04</span><div class="gc-name">Responsive Design</div><div class="gc-desc">Mobile-first development, media queries, fluid typography, viewport units, and testing across device sizes.</div><div class="pills"><span class="pill">Media queries</span><span class="pill">Mobile-first</span><span class="pill">clamp()</span><span class="pill">Viewport units</span></div></div>
+    <div class="gc"><span class="gc-num">05</span><div class="gc-name">JavaScript Essentials</div><div class="gc-desc">Variables, functions, arrays, objects, loops, and the event loop. Real JS — not toy exercises.</div><div class="pills"><span class="pill">ES6+</span><span class="pill">Arrow functions</span><span class="pill">Destructuring</span><span class="pill">Promises</span></div></div>
+    <div class="gc"><span class="gc-num">06</span><div class="gc-name">DOM Manipulation</div><div class="gc-desc">Select, create, modify, and delete elements. Handle events, build interactive UIs, and animate with CSS + JS.</div><div class="pills"><span class="pill">querySelector</span><span class="pill">addEventListener</span><span class="pill">classList</span><span class="pill">Animations</span></div></div>
+    <div class="gc"><span class="gc-num">07</span><div class="gc-name">Fetch API &amp; JSON</div><div class="gc-desc">Call REST APIs, handle async/await, display live data, and handle errors gracefully in a real interface.</div><div class="pills"><span class="pill">fetch()</span><span class="pill">async/await</span><span class="pill">JSON</span><span class="pill">Error handling</span></div></div>
+    <div class="gc"><span class="gc-num">08</span><div class="gc-name">UI/UX Design Principles</div><div class="gc-desc">Spacing, hierarchy, colour theory, contrast, whitespace, and how to make things look good — not just work.</div><div class="pills"><span class="pill">Colour theory</span><span class="pill">Hierarchy</span><span class="pill">Whitespace</span><span class="pill">Contrast</span></div></div>
+  </div>
+</div>
+
+<section class="s-alt">
+  <div class="s">
+    <div class="s-lbl">Projects</div>
+    <h2 class="s-title">Five Sites, <em>All Live</em></h2>
+    <p class="s-desc">Every project gets deployed on GitHub Pages. You'll have five real URLs to share — not local files on your laptop.</p>
+    <div class="proj-grid">
+      <div class="pc"><span class="pc-num">Project 01</span><div class="pc-name">Responsive Landing Page</div><div class="pc-desc">A pixel-perfect marketing landing page — hero, features, testimonials, CTA — fully responsive across all screen sizes.</div><div class="pc-tags"><span class="pc-tag">HTML5</span><span class="pc-tag">CSS Grid</span><span class="pc-tag">Responsive</span></div></div>
+      <div class="pc"><span class="pc-num">Project 02</span><div class="pc-name">Interactive Quiz App</div><div class="pc-desc">A multiple-choice quiz with score tracking, timer, animated feedback, and a results screen — pure HTML/CSS/JS.</div><div class="pc-tags"><span class="pc-tag">JavaScript</span><span class="pc-tag">DOM</span><span class="pc-tag">LocalStorage</span></div></div>
+      <div class="pc"><span class="pc-num">Project 03</span><div class="pc-name">Live Weather Dashboard</div><div class="pc-desc">Pull live weather data from the OpenWeather API, display it in a clean card layout with animated icons and a search bar.</div><div class="pc-tags"><span class="pc-tag">Fetch API</span><span class="pc-tag">async/await</span><span class="pc-tag">JSON</span></div></div>
+      <div class="pc"><span class="pc-num">Project 04</span><div class="pc-name">Kanban Task Board</div><div class="pc-desc">Drag-and-drop task management app with columns, cards, local storage persistence, and edit/delete functionality.</div><div class="pc-tags"><span class="pc-tag">Drag &amp; Drop API</span><span class="pc-tag">LocalStorage</span><span class="pc-tag">JS</span></div></div>
+      <div class="pc"><span class="pc-num">Project 05</span><div class="pc-name">Developer Portfolio</div><div class="pc-desc">Your personal portfolio site: hero, about, projects, skills, contact form with Formspree. Designed to get you hired.</div><div class="pc-tags"><span class="pc-tag">Full Site</span><span class="pc-tag">Custom CSS</span><span class="pc-tag">GitHub Pages</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="c-cta">
+  <div class="cta-badge"><span class="cta-dot"></span>Track 06 · Open</div>
+  <h2>Build something<br>the world can <em>see.</em></h2>
+  <p>Web development is the fastest path from "I have an idea" to something real, live, and shareable. Start building this week.</p>
+  <div class="cta-btns">
+    <a href="/contact.qmd" class="btn-ac">Book First Session →</a>
+    <a href="learn.qmd" class="btn-ghost">← All Courses</a>
+  </div>
+</section>
+</div>
+```

@@ -1,0 +1,273 @@
+---
+format: html
+---
+
+```{=html}
+<div class="linux-page">
+
+  <div class="wd-hero content-section" style="padding-top: 4rem; padding-bottom: 2rem;">
+
+    <div class="wd-hero-copy">
+      
+      <div class="wd-hero-title">
+        Master<br>
+        <span class="accent">Linux</span> &amp;<br>
+        <span class="rhel">RHEL</span>
+      </div>
+      
+      <p class="wd-hero-subtitle">
+        From your first terminal command to managing production-grade 
+        Red Hat servers — a curriculum built for sysadmins who mean business.
+      </p>
+
+      
+
+      <div class="terminal-prompt">
+        <span class="prompt-user">admin</span><span class="prompt-at">@</span><span class="prompt-host">akademiyaa</span>
+        <span class="prompt-path">~/career $</span>
+        <span class="prompt-cmd">enroll --course linux</span>
+        <span class="cursor"></span>
+      </div>
+
+      <div class="wd-hero-actions">
+        <a href="/contact.qmd" class="btn-primary-wd">Start Learning</a>
+        <a href="#modules" class="btn-ghost-wd">View Curriculum ↓</a>
+      </div>
+    </div>
+
+    <div class="wd-hero-visual">
+      <div class="linux-stats-grid">
+        <div class="linux-stat-card">
+          <span class="linux-stat-num">4</span>
+          <span class="linux-stat-label">Core Modules</span>
+        </div>
+        <div class="linux-stat-card">
+          <span class="linux-stat-num">RHCSA</span>
+          <span class="linux-stat-label">Cert Aligned</span>
+        </div>
+        <div class="linux-stat-card">
+          <span class="linux-stat-num">∞</span>
+          <span class="linux-stat-label">Lab Access</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <section class="content-section" style="padding-top: 1rem; padding-bottom: 2rem;">
+    <div class="linux-benefits-grid">
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">🎥</div> 
+        <h4>Lifetime Recordings</h4>
+        <p>Revisit any class session, anytime. Your video access never expires.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">📝</div>
+        <h4>Premium Notes</h4>
+        <p>Get exclusive downloadable study materials, commands, and guides.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <h4>Lifetime Mentorship</h4>
+        <p>Get direct career guidance and support long after you finish the course.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">💼</div>
+        <h4>Premium Job Portal</h4>
+        <p>Gain exclusive access to our hiring network for rapid career growth.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="tools-strip content-section" style="margin-top: 1rem; padding-top: 2rem; padding-bottom: 4rem;">
+    <div style="text-align: center;">
+      <div class="tools-label">Technologies &amp; Tools Covered</div>
+      <div class="tools-row">
+        <span class="tool-box"><span class="dot"></span>RHEL 9</span>
+        <span class="tool-box"><span class="dot"></span>systemd</span>
+        <span class="tool-box"><span class="dot"></span>dnf / rpm</span>
+        <span class="tool-box"><span class="dot"></span>SELinux</span>
+        <span class="tool-box"><span class="dot"></span>firewalld</span>
+        <span class="tool-box"><span class="dot"></span>LVM</span>
+        <span class="tool-box"><span class="dot"></span>Bash Scripting</span>
+        <span class="tool-box"><span class="dot"></span>SSH / OpenSSH</span>
+        <span class="tool-box"><span class="dot"></span>Cron / at</span>
+        <span class="tool-box"><span class="dot"></span>NFS / Samba</span>
+      </div>
+    </div>
+  </section>
+    
+<section id="modules" class="content-section" style="padding-top: 0;">
+    
+    <div style="max-width: 850px; margin-bottom: 3rem;">
+      <div class="section-label">Curriculum</div>
+      <h2 class="section-title">Four Core Modules</h2>
+      <p class="section-body" style="max-width: 100%;">
+        Each module builds on the last — from foundational CLI fluency to 
+        automated, production-hardened server management.
+      </p>
+    </div>
+
+    <div class="linux-modules-grid">
+
+      <div class="linux-mod-card mod-1" data-num="01">
+        <div class="mod-header">
+          <div class="mod-icon">🐧</div>
+          <h3 class="mod-title">Linux Fundamentals</h3>
+        </div>
+        <p class="mod-desc">Build unshakeable foundations. Navigate the filesystem hierarchy, master permissions and ownership, and get comfortable with the terminal before diving deeper.</p>
+        
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">CLI navigation</span>
+            <span class="mod-topic">chmod / chown</span>
+            <span class="mod-topic">Filesystem Hierarchy</span>
+            <span class="mod-topic">Processes &amp; Signals</span>
+            <span class="mod-topic">vim / nano</span>
+            <span class="mod-topic">Pipelines</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="linux-mod-card mod-2" data-num="02">
+        <div class="mod-header">
+          <div class="mod-icon">🔴</div>
+          <h3 class="mod-title">RHEL Administration</h3>
+        </div>
+        <p class="mod-desc">Go deep on RHEL 9. Master package management, user and group administration, systemd service control, and storage provisioning with LVM.</p>
+        
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">dnf / rpm</span>
+            <span class="mod-topic">useradd / groupmod</span>
+            <span class="mod-topic">systemctl</span>
+            <span class="mod-topic">LVM &amp; Partitioning</span>
+            <span class="mod-topic">journalctl</span>
+            <span class="mod-topic">grub2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="linux-mod-card mod-3" data-num="03">
+        <div class="mod-header">
+          <div class="mod-icon">🛡️</div>
+          <h3 class="mod-title">Security &amp; Networking</h3>
+        </div>
+        <p class="mod-desc">Lock down your servers. Configure firewalld zones, write and audit SELinux policies, and establish hardened SSH access for safe remote administration.</p>
+        
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">firewalld</span>
+            <span class="mod-topic">SELinux policies</span>
+            <span class="mod-topic">SSH hardening</span>
+            <span class="mod-topic">PAM</span>
+            <span class="mod-topic">auditd</span>
+            <span class="mod-topic">fail2ban</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="linux-mod-card mod-4" data-num="04">
+        <div class="mod-header">
+          <div class="mod-icon">⚙️</div>
+          <h3 class="mod-title">Automation &amp; Scripting</h3>
+        </div>
+        <p class="mod-desc">Stop clicking and start scripting. Write robust Bash scripts to automate routine admin tasks, handle errors gracefully, and deploy servers with speed.</p>
+        
+        <div class="mod-topics-expand">
+          <div class="mod-topics-inner">
+            <span class="mod-topic">Bash scripting</span>
+            <span class="mod-topic">cron &amp; at</span>
+            <span class="mod-topic">Functions &amp; Arrays</span>
+            <span class="mod-topic">Error handling</span>
+            <span class="mod-topic">Heredocs</span>
+            <span class="mod-topic">Logging</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  <section class="content-section" style="padding-top: 4rem;">
+    <div style="max-width: 600px; margin-bottom: 4rem;">
+      <div class="section-label" style="margin-bottom: 1rem;">Learning Path</div>
+      <h2 class="section-title">Your Roadmap to RHCSA</h2>
+      <p class="section-body" style="max-width: 100%;">
+        A structured, no-fluff progression from zero to certified Red Hat System Administrator.
+      </p>
+    </div>
+
+    <div class="rhcsa-timeline">
+
+      <div class="rhcsa-step">
+        <div class="rhcsa-dot"></div>
+        <div class="rhcsa-content">
+          <h4>Set Up Your Lab Environment</h4>
+          <p>Install RHEL 9 in a VM or spin up a cloud instance. Learn how to access the terminal, configure a static IP, and navigate your first shell session.</p>
+          <span class="rhcsa-duration">⏱ Week 1</span>
+        </div>
+      </div>
+
+      <div class="rhcsa-step">
+        <div class="rhcsa-dot"></div>
+        <div class="rhcsa-content">
+          <h4>CLI Fluency &amp; Filesystem Mastery</h4>
+          <p>Get comfortable with file operations, searching, redirection, and permissions. Practice with real-world scenarios, not contrived exercises.</p>
+          <span class="rhcsa-duration">⏱ Weeks 2–3</span>
+        </div>
+      </div>
+
+      <div class="rhcsa-step">
+        <div class="rhcsa-dot"></div>
+        <div class="rhcsa-content">
+          <h4>RHEL Administration Deep-Dive</h4>
+          <p>Manage packages, users, services, and storage. Configure a multi-disk LVM layout and understand how RHEL boots and recovers.</p>
+          <span class="rhcsa-duration">⏱ Weeks 4–6</span>
+        </div>
+      </div>
+
+      <div class="rhcsa-step">
+        <div class="rhcsa-dot"></div>
+        <div class="rhcsa-content">
+          <h4>Harden &amp; Automate Your Server</h4>
+          <p>Apply SELinux policies, configure a stateful firewall, and write Bash automation scripts that run reliably in production.</p>
+          <span class="rhcsa-duration">⏱ Weeks 7–9</span>
+        </div>
+      </div>
+
+      <div class="rhcsa-step">
+        <div class="rhcsa-dot" style="background: #f59e0b; box-shadow: 0 0 0 6px var(--page-bg), 0 0 0 8px rgba(245,158,11,0.2);"></div>
+        <div class="rhcsa-content">
+          <h4>RHCSA Exam Ready</h4>
+          <p>Complete timed mock exams that mirror the real EX200. Get personalised feedback and targeted revision until you're exam-confident.</p>
+          <span class="rhcsa-duration" style="color: #f59e0b; border-color: rgba(245,158,11,0.3);">🏆 Week 10 — Exam Simulation</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  
+ <div class="enrollment-badge">
+    <span class="blink-dot"></span> Enrollment Open
+  </div>
+
+  <div class="wd-cta content-section" style="margin-top: 0; margin-bottom: 5rem;">
+    <h2>Ready to Own the Command Line?</h2>
+    <p>
+      Join professionals who've levelled up their Linux skills with a 
+      curriculum built by practitioners, not theorists.
+    </p>
+    <div class="wd-cta-actions">
+      <a href="/contact.qmd" class="btn-primary-wd">Start Learning →</a>
+    </div>
+  </div>
+
+</div>
+```

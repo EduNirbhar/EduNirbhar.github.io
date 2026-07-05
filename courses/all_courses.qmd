@@ -1,0 +1,505 @@
+---
+title: ""
+format:
+  html:
+    page-layout: full
+---
+
+
+```{=html}
+<div class="learn-page">
+
+  <section class="learn-hero content-section">
+    
+    <div class="learn-hero-title">
+      Discover.<br>
+      <span class="accent">Learn.</span> 
+      <span class="pro-text">Go Pro.</span>
+    </div>
+    <p class="learn-hero-subtitle">
+      Well-structured, carefully curated courses — from computer fundamentals to cloud deployment. Every course is independent, project-driven, and taught by a practitioner who builds real software.
+    </p>
+    <div class="hero-stats-row">
+      <span class="hs-pill">🖥️ <b>1</b> Foundation</span>
+      <span class="hs-pill">🧩 <b>2</b> CS Essentials</span>
+      <span class="hs-pill">⌨️ <b>3</b> Languages</span>
+      <span class="hs-pill">🌐 <b>2</b> Web Dev</span>
+      <span class="hs-pill">✨ <b>1</b> Publishing</span>
+      <span class="hs-pill">🚀 <b>2</b> Infra</span>
+      <span class="hs-pill">🔀 <b>2</b> Core Tools</span>
+    </div>
+  </section>
+
+  <div class="content-section" style="padding-top: 1rem; max-width: 1400px; margin: 0 auto;">
+
+    <div class="common-banner">
+      <div class="cb-head">
+        <span class="cb-badge">🔁 Included Automatically</span>
+        <h3 class="cb-title">Common Tools</h3>
+        <span class="cb-subtitle">Free with any course · Starts Week 1</span>
+      </div>
+      <div class="common-tools-grid">
+        <div class="ct-card" style="--ctc: #0284c7;">
+          <div class="ct-ico">🔀</div>
+          <div>
+            <span class="ct-label">Tool 01 · Mandatory</span>
+            <h4 class="ct-name">Git &amp; GitHub</h4>
+            <p class="ct-desc">Version control is non-negotiable. Every student who writes code is automatically enrolled. Your work needs a proper home from day one.</p>
+            <div class="ct-pills">
+              <span class="ct-pill">init · add · commit</span>
+              <span class="ct-pill">Branching</span>
+              <span class="ct-pill">Pull · Push</span>
+              <span class="ct-pill">2-3 classes</span>
+            </div>
+          </div>
+        </div>
+        <div class="ct-card" style="--ctc: #ec4899;">
+          <div class="ct-ico">✨</div>
+          <div>
+            <span class="ct-label">Tool 02 · Recommended</span>
+            <h4 class="ct-name">Vibecoding — AI-Assisted Dev</h4>
+            <p class="ct-desc">Not a language — a methodology. Use Claude, Cursor, and GitHub Copilot as genuine co-developers alongside any course. Ship faster.</p>
+            <div class="ct-pills">
+              <span class="ct-pill">Prompting</span>
+              <span class="ct-pill">Cursor</span>
+              <span class="ct-pill">AI Debugging</span>
+              <span class="ct-pill">2-3 weeks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="enrollment-badge" style="margin: 0 auto 1.5rem;">
+        <span class="blink-dot"></span> All Courses Open
+    </div>
+
+
+    <div class="cat-area">
+      <p class="cat-hint">Explore individual courses ↓</p>
+      <div class="cat-tabs">
+        <button class="cat-tab" data-t="1" style="--tc: #f59e0b;">
+          <span class="tab-icon">🖥️</span> <span class="tab-text">Computer Foundation</span>
+        </button>
+        <button class="cat-tab" data-t="2" style="--tc: #ef4444;">
+          <span class="tab-icon">🧩</span> <span class="tab-text">CS Essentials</span> <span class="tab-n">2 Courses</span>
+        </button>
+        <button class="cat-tab" data-t="3" style="--tc: #3b82f6;">
+          <span class="tab-icon">⌨️</span> <span class="tab-text">Languages</span> <span class="tab-n">3 Courses</span>
+        </button>
+        <button class="cat-tab" data-t="4" style="--tc: #14b8a6;">
+          <span class="tab-icon">🌐</span> <span class="tab-text">Web Development</span> <span class="tab-n">2 Courses</span>
+        </button>
+        <button class="cat-tab" data-t="5" style="--tc: #ec4899;">
+          <span class="tab-icon">✨</span> <span class="tab-text">Publishing &amp; AI</span> <span class="tab-n">1 Course</span>
+        </button>
+        <button class="cat-tab" data-t="6" style="--tc: var(--color-orange);">
+          <span class="tab-icon">🚀</span> <span class="tab-text">Deployment</span> <span class="tab-n">2 Courses</span>
+        </button>
+      </div>
+
+      <div class="learn-panel" id="p1" style="--pac: #f59e0b;">
+        <div class="ph-header">
+          <div class="ph-bar"></div>
+          <div class="ph-titles">
+            <h3 class="ph-name">Computer Foundation</h3>
+            <p class="ph-sub">A comprehensive, all-in-one course for non-technical beginners. Start from absolute zero.</p>
+          </div>
+          <span class="ph-tag">Beginner Friendly</span>
+        </div>
+
+        <div class="learn-grid">
+          <div class="track-card solo-card shape-1" style="--ca: #f59e0b;">
+            <div class="tc-main">
+              <div class="tc-head">
+                <div class="tc-ico">🖥️</div>
+                <div>
+                  <span class="tc-track">Foundation</span>
+                  <h4 class="tc-name">Computer Foundation</h4>
+                </div>
+              </div>
+              <p class="tc-desc">Everything a non-technical person needs to become a confident computer user and tech-aware professional. From how a computer works, to operating systems, productivity software, internet skills, and an overview of where technology is heading.</p>
+              <div class="tc-chips">
+                <span class="chip">⏱ <b>6 Months</b></span>
+                <span class="chip">👥 <b>Absolute Beginner</b></span>
+                <span class="chip">🎓 <b>Certificate</b></span>
+              </div>
+              
+              <div class="wd-btn-group mt-auto">
+                <a href="/contact.qmd" class="btn-primary-wd">
+                  Enroll Now
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+              </div>
+
+            </div>
+            <div class="tc-side-grid">
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">💻</span><h5 class="sm-n">Fundamentals</h5></div>
+                <p class="sm-d">Hardware, CPU, RAM, storage, I/O devices</p>
+              </div>
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">⚙️</span><h5 class="sm-n">Intro to OS</h5></div>
+                <p class="sm-d">Windows/Linux navigation, settings, basic commands</p>
+              </div>
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">📊</span><h5 class="sm-n">MS Office + Excel</h5></div>
+                <p class="sm-d">Formulas, VLOOKUP, pivot tables, charts</p>
+              </div>
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">🔧</span><h5 class="sm-n">OS Tools</h5></div>
+                <p class="sm-d">Task Manager, backups, antivirus, troubleshooting</p>
+              </div>
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">🌐</span><h5 class="sm-n">Internet Ops</h5></div>
+                <p class="sm-d">Browsers, effective search, email, digital safety</p>
+              </div>
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">✨</span><h5 class="sm-n">Tech Overview</h5></div>
+                <p class="sm-d">Cloud, GenAI, Web Dev — what they are</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-panel" id="p2" style="--pac: #ef4444;">
+        <div class="ph-header">
+          <div class="ph-bar"></div>
+          <div class="ph-titles">
+            <h3 class="ph-name">CS Essentials</h3>
+            <p class="ph-sub">The two foundational pillars of computer science every serious programmer must master.</p>
+          </div>
+          <span class="ph-tag">2 Independent Courses</span>
+        </div>
+
+        <div class="learn-grid grid-2">
+          <div class="track-card shape-1" style="--ca: #ef4444;">
+            <div class="tc-head">
+              <div class="tc-ico">🧩</div>
+              <div><span class="tc-track">CS Essentials · 01</span><h4 class="tc-name">Data Structures &amp; Algorithms</h4></div>
+            </div>
+            <p class="tc-desc">100+ curated problems spanning every major pattern. Taught in Python and C++ simultaneously. The single course that makes every interview easier and every codebase cleaner.</p>
+            
+            <div class="tc-chips">
+              <span class="chip">⏱ <b>12 Weeks</b></span>
+              <span class="chip">🧩 <b>100+ Problems</b></span>
+              <span class="chip">🔑 <b>Python or C++</b></span>
+            </div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+
+          <div class="track-card shape-2" style="--ca: #0d9488;">
+            <div class="tc-head">
+              <div class="tc-ico">🌍</div>
+              <div><span class="tc-track">CS Essentials · 02</span><h4 class="tc-name">Computer Networks</h4></div>
+            </div>
+            <p class="tc-desc">How the internet actually works — from physical signals to HTTP requests. Every developer, sysadmin, and cloud engineer needs this. Understand OSI, sockets, and Wireshark.</p>
+            
+            <div class="tc-chips">
+              <span class="chip">⏱ <b>8 Weeks</b></span>
+              <span class="chip">🌐 <b>OSI Layer 1–7</b></span>
+              <span class="chip">👥 <b>All Levels</b></span>
+            </div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-panel" id="p3" style="--pac: #3b82f6;">
+        <div class="ph-header">
+          <div class="ph-bar"></div>
+          <div class="ph-titles">
+            <h3 class="ph-name">Programming Languages</h3>
+            <p class="ph-sub">Three independent language courses. Each is a proper, standalone curriculum — not a crash course.</p>
+          </div>
+          <span class="ph-tag">3 Independent Courses</span>
+        </div>
+
+        <div class="learn-grid grid-2">
+          <div class="track-card shape-2" style="--ca: #0284c7;">
+            <div class="tc-head">
+              <div class="tc-ico">🔩</div>
+              <div><span class="tc-track">Languages · 01</span><h4 class="tc-name">C Programming</h4></div>
+            </div>
+            <p class="tc-desc">The language closest to the machine. Learn C and understand how computers store data and manage memory.</p>
+            
+            <div class="tc-chips"><span class="chip">⏱ <b>8 Weeks</b></span><span class="chip">📦 <b>4 Projects</b></span></div>
+            <div class="tc-incl">🔀 Git · ✨ Vibecoding Incl.</div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+
+          <div class="track-card shape-1" style="--ca: #9333ea;">
+            <div class="tc-head">
+              <div class="tc-ico">⚡</div>
+              <div><span class="tc-track">Languages · 02</span><h4 class="tc-name">C++ Programming</h4></div>
+            </div>
+            <p class="tc-desc">Object-oriented design, templates, and the STL. The language of game engines, trading systems, and performance.</p>
+            
+            <div class="tc-chips"><span class="chip">⏱ <b>10 Weeks</b></span><span class="chip">🔑 <b>C Prereq</b></span></div>
+            <div class="tc-incl">🔀 Git · ✨ Vibecoding Incl.</div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+
+          <div class="track-card shape-2" style="--ca: #d97706;">
+            <div class="tc-head">
+              <div class="tc-ico">🐍</div>
+              <div><span class="tc-track">Languages · 03</span><h4 class="tc-name">Python</h4></div>
+            </div>
+            <p class="tc-desc">From scripting to AI/ML. Python opens every door in modern software, AI, and research. Clean and beginner-friendly.</p>
+            
+            <div class="tc-chips"><span class="chip">⏱ <b>10 Weeks</b></span><span class="chip">📦 <b>5 Projects</b></span></div>
+            <div class="tc-incl">🔀 Git · ✨ Vibecoding Incl.</div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-panel" id="p4" style="--pac: #14b8a6;">
+        <div class="ph-header">
+          <div class="ph-bar"></div>
+          <div class="ph-titles">
+            <h3 class="ph-name">Web Development</h3>
+            <p class="ph-sub">Two focused, sequential courses covering the complete foundations of building things for the web.</p>
+          </div>
+          <span class="ph-tag">Sequential · Git Included</span>
+        </div>
+
+        <div class="learn-grid grid-2">
+          <div class="track-card shape-1" style="--ca: #059669;">
+            <div class="tc-head">
+              <div class="tc-ico">🎨</div>
+              <div><span class="tc-track">Web Dev · 01</span><h4 class="tc-name">HTML + CSS</h4></div>
+            </div>
+            <p class="tc-desc">The building blocks of everything on the web. Write semantic HTML and beautiful, responsive CSS. Build pixel-perfect layouts with Flexbox and Grid.</p>
+            
+            <div class="tc-chips"><span class="chip">⏱ <b>6 Weeks</b></span><span class="chip">📦 <b>4 Live Sites</b></span></div>
+            <div class="tc-incl">🔀 Git · ✨ Vibecoding Incl.</div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+
+          <div class="track-card shape-2" style="--ca: #ca8a04;">
+            <div class="tc-head">
+              <div class="tc-ico">⚡</div>
+              <div><span class="tc-track">Web Dev · 02</span><h4 class="tc-name">JavaScript</h4></div>
+            </div>
+            <p class="tc-desc">Make the web interactive. Learn modern ES6+ JavaScript from first principles, with real projects that go live on the internet.</p>
+           
+            <div class="tc-chips"><span class="chip">⏱ <b>6 Weeks</b></span><span class="chip">🔑 <b>HTML+CSS Prereq</b></span></div>
+            <div class="tc-incl">🔀 Git · ✨ Vibecoding Incl.</div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-panel" id="p5" style="--pac: #ec4899;">
+        <div class="ph-header">
+          <div class="ph-bar"></div>
+          <div class="ph-titles">
+            <h3 class="ph-name">Publishing &amp; AI</h3>
+            <p class="ph-sub">Build complete, beautiful websites using Quarto — and supercharge every step with AI tools.</p>
+          </div>
+          <span class="ph-tag">Our Agency Specialty</span>
+        </div>
+
+        <div class="learn-grid">
+          <div class="track-card solo-card shape-2" style="--ca: #db2777;">
+            <div class="tc-main">
+              <div class="tc-head">
+                <div class="tc-ico">🌐</div>
+                <div>
+                  <span class="tc-track">Publishing</span>
+                  <h4 class="tc-name">Quarto + Vibecoding + GitHub → Live Website</h4>
+                </div>
+              </div>
+              <p class="tc-desc">Quarto is the modern way to publish technical work — websites, blogs, reports, slide decks. Pair it with AI tools (Claude, ChatGPT) at every step: generating content, writing CSS, and deploying automatically via GitHub Actions.</p>
+              
+              <div class="tc-chips">
+                <span class="chip">⏱ <b>4 Weeks</b></span>
+                <span class="chip">🌐 <b>Live URL by Day 7</b></span>
+                <span class="chip">📦 <b>4 Outputs</b></span>
+              </div>
+              <div class="tc-incl mb-3">🔀 Git &amp; GitHub · ✨ Vibecoding Core</div>
+              
+              <div class="wd-btn-group mt-auto">
+                <a href="/contact.qmd" class="btn-primary-wd">
+                  Enroll Now
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+              </div>
+
+            </div>
+            <div class="tc-side-grid">
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">🌐</span><h5 class="sm-n">Personal Website</h5></div>
+                <p class="sm-d">Multi-page site with custom theme</p>
+              </div>
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">📝</span><h5 class="sm-n">Technical Blog</h5></div>
+                <p class="sm-d">Post-based blog with tags &amp; RSS</p>
+              </div>
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">📊</span><h5 class="sm-n">Data Report</h5></div>
+                <p class="sm-d">HTML report with Python charts</p>
+              </div>
+              <div class="side-mod">
+                <div class="sm-head"><span class="sm-i">🎞️</span><h5 class="sm-n">Slide Deck</h5></div>
+                <p class="sm-d">Revealjs presentation with animations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-panel" id="p6" style="--pac: var(--color-orange);">
+        <div class="ph-header">
+          <div class="ph-bar"></div>
+          <div class="ph-titles">
+            <h3 class="ph-name">Deployment &amp; Infrastructure</h3>
+            <p class="ph-sub">Take your projects to the real internet. Two independent infrastructure courses — Linux and AWS.</p>
+          </div>
+          <span class="ph-tag">Cert Aligned</span>
+        </div>
+
+        <div class="learn-grid grid-2">
+          <div class="track-card shape-1" style="--ca: #16a34a;">
+            <div class="tc-head">
+              <div class="tc-ico">🐧</div>
+              <div><span class="tc-track">Infra · 01</span><h4 class="tc-name">Linux &amp; RHEL Administration</h4></div>
+            </div>
+            <p class="tc-desc">Master the command line, system services, storage, security hardening, and shell automation — structured around the RHCSA exam.</p>
+            
+            <div class="tc-chips"><span class="chip">⏱ <b>10 Weeks</b></span><span class="chip">🎓 <b>RHCSA Aligned</b></span></div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+
+          <div class="track-card shape-2" style="--ca: var(--color-orange);">
+            <div class="tc-head">
+              <div class="tc-ico">☁️</div>
+              <div><span class="tc-track">Infra · 02</span><h4 class="tc-name">AWS &amp; Cloud (Docker Included)</h4></div>
+            </div>
+            <p class="tc-desc">From fundamentals to production-grade deployments on AWS. Core compute, Docker containerisation, and serverless architectures.</p>
+            
+            <div class="tc-chips"><span class="chip">⏱ <b>10 Weeks</b></span><span class="chip">🎓 <b>SAA-C03 Aligned</b></span></div>
+            <div class="wd-btn-group mt-auto">
+              <a href="/contact.qmd" class="btn-primary-wd">
+                Enroll Now
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/curriculum.qmd" class="btn-ghost-wd">More details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wd-cta content-section" style="margin-top: 2rem; margin-bottom: 5rem; text-align: center;">
+    <div class="enrollment-badge" style="margin: 0 auto 1.5rem;">
+      <span class="blink-dot"></span> All Courses Open
+    </div>
+    <h2>Not sure where to <em>start?</em></h2>
+    <p style="max-width: 600px; margin: 0 auto 2.5rem;">
+      New to tech? Start with Foundation. Want to code? Start with Git + any language. Want a live website fast? Jump straight into Quarto + AI. We'll help you map the right path.
+    </p>
+    
+    <div class="wd-btn-group" style="justify-content: center; margin-top: 0;">
+      <a href="/contact.qmd" class="btn-primary-wd">
+        Book a Free Consultation
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/schedules.qmd" class="btn-ghost-wd">View All Schedules</a>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  let cur = null;
+  function tog(n) {
+    const p = document.getElementById('p'+n);
+    const t = document.querySelector('.cat-tab[data-t="'+n+'"]');
+    if (!p || !t) return;
+    
+    if (cur === n) return;
+
+    if (cur) {
+      document.getElementById('p'+cur).classList.remove('on');
+      document.querySelector('.cat-tab[data-t="'+cur+'"]').classList.remove('on');
+    }
+    p.classList.add('on'); 
+    t.classList.add('on'); 
+    cur = n;
+    
+    setTimeout(() => { 
+      p.scrollIntoView({behavior: 'smooth', block: 'nearest'}); 
+    }, 50);
+  }
+
+  document.querySelectorAll('.cat-tab').forEach(tab => {
+    let timer;
+    const n = tab.dataset.t;
+    tab.addEventListener('mouseenter', () => {
+      timer = setTimeout(() => { if(cur != n) tog(n); }, 200);
+    });
+    tab.addEventListener('mouseleave', () => { clearTimeout(timer); });
+  });
+
+  setTimeout(() => { tog(1); }, 400);
+});
+</script>
+```

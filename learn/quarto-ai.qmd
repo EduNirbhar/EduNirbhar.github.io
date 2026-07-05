@@ -1,0 +1,166 @@
+---
+title: "Quarto + AI Websites"
+format:
+  html:
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+page-layout: full
+---
+
+```{=html}
+<style>
+:root{--ac:#ec4899;--ac-rgb:236,72,153;--bg:#07070b;--surface:#0e0e14;--card:#13131a;--card-h:#18181f;--border:rgba(255,255,255,.07);--border-h:rgba(255,255,255,.14);--t1:#f0eee8;--t2:#8a8a9a;--t3:#45454f;--fn-head:'Outfit',sans-serif;--fn-body:'Instrument Sans',sans-serif;--fn-mono:'JetBrains Mono',monospace;--r:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg)!important;font-family:var(--fn-body);color:var(--t1)}
+#quarto-content{padding:0!important;max-width:100%!important}nav.navbar,footer,.quarto-title-banner{display:none!important}a{text-decoration:none}
+.page{overflow-x:hidden}
+.c-hero{min-height:85vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(5rem,10vw,8rem) clamp(1.5rem,7vw,7rem) clamp(3rem,5vw,4rem);position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 10% 50%,rgba(var(--ac-rgb),.07) 0%,transparent 70%),var(--bg)}
+.c-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 60% 80% at 0% 50%,black 0%,transparent 70%)}
+.c-kicker{font-family:var(--fn-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;position:relative;z-index:2}.c-kicker::before{content:'';width:22px;height:1.5px;background:var(--ac)}
+.c-h1{font-family:var(--fn-head)!important;font-size:clamp(3rem,7vw,6rem)!important;font-weight:900!important;line-height:.97!important;color:var(--t1)!important;letter-spacing:-.03em;margin-bottom:.4em!important;max-width:16ch;position:relative;z-index:2}
+.hi{color:var(--ac)}.it{font-style:italic;color:var(--t2)}
+.c-desc{font-family:var(--fn-body);font-size:clamp(.95rem,1.5vw,1.08rem);color:var(--t2);line-height:1.75;max-width:50ch;margin-bottom:2rem;position:relative;z-index:2}
+.c-meta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.8rem;position:relative;z-index:2}
+.c-chip{font-family:var(--fn-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);background:rgba(255,255,255,.05);border:1px solid var(--border-h);padding:.38rem 1rem;border-radius:100px;display:flex;align-items:center;gap:.4rem}.c-chip b{color:var(--ac)}
+.c-hero-btns{display:flex;flex-wrap:wrap;gap:.9rem;position:relative;z-index:2}
+.btn-ac{font-family:var(--fn-head);font-weight:700;font-size:.9rem;color:#07070b!important;background:var(--ac);padding:.95rem 2.3rem;border-radius:6px;transition:all .22s;box-shadow:0 4px 24px rgba(var(--ac-rgb),.35);display:inline-flex;align-items:center;gap:.4rem}.btn-ac:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn-ghost{font-family:var(--fn-head);font-weight:600;font-size:.9rem;color:var(--t2)!important;background:transparent;padding:.95rem 2rem;border-radius:6px;border:1px solid var(--border-h);transition:all .22s}.btn-ghost:hover{border-color:var(--ac);color:var(--t1)!important}
+.s{padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,7vw,7rem);max-width:1400px;margin:0 auto}
+.s-alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.s-lbl{font-family:var(--fn-mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}.s-lbl::after{content:'';display:block;height:1px;width:28px;background:var(--ac);opacity:.5}
+.s-title{font-family:var(--fn-head)!important;font-size:clamp(1.8rem,3.5vw,2.8rem)!important;font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;margin-bottom:.4rem!important;line-height:1.08!important}.s-title em{font-style:italic;color:var(--ac)}
+.s-desc{font-family:var(--fn-body);font-size:.97rem;color:var(--t2);max-width:58ch;line-height:1.72;margin-bottom:2.8rem}
+/* output types */
+.output-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem}
+.oc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.6rem;text-align:center;transition:all .25s;cursor:default}
+.oc:hover{border-color:var(--ac);transform:translateY(-3px)}
+.oc-icon{font-size:2rem;margin-bottom:.8rem;display:block}
+.oc-name{font-family:var(--fn-head);font-size:.92rem;font-weight:700;color:var(--t1);margin-bottom:.3rem}
+.oc-desc{font-family:var(--fn-body);font-size:.75rem;color:var(--t2);line-height:1.5}
+/* ai tools strip */
+.ai-strip{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+.ai-tag{font-family:var(--fn-mono);font-size:.68rem;color:var(--ac);background:rgba(var(--ac-rgb),.1);border:1px solid rgba(var(--ac-rgb),.25);padding:.28rem .75rem;border-radius:100px;display:flex;align-items:center;gap:.4rem}
+.ai-tag::before{content:'✦';font-size:.5rem}
+/* module list */
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.mc{background:var(--card);padding:1.8rem;transition:background .2s;cursor:default}.mc:hover{background:var(--card-h)}
+.mc-num{font-family:var(--fn-head);font-size:2.5rem;font-weight:900;color:rgba(var(--ac-rgb),.1);line-height:1;margin-bottom:.4rem;display:block}
+.mc-name{font-family:var(--fn-head);font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:.5rem}
+.mc-desc{font-family:var(--fn-body);font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:.8rem}
+.pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-family:var(--fn-mono);font-size:.6rem;color:var(--t3);background:rgba(255,255,255,.03);border:1px solid var(--border);padding:.18rem .5rem;border-radius:3px;transition:color .2s,border-color .2s}.mc:hover .pill{color:var(--ac);border-color:rgba(var(--ac-rgb),.25)}
+/* project grid */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:all .25s;cursor:default;position:relative;overflow:hidden}.pc:hover{border-color:var(--ac);transform:translateY(-3px)}
+.pc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ac);transform:scaleX(0);transition:transform .35s}.pc:hover::before{transform:scaleX(1)}
+.pc-num{font-family:var(--fn-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:.7rem;display:block}
+.pc-name{font-family:var(--fn-head);font-size:.98rem;font-weight:700;color:var(--t1);margin-bottom:.5rem;line-height:1.3}
+.pc-desc{font-family:var(--fn-body);font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:1rem}
+.pc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.pc-tag{font-family:var(--fn-mono);font-size:.6rem;color:var(--ac);background:rgba(var(--ac-rgb),.1);border:1px solid rgba(var(--ac-rgb),.25);padding:.18rem .5rem;border-radius:3px}
+.c-cta{text-align:center;padding:clamp(4rem,8vw,6rem) clamp(1.5rem,7vw,7rem);background:var(--surface);border-top:1px solid var(--border);position:relative;overflow:hidden}
+.c-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 60% at 50% 100%,rgba(var(--ac-rgb),.06) 0%,transparent 70%)}
+.cta-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fn-mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);background:rgba(var(--ac-rgb),.1);border:1px solid rgba(var(--ac-rgb),.25);padding:.35rem 1rem;border-radius:100px;margin-bottom:1.8rem}
+.cta-dot{width:5px;height:5px;border-radius:50%;background:var(--ac);animation:pd 2s ease-in-out infinite}
+@keyframes pd{0%,100%{transform:scale(1)}50%{transform:scale(1.6);opacity:.5}}
+.c-cta h2{font-family:var(--fn-head)!important;font-size:clamp(2rem,4.5vw,3.2rem)!important;font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;margin:0 auto 1rem!important;max-width:22ch;line-height:1.08!important;position:relative;z-index:1}.c-cta h2 em{font-style:italic;color:var(--ac)}
+.c-cta p{font-family:var(--fn-body);font-size:1rem;color:var(--t2);max-width:46ch;margin:0 auto 2.5rem;line-height:1.7;position:relative;z-index:1}
+.cta-btns{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;position:relative;z-index:1}
+@media(max-width:640px){.c-hero{padding:4rem 1.5rem 2.5rem}.s{padding:3rem 1.5rem}}
+</style>
+
+<div class="page">
+<section class="c-hero">
+  <div class="c-kicker">Track 07 · Publishing &amp; AI</div>
+  <h1 class="c-h1">Quarto<br>+ <span class="hi">AI</span>:<br><span class="it">Publish anything.</span></h1>
+  <p class="c-desc">Build stunning websites, data-rich reports, interactive slide decks, and professional blogs — all from code. Then supercharge every step with AI tools. The modern way to publish technical and creative work online.</p>
+  <div class="c-meta">
+    <span class="c-chip">⏱ Duration <b>4 Weeks</b></span>
+    <span class="c-chip">👥 Level <b>All Levels</b></span>
+    <span class="c-chip">🌐 Outcome <b>Live Website</b></span>
+    <span class="c-chip">🔑 Prereq <b>Git &amp; GitHub</b></span>
+  </div>
+  <div class="c-hero-btns">
+    <a href="/contact.qmd" class="btn-ac">Enroll Now →</a>
+    <a href="#curriculum" class="btn-ghost">View Curriculum</a>
+  </div>
+</section>
+
+<!-- What you can build -->
+<section class="s-alt">
+  <div class="s">
+    <div class="s-lbl">One Tool, Many Outputs</div>
+    <h2 class="s-title">One source file.<br><em>Every format.</em></h2>
+    <p class="s-desc">Quarto takes a single .qmd file and renders it into any output format you need — no reformatting, no copy-pasting.</p>
+    <div class="output-grid">
+      <div class="oc"><span class="oc-icon">🌐</span><div class="oc-name">Websites</div><div class="oc-desc">Multi-page sites with navigation, search, and custom themes</div></div>
+      <div class="oc"><span class="oc-icon">📝</span><div class="oc-name">Blogs</div><div class="oc-desc">Post-based blogs with tags, RSS, and comments integration</div></div>
+      <div class="oc"><span class="oc-icon">📊</span><div class="oc-name">Reports</div><div class="oc-desc">HTML &amp; PDF reports with embedded live code and charts</div></div>
+      <div class="oc"><span class="oc-icon">🎞️</span><div class="oc-name">Slide Decks</div><div class="oc-desc">Revealjs presentations with animations and speaker notes</div></div>
+      <div class="oc"><span class="oc-icon">📚</span><div class="oc-name">Books</div><div class="oc-desc">Multi-chapter books with cross-references and bibliography</div></div>
+      <div class="oc"><span class="oc-icon">🗂️</span><div class="oc-name">Dashboards</div><div class="oc-desc">Observable JS and Python-powered interactive data dashboards</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI Tools -->
+<div class="s">
+  <div class="s-lbl">AI-Powered Workflow</div>
+  <h2 class="s-title">Build websites with<br><em>AI at every step.</em></h2>
+  <p class="s-desc">You'll learn to use AI tools not as a crutch, but as a force multiplier — generating content structures, writing CSS themes, producing code blocks, and deploying faster than ever before.</p>
+  <div class="ai-strip">
+    <span class="ai-tag">Claude for content drafting</span>
+    <span class="ai-tag">ChatGPT for code generation</span>
+    <span class="ai-tag">GitHub Copilot in VS Code</span>
+    <span class="ai-tag">AI-generated custom CSS themes</span>
+    <span class="ai-tag">Automated chart descriptions</span>
+    <span class="ai-tag">AI-assisted SEO metadata</span>
+    <span class="ai-tag">Prompt engineering for docs</span>
+    <span class="ai-tag">AI image generation for assets</span>
+  </div>
+</div>
+
+<!-- Curriculum -->
+<section class="s-alt">
+  <div class="s" id="curriculum">
+    <div class="s-lbl">Curriculum</div>
+    <h2 class="s-title">4 Weeks to a <em>Live Website</em></h2>
+    <p class="s-desc">Compact and project-driven. By end of week one you'll have something published online. By week four it'll be something you're proud to share.</p>
+    <div class="mgrid">
+      <div class="mc"><span class="mc-num">01</span><div class="mc-name">Quarto Foundations</div><div class="mc-desc">Install Quarto, write your first .qmd document, understand YAML front matter, and render to HTML and PDF.</div><div class="pills"><span class="pill">YAML front matter</span><span class="pill">Markdown</span><span class="pill">Code chunks</span><span class="pill">Render pipeline</span></div></div>
+      <div class="mc"><span class="mc-num">02</span><div class="mc-name">Websites &amp; Navigation</div><div class="mc-desc">Multi-page Quarto websites with _quarto.yml, navigation bars, sidebars, footers, and search.</div><div class="pills"><span class="pill">_quarto.yml</span><span class="pill">Navbar config</span><span class="pill">Sidebar</span><span class="pill">Search</span></div></div>
+      <div class="mc"><span class="mc-num">03</span><div class="mc-name">Styling with CSS &amp; AI</div><div class="mc-desc">Custom themes using Sass variables, write your own CSS, use AI to generate theme variants, and brand your site consistently.</div><div class="pills"><span class="pill">Custom CSS</span><span class="pill">Sass variables</span><span class="pill">AI theming</span><span class="pill">Dark mode</span></div></div>
+      <div class="mc"><span class="mc-num">04</span><div class="mc-name">Dynamic Content</div><div class="mc-desc">Embed live Python/R charts, Observable JS visualisations, and interactive widgets directly in your pages.</div><div class="pills"><span class="pill">Observable JS</span><span class="pill">Plotly</span><span class="pill">Interactive tables</span><span class="pill">Params</span></div></div>
+      <div class="mc"><span class="mc-num">05</span><div class="mc-name">Blogs &amp; Reports</div><div class="mc-desc">Set up a post-based blog with listings, tags, dates, and RSS. Generate reproducible PDF reports with citations.</div><div class="pills"><span class="pill">Blog listings</span><span class="pill">Tags</span><span class="pill">RSS feed</span><span class="pill">Citations</span></div></div>
+      <div class="mc"><span class="mc-num">06</span><div class="mc-name">Slide Decks with Revealjs</div><div class="mc-desc">Create stunning presentation slides from .qmd — transitions, speaker notes, code highlighting, and PDF export.</div><div class="pills"><span class="pill">Revealjs</span><span class="pill">Transitions</span><span class="pill">Speaker notes</span><span class="pill">PDF export</span></div></div>
+      <div class="mc"><span class="mc-num">07</span><div class="mc-name">AI-Assisted Content Creation</div><div class="mc-desc">Use Claude and ChatGPT to generate page structures, write and refine copy, create code examples, and accelerate your workflow.</div><div class="pills"><span class="pill">Prompt engineering</span><span class="pill">Content generation</span><span class="pill">Code gen</span><span class="pill">Editing</span></div></div>
+      <div class="mc"><span class="mc-num">08</span><div class="mc-name">Deploy to GitHub Pages</div><div class="mc-desc">Set up GitHub Actions to auto-build and deploy your Quarto site on every push. Custom domain setup with Route 53 / Namecheap.</div><div class="pills"><span class="pill">GitHub Actions</span><span class="pill">gh-pages</span><span class="pill">Custom domain</span><span class="pill">CI/CD</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<div class="s">
+  <div class="s-lbl">Projects</div>
+  <h2 class="s-title">Four Things You'll <em>Publish Live</em></h2>
+  <p class="s-desc">Everything goes on the internet by the end of the session. No screenshots — real, accessible URLs.</p>
+  <div class="proj-grid">
+    <div class="pc"><span class="pc-num">Project 01</span><div class="pc-name">Personal Portfolio Site</div><div class="pc-desc">A multi-page Quarto website showcasing your projects, skills, and CV — custom themed with CSS, deployed on GitHub Pages.</div><div class="pc-tags"><span class="pc-tag">Quarto</span><span class="pc-tag">CSS</span><span class="pc-tag">GitHub Pages</span></div></div>
+    <div class="pc"><span class="pc-num">Project 02</span><div class="pc-name">Technical Blog</div><div class="pc-desc">A fully functional blog with 3+ posts, tag system, RSS feed, and an AI-assisted content workflow — published and indexed by Google.</div><div class="pc-tags"><span class="pc-tag">Blog</span><span class="pc-tag">RSS</span><span class="pc-tag">AI content</span></div></div>
+    <div class="pc"><span class="pc-num">Project 03</span><div class="pc-name">Data Report with Live Charts</div><div class="pc-desc">An HTML report with embedded Python visualisations, a summary table, and auto-generated AI commentary on your findings.</div><div class="pc-tags"><span class="pc-tag">Python</span><span class="pc-tag">Plotly</span><span class="pc-tag">AI commentary</span></div></div>
+    <div class="pc"><span class="pc-num">Project 04</span><div class="pc-name">Revealjs Presentation</div><div class="pc-desc">A branded, animated slide deck for any topic — with code highlighting, progressive reveals, speaker notes, and a live URL to share.</div><div class="pc-tags"><span class="pc-tag">Revealjs</span><span class="pc-tag">Animations</span><span class="pc-tag">Live URL</span></div></div>
+  </div>
+</div>
+
+<section class="c-cta">
+  <div class="cta-badge"><span class="cta-dot"></span>Track 07 · Open</div>
+  <h2>Your work deserves<br>to be <em>seen.</em></h2>
+  <p>Quarto + AI is the fastest way to go from idea to published, polished, professional content online. Build your first site this week.</p>
+  <div class="cta-btns">
+    <a href="/contact.qmd" class="btn-ac">Start Publishing →</a>
+    <a href="learn.qmd" class="btn-ghost">← All Courses</a>
+  </div>
+</section>
+</div>
+```

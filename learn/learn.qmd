@@ -1,0 +1,425 @@
+---
+title: "Learn"
+format:
+  html:
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+page-layout: full
+---
+
+```{=html}
+<style>
+:root {
+  --bg:       #07070b;
+  --surface:  #0e0e14;
+  --card:     #13131a;
+  --card-h:   #18181f;
+  --border:   rgba(255,255,255,0.07);
+  --border-h: rgba(255,255,255,0.14);
+  --t1: #f0eee8;
+  --t2: #8a8a9a;
+  --t3: #45454f;
+  --fn-head: 'Outfit', sans-serif;
+  --fn-body: 'Instrument Sans', sans-serif;
+  --fn-mono: 'JetBrains Mono', monospace;
+  --r: 12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg)!important;font-family:var(--fn-body);color:var(--t1)}
+#quarto-content{padding:0!important;max-width:100%!important}
+nav.navbar,footer,.quarto-title-banner{display:none!important}
+a{text-decoration:none}
+
+/* PAGE */
+.hub-page{position:relative;overflow-x:hidden}
+
+/* ── HERO ── */
+.hub-hero{
+  min-height:60vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(5rem,10vw,8rem) clamp(1.5rem,7vw,7rem) clamp(3rem,5vw,4rem);
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(120,80,255,.07) 0%,transparent 70%),var(--bg);
+}
+.hub-hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,black 0%,transparent 100%);
+}
+.hub-kicker{
+  font-family:var(--fn-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:#7c6ff7;margin-bottom:1.4rem;display:flex;align-items:center;gap:.6rem;
+}
+.hub-kicker::before{content:'';width:24px;height:1.5px;background:#7c6ff7}
+.hub-h1{
+  font-family:var(--fn-head)!important;font-size:clamp(3rem,7vw,6rem)!important;
+  font-weight:900!important;line-height:.97!important;color:var(--t1)!important;
+  letter-spacing:-.03em;margin-bottom:.4em!important;max-width:18ch;
+}
+.hub-h1 em{font-style:italic;color:#7c6ff7}
+.hub-desc{
+  font-family:var(--fn-body);font-size:clamp(1rem,1.6vw,1.1rem);font-weight:400;
+  color:var(--t2);line-height:1.72;max-width:54ch;margin-bottom:0;
+}
+
+/* ── COURSE GRID ── */
+.courses-wrap{
+  padding:clamp(3rem,6vw,5rem) clamp(1.5rem,7vw,7rem);
+  max-width:1400px;margin:0 auto;
+}
+
+/* common-for-all badge row */
+.common-row{
+  display:flex;align-items:center;gap:.8rem;margin-bottom:3rem;
+  padding:1.2rem 1.6rem;
+  background:rgba(120,80,255,.06);
+  border:1px solid rgba(120,80,255,.18);
+  border-radius:var(--r);
+  flex-wrap:wrap;
+}
+.common-lbl{
+  font-family:var(--fn-mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#7c6ff7;white-space:nowrap;
+}
+.common-divider{height:1px;flex:1;background:rgba(120,80,255,.15);min-width:16px}
+.common-pill{
+  font-family:var(--fn-mono);font-size:.68rem;
+  color:var(--t2);background:rgba(255,255,255,.04);
+  border:1px solid var(--border);padding:.28rem .75rem;border-radius:100px;
+  white-space:nowrap;
+}
+
+/* section header */
+.sec-head{margin-bottom:2rem}
+.sec-lbl{
+  font-family:var(--fn-mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:.6rem;
+}
+.sec-title{
+  font-family:var(--fn-head);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;
+  color:var(--t1);letter-spacing:-.02em;
+}
+
+/* grid */
+.course-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.2rem;margin-bottom:3.5rem;
+}
+.course-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:2rem;position:relative;overflow:hidden;
+  transition:border-color .25s,transform .25s,box-shadow .25s;
+  cursor:pointer;
+  opacity:0;animation:cIn .5s ease forwards;
+  display:block;color:inherit;
+}
+.course-card:hover{
+  border-color:var(--cc-color);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
+}
+.course-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--cc-color);
+  transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
+}
+.course-card:hover::before{transform:scaleX(1)}
+.course-card::after{
+  content:attr(data-short);
+  position:absolute;bottom:-12px;right:6px;
+  font-family:var(--fn-head);font-size:5rem;font-weight:900;
+  color:rgba(255,255,255,.03);line-height:1;
+  user-select:none;pointer-events:none;letter-spacing:-.04em;
+}
+
+@keyframes cIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.course-card:nth-child(1){animation-delay:.05s}.course-card:nth-child(2){animation-delay:.1s}
+.course-card:nth-child(3){animation-delay:.15s}.course-card:nth-child(4){animation-delay:.2s}
+.course-card:nth-child(5){animation-delay:.25s}.course-card:nth-child(6){animation-delay:.3s}
+.course-card:nth-child(7){animation-delay:.35s}.course-card:nth-child(8){animation-delay:.4s}
+
+.cc-icon{
+  width:46px;height:46px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  margin-bottom:1.3rem;transition:border-color .25s,background .25s;
+}
+.course-card:hover .cc-icon{background:rgba(255,255,255,.07);border-color:var(--cc-color)}
+.cc-track{
+  font-family:var(--fn-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cc-color);margin-bottom:.35rem;display:block;
+}
+.cc-name{
+  font-family:var(--fn-head);font-size:1.15rem;font-weight:700;
+  color:var(--t1);margin-bottom:.6rem;line-height:1.25;
+}
+.cc-desc{
+  font-family:var(--fn-body);font-size:.83rem;font-weight:400;
+  color:var(--t2);line-height:1.65;margin-bottom:1.4rem;
+}
+.cc-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:.9rem;border-top:1px solid var(--border);
+}
+.cc-dur{font-family:var(--fn-mono);font-size:.6rem;color:var(--t3);letter-spacing:.08em}
+.cc-badge{
+  font-family:var(--fn-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.2rem .6rem;border-radius:100px;
+  background:color-mix(in srgb,var(--cc-color) 12%,transparent);
+  border:1px solid color-mix(in srgb,var(--cc-color) 30%,transparent);
+  color:var(--cc-color);
+}
+.cc-arrow{
+  margin-left:auto;margin-right:0;
+  font-family:var(--fn-mono);font-size:.75rem;
+  color:var(--t3);transition:color .2s,transform .2s;
+}
+.course-card:hover .cc-arrow{color:var(--cc-color);transform:translateX(4px)}
+
+/* common card highlight */
+.course-card.is-common{
+  border-color:rgba(120,80,255,.2);
+}
+
+/* ── CTA ── */
+.hub-cta{
+  background:var(--surface);border-top:1px solid var(--border);
+  padding:clamp(4rem,8vw,6rem) clamp(1.5rem,7vw,7rem);
+  text-align:center;position:relative;overflow:hidden;
+}
+.hub-cta::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 80% at 50% 100%,rgba(120,80,255,.06) 0%,transparent 70%);
+}
+.hub-cta-kicker{
+  font-family:var(--fn-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  color:#7c6ff7;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem;
+}
+.cta-dot{width:6px;height:6px;border-radius:50%;background:#7c6ff7;animation:pd 2s ease-in-out infinite}
+@keyframes pd{0%,100%{transform:scale(1)}50%{transform:scale(1.5);opacity:.6}}
+.hub-cta h2{
+  font-family:var(--fn-head)!important;font-size:clamp(2rem,4.5vw,3.5rem)!important;
+  font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;
+  margin:0 auto 1rem!important;max-width:22ch;line-height:1.08!important;
+}
+.hub-cta h2 em{font-style:italic;color:#7c6ff7}
+.hub-cta-desc{
+  font-family:var(--fn-body);font-size:1rem;color:var(--t2);
+  max-width:48ch;margin:0 auto 2.5rem;line-height:1.7;
+  position:relative;z-index:1;
+}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;position:relative;z-index:1}
+.btn-main{
+  font-family:var(--fn-head);font-weight:700;font-size:.9rem;letter-spacing:.03em;
+  color:var(--bg)!important;background:#7c6ff7;
+  padding:.95rem 2.4rem;border-radius:6px;
+  transition:all .22s ease;box-shadow:0 4px 24px rgba(124,111,247,.35);
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-main:hover{background:#9d93f9;box-shadow:0 6px 36px rgba(124,111,247,.5);transform:translateY(-2px)}
+.btn-ghost{
+  font-family:var(--fn-head);font-weight:600;font-size:.9rem;
+  color:var(--t2)!important;background:transparent;
+  padding:.95rem 2rem;border-radius:6px;border:1px solid var(--border-h);
+  transition:all .22s ease;
+}
+.btn-ghost:hover{border-color:#7c6ff7;color:var(--t1)!important}
+</style>
+
+<div class="hub-page">
+
+<!-- HERO -->
+<section class="hub-hero">
+  <div class="hub-kicker">Learn · Skill Up · Build</div>
+  <h1 class="hub-h1">Every course<br>you need to<br><em>go pro.</em></h1>
+  <p class="hub-desc">
+    From your first variable to production cloud deployments — structured,
+    project-driven training in programming languages, DSA, web development,
+    cloud technology, networking, and publishing. Each course is independent
+    and purpose-built.
+  </p>
+</section>
+
+<div class="courses-wrap">
+
+  <!-- Common for all -->
+  <div class="common-row">
+    <span class="common-lbl">🔁 Mandatory for all students</span>
+    <div class="common-divider"></div>
+    <span class="common-pill">Git &amp; GitHub</span>
+    <span class="common-pill">Starts Week 1</span>
+    <span class="common-pill">Prerequisite to every other track</span>
+  </div>
+
+  <!-- Common Course -->
+  <div class="sec-head">
+    <div class="sec-lbl">Foundation · Required</div>
+    <div class="sec-title">Common for Every Student</div>
+  </div>
+  <div class="course-grid" style="margin-bottom:4rem">
+    <a href="git-github.qmd" class="course-card is-common" style="--cc-color:#f97316" data-short="Git">
+      <div class="cc-icon">🔀</div>
+      <span class="cc-track">Common Track · Foundation</span>
+      <div class="cc-name">Git &amp; GitHub</div>
+      <div class="cc-desc">Version control is non-negotiable. Learn Git from init to collaborative workflows — branching, merging, PRs, and GitHub Actions basics. Required before any other course.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 2 weeks</span>
+        <span class="cc-badge">All Levels</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Programming -->
+  <div class="sec-head">
+    <div class="sec-lbl">Track 01–03 · Programming Languages</div>
+    <div class="sec-title">Core Programming Languages</div>
+  </div>
+  <div class="course-grid">
+
+    <a href="c-programming.qmd" class="course-card" style="--cc-color:#0ea5e9" data-short="C">
+      <div class="cc-icon">🖥️</div>
+      <span class="cc-track">Track 01 · Systems</span>
+      <div class="cc-name">C Programming</div>
+      <div class="cc-desc">The language closest to the machine. Master pointers, memory management, and system-level thinking — the foundation every programmer needs.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 8 weeks</span>
+        <span class="cc-badge">Beginner</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="cpp.qmd" class="course-card" style="--cc-color:#a855f7" data-short="C++">
+      <div class="cc-icon">⚡</div>
+      <span class="cc-track">Track 02 · OOP</span>
+      <div class="cc-name">C++ Programming</div>
+      <div class="cc-desc">Object-oriented design, templates, STL, and performance-critical code. The language of competitive programming and game/systems engineering.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 10 weeks</span>
+        <span class="cc-badge">Intermediate</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="python.qmd" class="course-card" style="--cc-color:#f59e0b" data-short="Py">
+      <div class="cc-icon">🐍</div>
+      <span class="cc-track">Track 03 · Python</span>
+      <div class="cc-name">Python</div>
+      <div class="cc-desc">From scripting to AI/ML. Clean, expressive Python covering automation, data manipulation, visualisation, and your first machine learning pipelines.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 10 weeks</span>
+        <span class="cc-badge">Beginner → Advanced</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- DSA + Networks -->
+  <div class="sec-head">
+    <div class="sec-lbl">Track 04–05 · CS Fundamentals</div>
+    <div class="sec-title">Computer Science Essentials</div>
+  </div>
+  <div class="course-grid">
+
+    <a href="dsa.qmd" class="course-card" style="--cc-color:#ef4444" data-short="DSA">
+      <div class="cc-icon">🧩</div>
+      <span class="cc-track">Track 04 · Algorithms</span>
+      <div class="cc-name">Data Structures &amp; Algorithms</div>
+      <div class="cc-desc">100+ problems from arrays to dynamic programming. Crack technical interviews and develop the algorithmic intuition that separates good programmers from great ones.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 12 weeks</span>
+        <span class="cc-badge">Intermediate</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="computer-networks.qmd" class="course-card" style="--cc-color:#14b8a6" data-short="CN">
+      <div class="cc-icon">🌐</div>
+      <span class="cc-track">Track 05 · Networking</span>
+      <div class="cc-name">Computer Networks</div>
+      <div class="cc-desc">How the internet actually works. TCP/IP, DNS, HTTP, subnetting, sockets, and protocols — essential knowledge for developers, sysadmins, and cloud engineers.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 8 weeks</span>
+        <span class="cc-badge">All Levels</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Web + Quarto + Cloud + Linux -->
+  <div class="sec-head">
+    <div class="sec-lbl">Track 06–08 · Development &amp; Infrastructure</div>
+    <div class="sec-title">Build &amp; Deploy</div>
+  </div>
+  <div class="course-grid">
+
+    <a href="webdev.qmd" class="course-card" style="--cc-color:#10b981" data-short="Web">
+      <div class="cc-icon">🖱️</div>
+      <span class="cc-track">Track 06 · Frontend</span>
+      <div class="cc-name">Web Development</div>
+      <div class="cc-desc">HTML, CSS, and JavaScript from scratch. Build responsive, accessible, modern websites with real UI/UX design sense — and ship them live.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 8 weeks</span>
+        <span class="cc-badge">Beginner</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="quarto-ai.qmd" class="course-card" style="--cc-color:#ec4899" data-short="Qto">
+      <div class="cc-icon">✨</div>
+      <span class="cc-track">Track 07 · Publishing &amp; AI</span>
+      <div class="cc-name">Quarto + AI Websites</div>
+      <div class="cc-desc">Build beautiful websites, blogs, reports and slide decks with Quarto — and supercharge them with AI tools. The modern way to publish technical and creative work.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 4 weeks</span>
+        <span class="cc-badge">All Levels</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="cloud.qmd" class="course-card" style="--cc-color:#22d3ee" data-short="AWS">
+      <div class="cc-icon">☁️</div>
+      <span class="cc-track">Track 08 · Cloud</span>
+      <div class="cc-name">AWS Cloud &amp; Docker</div>
+      <div class="cc-desc">From cloud fundamentals to containerised deployments on AWS. EC2, S3, VPC, Docker, Lambda — everything you need to deploy production applications.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 10 weeks</span>
+        <span class="cc-badge">Intermediate</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="linux.qmd" class="course-card" style="--cc-color:#22c55e" data-short="LNX">
+      <div class="cc-icon">🐧</div>
+      <span class="cc-track">Track 09 · Systems Admin</span>
+      <div class="cc-name">Linux &amp; RHEL Administration</div>
+      <div class="cc-desc">Master the command line, systemd, LVM, SELinux, and firewalld. Structured around the RHCSA exam — the industry standard for Linux administrators.</div>
+      <div class="cc-footer">
+        <span class="cc-dur">⏱ 10 weeks</span>
+        <span class="cc-badge">Beginner → Advanced</span>
+        <span class="cc-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="hub-cta">
+  <div class="hub-cta-kicker"><span class="cta-dot"></span>All Courses Available Now</div>
+  <h2>Not sure where<br>to <em>start?</em></h2>
+  <p class="hub-cta-desc">Every journey starts with Git &amp; GitHub. After that, we'll map out the right track for your goals — whether that's systems programming, cloud, or AI.</p>
+  <div class="cta-row">
+    <a href="/contact.qmd" class="btn-main">Book a Free Consultation</a>
+    <a href="/contact.qmd" class="btn-ghost">Browse All Schedules</a>
+  </div>
+</section>
+
+</div>
+```

@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Akademiyaa"
+  search: true
+  description: "Freelancing & Learning"
+  site-url: "https://akademiyaa.github.io/"
+  repo-url: "https://github.com/akademiyaa/akademiyaa.github.io"
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: false
+    page-layout: full
+    link-external-newwindow: true
+    theme-toggle: false
+    include-in-header: 
+      text: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">'
+    include-before-body: header.html
+    include-after-body: footer.html
+
+execute:
+  freeze: auto
+
+editor: visual

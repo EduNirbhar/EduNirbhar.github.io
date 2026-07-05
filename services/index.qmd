@@ -1,0 +1,421 @@
+---
+title: ""
+format:
+  html:
+    page-layout: full
+---
+
+
+```{=html}
+<!-- ============================================================
+     HERO — Unified for both pillars
+============================================================ -->
+<section class="hero-section content-section">
+  <h1 class="hero-title">
+        Expert support &<br> <em>Elegant websites</em> <br> for Academicians
+  </h1>
+  <p class="hero-subtitle">
+    Specialized remote support and modern web development for <strong>University faculty</strong>
+    and <strong>Researchers</strong>—tuned to the actual rhythm of academic life. Less overhead,
+    fewer clunky templates, and more of the deep work that moves your field forward.
+  </p>
+
+</section>
+
+
+<!-- ============================================================
+     STATS BAR
+============================================================ -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number">2.5+</div>
+    <div class="stat-label">Years in Remote Services</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">50+</div>
+    <div class="stat-label">Projects Completed</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Remote &amp; Async</div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     TRUST BANNER
+============================================================ -->
+<div class="trust-banner">
+  <h3 class="trust-eyebrow">Trusted by researchers and faculty at</h3>
+  
+  <div class="trust-logo-strip">
+    <div class="trust-logos-inner">
+      <img src="/images/tamu-logo.png" alt="Texas A&M University" class="trust-logo_1">
+      <img src="/images/bits-logo.webp" alt="BITS-Pilani Hyderabad" class="trust-logo">
+      <img src="/images/iit-logo.png" alt="IIT Dhanbad" class="trust-logo">
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ============================================================
+     TWO PILLARS — Overview
+============================================================ -->
+<section id="pillars" class="content-section">
+  <h2 class="section-hero-title">One Platform • Two Solutions</h2>
+  <p class="section-body">
+    Whether you need someone to lift the everyday demands of academic life, or a modern website that puts your work front and centre — both are held to the same standard: careful work, honest communication, and the same deep-focus attention your research deserves
+  </p>
+
+  <div class="overview-grid">
+  <div class="tier-card" data-num="01">
+    <div class="tier-top">
+      <div class="tier-icon">🧩</div>
+      <div class="tier-name">Remote Assistance</div>
+    </div>
+    <div class="tier-body">
+      <p class="tier-desc">
+        Async, specialized support synchronized with the rhythm of academic life—grant cycles,
+        submission windows, and competing priorities—so you can focus on high-impact work.
+      </p>
+      <a href="#assistance" class="tier-cta">Click Here to Know More →</a>
+    </div>
+  </div>
+
+  <div class="tier-card" data-num="02">
+    <div class="tier-top">
+      <div class="tier-icon">🌐</div>
+      <div class="tier-name">Web Development</div>
+    </div>
+    <div class="tier-body">
+      <p class="tier-desc">
+        Modern, frictionless websites that replace clunky templates—engineered with precision
+        and backed by clean, maintainable code.
+      </p>
+      <a href="#webdev" class="tier-cta">Explore Web Dev →</a>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+<!-- ============================================================
+      REMOTE ASSISTANCE
+============================================================ -->
+
+<section id="assistance" class="content-section">
+  <h2 class="section-title">Services Built for Academicians</h2>
+  <p class="section-body">
+    From looming grant cycles to tight submission windows, I help you navigate competing priorities
+    so you can focus on the work that matters.
+  </p>
+  <div class="section-divider"></div>
+</section>
+
+<div class="grid service-grid">
+
+  <div class="service-col">
+    <div class="service-card">
+      <div class="service-card-top">
+          <div class="service-card-header">
+            <div class="service-icon-wrap">📄</div>
+            <h3>Documentation &amp; Formatting</h3>
+          </div>
+      </div>
+      <div class="service-card-bottom">
+          <p>Meticulous precision across every document type—from complex manuscript formatting and grant proposals to structured journal rebuttals and technical reports. Every project is refined to meet your exact style guidelines, guaranteed.</p>
+          <div class="service-tags-container">
+            <span class="service-tag">LaTeX</span>
+            <span class="service-tag">MS-Office</span>
+            <span class="service-tag">Google Workspace with AI</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-col">
+    <div class="service-card">
+      <div class="service-card-top">
+          <div class="service-card-header">
+            <div class="service-icon-wrap-1">💻</div>
+            <h3>Research Coding</h3>
+          </div>
+      </div>
+      <div class="service-card-bottom">
+          <p>Spend less time debugging and more time discovering. I use AI-driven workflows to script analysis pipelines and build statistical models that are clean, documented, and ready for publication.</p>
+          <div class="service-tags-container">
+            <span class="service-tag">Python / Quarto</span>
+            <span class="service-tag">Data Pipelines</span>
+            <span class="service-tag">AI-Automation</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-col">
+    <div class="service-card">
+      <div class="service-card-top">
+          <div class="service-card-header">
+            <div class="service-icon-wrap">🎨</div>
+            <h3>Academic Design</h3>
+          </div>
+      </div>
+      <div class="service-card-bottom">
+          <p>Turn your raw data into clear visual stories. Whether you need the mathematical precision of LaTeX Beamer, the versatility of PowerPoint, or the creative speed of AI-driven design, I deliver high-quality figures and slides ready for your next defense.</p>
+          <div class="service-tags-container">
+            <span class="service-tag">Figures &amp; Charts</span>
+            <span class="service-tag">Conference Slides</span>
+            <span class="service-tag">Infographics</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-col">
+    <div class="service-card">
+      <div class="service-card-top">
+          <div class="service-card-header">
+            <div class="service-icon-wrap-1">⚙️</div>
+            <h3>Workflow &amp; Admin</h3>
+          </div>
+      </div>
+      <div class="service-card-bottom">
+          <p>Stop managing logistics and start managing your lab. I organize your digital workspace, handle the friction of scheduling, and implement collaboration tools that keep your projects on track—giving you the headspace to focus on high-impact work.</p>
+          <div class="service-tags-container">
+            <span class="service-tag">Calendar Management</span>
+            <span class="service-tag">Notion / Obsidian</span>
+            <span class="service-tag">Lab Coordination</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<section id="webdev" class="content-section">
+  <div class="section-label">Web Development</div>
+  <h2 class="section-title">Websites That Work as Hard as You Do</h2>
+  <p class="section-body">
+    Stop fighting with outdated university templates and clunky WordPress themes.
+    Whether you're one researcher building a personal presence, a lab recruiting its
+    next cohort, or a department launching its next conference — I build modern,
+    frictionless websites that put the work front and centre.
+  </p>
+  <div class="section-divider"></div>
+
+
+  <div class="wd-showcase">
+    <div class="enrollment-badge">
+      <span class="blink-dot"></span> Live Websites
+    </div>
+
+    <div class="hero-carousel-container">
+      <div class="hero-carousel" id="heroCarousel">
+
+        <div class="hero-carousel-card">
+          <div class="carousel-preview">
+            <div class="mini-browser-bar">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            </div>
+            <div class="preview-image-container">
+              <img src="/images/Livesite_2.png" alt="Academic portfolio site" class="carousel-screenshot">
+            </div>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-info-text">
+              <span class="carousel-tag tag-portfolio">Portfolio</span>
+              <h4>Prof. A Chakraborty</h4>
+            </div>
+            <a href="https://amritachakraborty-bitsh.github.io/" target="_blank" rel="noopener" class="carousel-live-btn">Live Site ↗</a>
+          </div>
+        </div>
+
+        <div class="hero-carousel-card">
+          <div class="carousel-preview">
+            <div class="mini-browser-bar">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            </div>
+            <div class="preview-image-container">
+              <img src="/images/Livesite_1.png" alt="Lab website" class="carousel-screenshot">
+            </div>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-info-text">
+              <span class="carousel-tag tag-lab">Lab &amp; Research</span>
+              <h4>D-cubed lab</h4>
+            </div>
+            <a href="https://suparnobhattacharyya.github.io/home.html" target="_blank" rel="noopener" class="carousel-live-btn">Live Site ↗</a>
+          </div>
+        </div>
+
+        <div class="hero-carousel-card">
+          <div class="carousel-preview">
+            <div class="mini-browser-bar">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            </div>
+            <div class="preview-image-container">
+              <img src="/images/Livesite_3.png" alt="Conference website" class="carousel-screenshot">
+            </div>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-info-text">
+              <span class="carousel-tag tag-conference">Summer School</span>
+              <h4>D2MMS-2026</h4>
+            </div>
+            <a href="https://people.iitism.ac.in/~d2mms/index.html" target="_blank" rel="noopener" class="carousel-live-btn">Live Site ↗</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="carousel-controls">
+        <button id="btn-prev" class="carousel-btn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button id="btn-next" class="carousel-btn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const carousel = document.getElementById('heroCarousel');
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const dotsWrap = document.getElementById('carouselDots');
+      if (!carousel) return;
+
+      const cards = carousel.querySelectorAll('.hero-carousel-card');
+      cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', `Go to project ${i + 1}`);
+        dot.addEventListener('click', () => {
+          carousel.scrollTo({ left: i * carousel.clientWidth, behavior: 'smooth' });
+        });
+        dotsWrap.appendChild(dot);
+      });
+      const dots = dotsWrap.querySelectorAll('.carousel-dot');
+
+      function updateActiveDot() {
+        const index = Math.round(carousel.scrollLeft / carousel.clientWidth);
+        dots.forEach((dot, i) => i === index ? dot.setAttribute('aria-current', 'true') : dot.removeAttribute('aria-current'));
+      }
+      function scrollHero(direction) {
+        carousel.scrollBy({ left: direction * carousel.clientWidth, behavior: 'smooth' });
+      }
+      if (btnPrev) btnPrev.addEventListener('click', () => scrollHero(-1));
+      if (btnNext) btnNext.addEventListener('click', () => scrollHero(1));
+      carousel.addEventListener('scroll', () => requestAnimationFrame(updateActiveDot));
+
+      let autoScroll = setInterval(moveCarousel, 60000);
+      function moveCarousel() {
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else { scrollHero(1); }
+      }
+      carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+      carousel.addEventListener('mouseleave', () => autoScroll = setInterval(moveCarousel, 60000));
+      updateActiveDot();
+    });
+  </script>
+</section>
+
+
+
+<section id="tiers" class="content-section">
+  
+  <h2 class="sub-section-title">The Website We Build </h2>
+  
+  <div class="section-divider"></div>
+
+  <div class="tier-grid">
+
+        <div class="tier-card tc-portfolio" data-num="01">
+      <div class="tier-top">
+        <div class="tier-icon">🧑‍💻</div>
+        <div class="tier-name">Portfolio &amp; Personal Site</div>
+        <div class="tier-tagline">For individual researchers &amp; developers</div>
+      </div>
+      <div class="tier-body">
+        <p class="tier-desc">
+          Your first impression online should be as sharp as your CV.
+          A sleek, fast personal site that puts your publications, projects,
+          and credentials front and centre.
+        </p>
+        <ul class="tier-features">
+          <li>Publications, CV &amp; project showcase</li>
+          <li>Interactive data &amp; tool integration</li>
+          <li>Free hosting via GitHub Pages (zero ongoing server costs)</li>
+          <li>Built with quality</li>
+        </ul>
+        <a href="/contact.qmd" class="tier-cta">Get Your Site →</a>
+      </div>
+    </div>
+
+    <div class="tier-card tc-lab" data-num="02">
+      <div class="tier-top">
+        <div class="tier-icon">🔬</div>
+        <div class="tier-name">Lab &amp; Research Group</div>
+        <div class="tier-tagline">For PIs, research groups &amp; core facilities</div>
+      </div>
+      <div class="tier-body">
+        <p class="tier-desc">
+          Your lab is a team, a body of work, and a pipeline of talent you're
+          trying to attract. A multi-page site showcasing your group's people,
+          publications, and ongoing projects.
+        </p>
+        <ul class="tier-features">
+          <li>Team, alumni &amp; collaborator pages</li>
+          <li>"Join us" recruiting page for students &amp; postdocs</li>
+          <li>Grant &amp; funding acknowledgment blocks</li>
+          <li>Free hosting via GitHub Pages (zero ongoing server costs)</li>
+        </ul>
+        <a href="/contact.qmd" class="tier-cta">Build My Lab's Website →</a>
+      </div>
+    </div>
+
+    <div class="tier-card tc-conference" data-num="03">
+      <div class="tier-top">
+        <div class="tier-icon">🎙️</div>
+        <div class="tier-name">Conference &amp; Event Site</div>
+        <div class="tier-tagline">For departments &amp; institutions hosting an event</div>
+      </div>
+      <div class="tier-body">
+        <p class="tier-desc">
+          A dedicated hub attendees actually use — schedule, speakers, and
+          submissions in one place, so your organizing committee stops
+          fielding the same emails on repeat.
+        </p>
+        <ul class="tier-features">
+          <li>Schedule &amp; speaker agenda</li>
+          <li>Abstract / paper submission portal</li>
+          <li>Registration &amp; sponsor showcase</li>
+          <li>Built to handle a traffic spike on launch day</li>
+        </ul>
+        <a href="/contact.qmd" class="tier-cta">Build My Conference Site →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<div class="wd-cta content-section">
+  <h2>One Platform, Whichever You Need</h2>
+  <p>
+    Async support to lift the everyday demands of academic life, or a website built to put
+    your work front and centre — I keep a small client roster so every project gets real
+    attention. Tell me which one fits, and I'll tell you exactly what it takes to get there.
+  </p>
+  <div class="wd-cta-actions">
+    <a href="/contact.qmd" class="btn-primary-wd">Let's Get Started →</a>
+  </div>
+</div>
+
+```
+

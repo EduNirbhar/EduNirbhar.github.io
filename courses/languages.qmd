@@ -1,0 +1,207 @@
+---
+format: html
+page-layout: full
+---
+
+```{=html}
+<style>
+  /* Completely hide Quarto's default title block and top padding */
+  #title-block-header { display: none !important; }
+  main.content { padding-top: 0 !important; margin-top: 0 !important; }
+</style>
+
+<div class="track-page">
+
+  <div class="lang-c">
+    <section class="c-hero">
+      <div class="c-kicker">Track 01 · Systems Programming</div>
+      <h2 class="c-h1">C: <span class="hi">Closest</span><br><span class="it">to the machine.</span></h2>
+      <p>The language that built Unix, Linux, and almost everything underneath modern software. Learn C and you'll understand how computers actually work — memory, pointers, and all.</p>
+      
+      <div class="c-meta">
+        <span class="c-chip">⏱ Duration: <b>6 months</b></span>
+        <span class="c-chip">👥 Level: <b>Beginner → Advance</b></span>
+        <span class="c-chip">📦 Projects <b>4 Builds</b></span>
+        <span class="c-chip">🔑 Includes <b>Git &amp; GitHub</b></span>
+      </div>
+    </section>
+
+    <div class="s" id="curriculum-c">
+      <div class="s-lbl">Curriculum</div>
+      <h2 class="s-title">6 Months, <em>Zero Hand-Holding</em></h2>
+      <p>C doesn't hide things from you — and neither does this course. You'll leave knowing exactly what happens when your code runs.</p>
+      <div class="grid">
+        <div class="gc"><span class="gc-num">01</span><div class="gc-name">C Fundamentals</div><div class="gc-desc">Variables, data types, operators, control flow, and the compilation pipeline from .c to executable.</div><div class="pills"><span class="pill">gcc / clang</span><span class="pill">int/float/char</span><span class="pill">if/for/while</span><span class="pill">scanf/printf</span></div></div>
+        <div class="gc"><span class="gc-num">02</span><div class="gc-name">Functions &amp; Scope</div><div class="gc-desc">Prototypes, pass-by-value, recursion, and understanding the call stack frame by frame.</div><div class="pills"><span class="pill">Prototypes</span><span class="pill">Recursion</span><span class="pill">Stack frames</span><span class="pill">Return values</span></div></div>
+        <div class="gc"><span class="gc-num">03</span><div class="gc-name">Arrays &amp; Strings</div><div class="gc-desc">Arrays as contiguous memory, pointer-array duality, C-strings, and standard string library functions.</div><div class="pills"><span class="pill">Arrays</span><span class="pill">C-strings</span><span class="pill">string.h</span><span class="pill">Pointer arithmetic</span></div></div>
+        <div class="gc"><span class="gc-num">04</span><div class="gc-name">Pointers &amp; Memory</div><div class="gc-desc">The heart of C. Pointer types, dereferencing, pointer-to-pointer, and visualising memory layouts.</div><div class="pills"><span class="pill">* and &amp;</span><span class="pill">Pointer types</span><span class="pill">void*</span><span class="pill">NULL</span></div></div>
+        <div class="gc"><span class="gc-num">05</span><div class="gc-name">Dynamic Memory</div><div class="gc-desc">Heap allocation with malloc/calloc/realloc, freeing memory properly, and detecting memory leaks with Valgrind.</div><div class="pills"><span class="pill">malloc</span><span class="pill">free</span><span class="pill">Valgrind</span><span class="pill">Memory leaks</span></div></div>
+        <div class="gc"><span class="gc-num">06</span><div class="gc-name">Structs &amp; Unions</div><div class="gc-desc">Custom data types, struct padding, typedef, and building simple linked data structures from scratch.</div><div class="pills"><span class="pill">struct</span><span class="pill">union</span><span class="pill">typedef</span><span class="pill">Padding</span></div></div>
+        <div class="gc"><span class="gc-num">07</span><div class="gc-name">File I/O</div><div class="gc-desc">fopen, fread, fwrite, fprintf — reading and writing binary and text files, and error handling with errno.</div><div class="pills"><span class="pill">fopen/fclose</span><span class="pill">Binary files</span><span class="pill">errno</span><span class="pill">fseek</span></div></div>
+        <div class="gc"><span class="gc-num">08</span><div class="gc-name">Data Structures in C</div><div class="gc-desc">Implement linked lists, stacks, queues, and a basic hash table using only C — no libraries, no shortcuts.</div><div class="pills"><span class="pill">Linked List</span><span class="pill">Stack</span><span class="pill">Queue</span><span class="pill">Hash Table</span></div></div>
+      </div>
+    </div>
+
+    <section class="s-alt">
+      <div class="s">
+        <div class="s-lbl">Memory Model</div>
+        <h2 class="s-title">You'll actually understand this.</h2>
+        <p>Most courses skip over memory. This one makes it the centrepiece — because everything else flows from it.</p>
+        <div class="mem-diagram">
+          <div style="color:var(--text-main);opacity:0.6;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem">Stack — grows downward</div>
+          <div class="mem-row"><div class="mem-addr">0x7fff...f0</div><div class="mem-box hi-box">main()</div><div class="mem-label">← current frame</div></div>
+          <div class="mem-row"><div class="mem-addr">0x7fff...d0</div><div class="mem-box">int x = 42</div><div class="mem-label">local variable</div></div>
+          <div class="mem-row"><div class="mem-addr">0x7fff...c8</div><div class="mem-box hi-box">int *p</div><div class="mem-label">← pointer on stack</div></div>
+          <div style="color:var(--text-main);opacity:0.6;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;margin:1.2rem 0 1rem">Heap — grows upward</div>
+          <div class="mem-row"><div class="mem-addr">0x55...1000</div><div class="mem-box hi-box">malloc(100)</div><div class="mem-label">← *p points here</div></div>
+          <div class="mem-row"><div class="mem-addr">0x55...1064</div><div class="mem-box">[free block]</div><div class="mem-label">must call free()</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="s">
+      <div class="s-lbl">Projects</div>
+      <h2 class="s-title">Four Things You'll Build in <em>C</em></h2>
+      <p>No toy programs. Each project solves a real problem and teaches you something you can't learn from reading.</p>
+      <div class="proj-grid">
+        <div class="pc"><span class="pc-num">Project 01</span><div class="pc-name">Custom Shell (mini-bash)</div><div class="pc-desc">Build a minimal Unix shell that reads commands, forks processes, handles pipes and redirects. Real systems programming.</div><div class="pc-tags"><span class="pc-tag">fork/exec</span><span class="pc-tag">pipes</span><span class="pc-tag">signals</span></div></div>
+        <div class="pc"><span class="pc-num">Project 02</span><div class="pc-name">Memory Allocator</div><div class="pc-desc">Implement your own malloc() and free() using sbrk. Handle fragmentation, coalescing, and alignment correctly.</div><div class="pc-tags"><span class="pc-tag">sbrk</span><span class="pc-tag">Heap</span><span class="pc-tag">Fragmentation</span></div></div>
+        <div class="pc"><span class="pc-num">Project 03</span><div class="pc-name">Linked List Library</div><div class="pc-desc">A complete doubly-linked list with insert, delete, search, and iterator — with tests for every function.</div><div class="pc-tags"><span class="pc-tag">Structs</span><span class="pc-tag">Pointers</span><span class="pc-tag">Testing</span></div></div>
+        <div class="pc"><span class="pc-num">Project 04</span><div class="pc-name">File Compression Tool</div><div class="pc-desc">Implement run-length encoding to compress and decompress binary files. Process I/O and bitwise operations.</div><div class="pc-tags"><span class="pc-tag">File I/O</span><span class="pc-tag">Bitwise ops</span><span class="pc-tag">RLE</span></div></div>
+      </div>
+    </div>
+
+    <section class="c-cta">
+      <div class="cta-badge"><span class="blink-dot"></span>Admission Open • Limited Seats</div>
+      <h2>Understand code at the<br><em>deepest level.</em></h2>
+      <p>C makes every other language feel transparent. Once you know C, you know how computing actually works.</p>
+      <div class="cta-btns">
+        <a href="/contact.qmd" class="btn-primary-wd">
+          Enroll Now 
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </div>
+
+
+  <div class="lang-cpp">
+    <section class="c-hero">
+      <div class="c-kicker">Track 02 · Object-Oriented Programming</div>
+      <h2 class="c-h1">C++: <span class="hi">Power<br></span> meets <span class="it">elegance.</span></h2>
+      <p>From C foundations to full OOP mastery. Classes, templates, the STL, and modern C++17/20 features — the language of competitive programming, game engines, and systems that demand performance.</p>
+      
+      <div class="c-meta">
+        <span class="c-chip">⏱ Duration: <b>6 Months</b></span>
+        <span class="c-chip">👥 Level: <b>Beginner → Advance</b></span>
+        <span class="c-chip">📦 Projects <b>4 Builds</b></span>
+        <span class="c-chip">🔑 Includes <b>Git &amp; GitHub</b></span>
+      </div>
+      
+    </section>
+
+    <div class="s" id="curriculum-cpp">
+      <div class="s-lbl">Curriculum</div>
+      <h2 class="s-title">10 Weeks of <em>Modern C++</em></h2>
+      <p>We build on C knowledge and push into OOP, templates, and the full STL — ending with performance patterns used in real production code.</p>
+      <div class="grid">
+        <div class="gc"><span class="gc-num">01</span><div class="gc-name">C → C++ Transition</div><div class="gc-desc">References, inline functions, default arguments, namespaces, and cin/cout. C experience required.</div><div class="pills"><span class="pill">References &amp;</span><span class="pill">Namespaces</span><span class="pill">cout/cin</span><span class="pill">auto keyword</span></div></div>
+        <div class="gc"><span class="gc-num">02</span><div class="gc-name">Classes &amp; Objects</div><div class="gc-desc">Constructors, destructors, member functions, access modifiers, and the this pointer.</div><div class="pills"><span class="pill">class</span><span class="pill">Constructor</span><span class="pill">~Destructor</span><span class="pill">this ptr</span></div></div>
+        <div class="gc"><span class="gc-num">03</span><div class="gc-name">Operator Overloading</div><div class="gc-desc">Overload +, ==, &lt;&lt;, [], and more. Write classes that feel natural and intuitive to use.</div><div class="pills"><span class="pill">operator+</span><span class="pill">operator==</span><span class="pill">friend</span><span class="pill">operator[]</span></div></div>
+        <div class="gc"><span class="gc-num">04</span><div class="gc-name">Inheritance &amp; Polymorphism</div><div class="gc-desc">Base and derived classes, virtual functions, pure virtual, abstract classes, and vtable internals.</div><div class="pills"><span class="pill">virtual</span><span class="pill">override</span><span class="pill">abstract</span><span class="pill">vtable</span></div></div>
+        <div class="gc"><span class="gc-num">05</span><div class="gc-name">Templates</div><div class="gc-desc">Function templates, class templates, template specialisation, and how the STL is built on top of them.</div><div class="pills"><span class="pill">template&lt;T&gt;</span><span class="pill">Specialisation</span><span class="pill">Variadic templates</span></div></div>
+        <div class="gc"><span class="gc-num">06</span><div class="gc-name">STL Deep Dive</div><div class="gc-desc">vector, list, deque, map, unordered_map, set, priority_queue — when to use which and why.</div><div class="pills"><span class="pill">vector</span><span class="pill">map/set</span><span class="pill">priority_queue</span><span class="pill">Iterators</span></div></div>
+        <div class="gc"><span class="gc-num">07</span><div class="gc-name">Smart Pointers &amp; RAII</div><div class="gc-desc">unique_ptr, shared_ptr, weak_ptr. Resource Acquisition Is Initialization — the pattern that makes C++ safe.</div><div class="pills"><span class="pill">unique_ptr</span><span class="pill">shared_ptr</span><span class="pill">RAII</span><span class="pill">move semantics</span></div></div>
+        <div class="gc"><span class="gc-num">08</span><div class="gc-name">Modern C++17/20</div><div class="gc-desc">Lambdas, ranges, structured bindings, std::optional, std::variant, and concepts.</div><div class="pills"><span class="pill">Lambdas</span><span class="pill">ranges</span><span class="pill">optional</span><span class="pill">concepts</span></div></div>
+      </div>
+    </div>
+
+    <section class="s-alt">
+      <div class="s">
+        <div class="s-lbl">Projects</div>
+        <h2 class="s-title">Four Builds That <em>Show What C++ Can Do</em></h2>
+        <p>These aren't just exercises — they're demonstrations of what C++ enables that other languages struggle to match.</p>
+        <div class="proj-grid">
+          <div class="pc"><span class="pc-num">Project 01</span><div class="pc-name">Custom Vector&lt;T&gt; Template</div><div class="pc-desc">Implement your own resizable array from scratch — push_back, pop_back, iterators, copy semantics, and move semantics.</div><div class="pc-tags"><span class="pc-tag">Templates</span><span class="pc-tag">Iterators</span><span class="pc-tag">Move semantics</span></div></div>
+          <div class="pc"><span class="pc-num">Project 02</span><div class="pc-name">Text-Based RPG with OOP</div><div class="pc-desc">Full class hierarchy — Character, Enemy, Weapon, Item — using inheritance, virtual functions, and polymorphism throughout.</div><div class="pc-tags"><span class="pc-tag">OOP</span><span class="pc-tag">Polymorphism</span><span class="pc-tag">STL</span></div></div>
+          <div class="pc"><span class="pc-num">Project 03</span><div class="pc-name">Expression Parser</div><div class="pc-desc">Parse and evaluate math expressions like "(3 + 4) * 2" — using a recursive descent parser, stack, and operator precedence.</div><div class="pc-tags"><span class="pc-tag">Parsing</span><span class="pc-tag">Recursion</span><span class="pc-tag">Stack</span></div></div>
+          <div class="pc"><span class="pc-num">Project 04</span><div class="pc-name">Thread-Safe Queue</div><div class="pc-desc">Build a concurrent message queue using std::mutex, std::condition_variable, and smart pointers. Introduction to concurrency.</div><div class="pc-tags"><span class="pc-tag">Threads</span><span class="pc-tag">Mutex</span><span class="pc-tag">Concurrency</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="c-cta">
+      <div class="cta-badge"><span class="blink-dot"></span>Admission Open • Limited Seats</div>
+      <h2>The language of<br><em>serious software.</em></h2>
+      <p>Competitive programmers, game developers, and systems engineers all use C++. Join a track that teaches it properly.</p>
+      <div class="cta-btns">
+        <a href="/contact.qmd" class="btn-primary-wd">
+          Enroll Now 
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </div>
+
+
+<div class="lang-py" style="margin-bottom: 4rem;">
+  <section class="c-hero">
+      <div class="c-kicker">Track 03 · Python</div>
+      <h2 class="c-h1">Python: <span class="hi">Scripting<br></span><span class="it">to AI/ML</span></h2>
+      <p>The most versatile language in tech. Start with clean fundamentals, build automation tools, work with real datasets, and write your first machine learning models — all in one structured track.</p>
+      
+      <div class="c-meta">
+        <span class="c-chip">⏱ Duration: <b>6 Months</b></span>
+        <span class="c-chip">👥 Level: <b>Beginner → Advanced</b></span>
+        <span class="c-chip">📦 Projects <b>5 Real Projects</b></span>
+        <span class="c-chip">🔑 Includes <b>Git &amp; GitHub</b></span>
+      </div>
+      
+    </section>
+
+    <div class="s" id="curriculum-py">
+      <div class="s-lbl">Curriculum</div>
+      <h2 class="s-title">10 Weeks of <em>Real Python</em></h2>
+      <p>Every week builds directly on the last — from variables to deployed ML models. No random topic jumps.</p>
+      <div class="grid">
+        <div class="gc"><span class="gc-num">01</span><div class="gc-name">Python Foundations</div><div class="gc-desc">Variables, data types, control flow, functions, and comprehensions. Write clean, idiomatic Python from day one.</div><div class="pills"><span class="pill">Variables</span><span class="pill">Loops</span><span class="pill">Functions</span><span class="pill">List Comprehensions</span></div></div>
+        <div class="gc"><span class="gc-num">02</span><div class="gc-name">OOP &amp; Modules</div><div class="gc-desc">Classes, inheritance, dunder methods, and structuring code into reusable modules and packages.</div><div class="pills"><span class="pill">Classes</span><span class="pill">Inheritance</span><span class="pill">__init__</span><span class="pill">Packages</span></div></div>
+        <div class="gc"><span class="gc-num">03</span><div class="gc-name">File I/O &amp; Automation</div><div class="gc-desc">Read, write, parse files (CSV, JSON, XML). Automate repetitive tasks — rename files, generate reports, scrape data.</div><div class="pills"><span class="pill">open()</span><span class="pill">CSV/JSON</span><span class="pill">os module</span><span class="pill">Automation</span></div></div>
+        <div class="gc"><span class="gc-num">04</span><div class="gc-name">NumPy &amp; Pandas</div><div class="gc-desc">The backbone of data work. Array operations, DataFrames, cleaning messy data, groupby, merging, and aggregation.</div><div class="pills"><span class="pill">NumPy arrays</span><span class="pill">DataFrames</span><span class="pill">groupby</span><span class="pill">Data Cleaning</span></div></div>
+        <div class="gc"><span class="gc-num">05</span><div class="gc-name">Data Visualisation</div><div class="gc-desc">Turn raw data into insight. Matplotlib for control, Seaborn for aesthetics, Plotly for interactive charts.</div><div class="pills"><span class="pill">Matplotlib</span><span class="pill">Seaborn</span><span class="pill">Plotly</span><span class="pill">Dashboard basics</span></div></div>
+        <div class="gc"><span class="gc-num">06</span><div class="gc-name">APIs &amp; Web Scraping</div><div class="gc-desc">Fetch live data from REST APIs with requests, scrape websites with BeautifulSoup, and handle rate limits gracefully.</div><div class="pills"><span class="pill">requests</span><span class="pill">REST APIs</span><span class="pill">BeautifulSoup</span><span class="pill">JSON parsing</span></div></div>
+        <div class="gc"><span class="gc-num">07</span><div class="gc-name">ML Foundations</div><div class="gc-desc">Regression, classification, train/test splits, overfitting, evaluation metrics. Build intuition before touching a neural network.</div><div class="pills"><span class="pill">scikit-learn</span><span class="pill">Linear Regression</span><span class="pill">Classification</span><span class="pill">Cross-validation</span></div></div>
+        <div class="gc"><span class="gc-num">08</span><div class="gc-name">ML in Production</div><div class="gc-desc">Save models with joblib, build a simple prediction API with FastAPI, and deploy it on a cloud VM.</div><div class="pills"><span class="pill">joblib</span><span class="pill">FastAPI</span><span class="pill">Model Deployment</span><span class="pill">Docker basics</span></div></div>
+      </div>
+    </div>
+
+    <section class="s-alt">
+      <div class="s">
+        <div class="s-lbl">Projects</div>
+        <h2 class="s-title">Five Things You'll <em>Build</em></h2>
+        <p>Real projects, real outcomes. Everything goes to GitHub and counts as portfolio work.</p>
+        <div class="proj-grid">
+          <div class="pc"><span class="pc-num">Project 01</span><div class="pc-name">File Organiser CLI Tool</div><div class="pc-desc">Automate sorting a messy downloads folder — rename, categorise, and log every action. Your first useful script.</div><div class="pc-tags"><span class="pc-tag">os</span><span class="pc-tag">pathlib</span><span class="pc-tag">argparse</span></div></div>
+          <div class="pc"><span class="pc-num">Project 02</span><div class="pc-name">News API Dashboard</div><div class="pc-desc">Pull headlines from a live API, filter by topic, and render a clean terminal dashboard with rich.</div><div class="pc-tags"><span class="pc-tag">requests</span><span class="pc-tag">API</span><span class="pc-tag">rich</span></div></div>
+          <div class="pc"><span class="pc-num">Project 03</span><div class="pc-name">EDA Report Generator</div><div class="pc-desc">Upload any CSV, get back a full exploratory data analysis report with statistics and charts — automated with Pandas &amp; Matplotlib.</div><div class="pc-tags"><span class="pc-tag">Pandas</span><span class="pc-tag">Matplotlib</span><span class="pc-tag">Seaborn</span></div></div>
+          <div class="pc"><span class="pc-num">Project 04</span><div class="pc-name">House Price ML Model</div><div class="pc-desc">Train a regression model on real estate data, tune hyperparameters, evaluate rigorously, and produce a prediction report.</div><div class="pc-tags"><span class="pc-tag">scikit-learn</span><span class="pc-tag">Regression</span><span class="pc-tag">Cross-val</span></div></div>
+          <div class="pc"><span class="pc-num">Project 05</span><div class="pc-name">Prediction API (FastAPI)</div><div class="pc-desc">Wrap your ML model in a FastAPI endpoint, write tests with pytest, containerise with Docker, and deploy on AWS EC2.</div><div class="pc-tags"><span class="pc-tag">FastAPI</span><span class="pc-tag">Docker</span><span class="pc-tag">AWS EC2</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="c-cta">
+      <div class="cta-badge"><span class="blink-dot"></span>Admission Open • Limited Seats</div>
+      <h2>Python opens<br><em>every door.</em></h2>
+      <p>Web, data, ML, automation — it's all Python. Start here, and every other course becomes easier.</p>
+      <div class="cta-btns">
+        <a href="/contact.qmd" class="btn-primary-wd">
+          Enroll Now 
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </div>
+
+</div>
+```
