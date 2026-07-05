@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Git &amp; GitHub – Akademiyaa</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+<header class="custom-liquid-header">
+
+  <div class="nav-container">
+
+    
+
+    <a href="../index.html" class="nav-brand">
+
+      <span class="brand-brackets">&lt;/&gt;</span>Akademiyaa
+
+    </a>
+
+
+
+    <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation">
+
+      <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+
+
+    <nav class="nav-menu" id="nav-menu">
+
+      <ul class="nav-links">
+
+        <li><a href="../index.html">Home</a></li>
+
+        
+
+        <li class="liquid-drop-item">
+
+          <button class="liquid-drop-btn" aria-expanded="false">
+
+            Service <i class="fa-solid fa-angle-down drop-icon"></i>
+
+          </button>
+
+          <ul class="liquid-drop-menu">
+
+            <li><a href="../services/assistance.html">Remote Assistance</a></li>
+
+            <li><a href="../services/webdev.html">Web Development</a></li>
+
+          </ul>
+
+        </li>
+
+
+
+        <li class="liquid-drop-item">
+
+          <button class="liquid-drop-btn" aria-expanded="false">
+
+            Learn <i class="fa-solid fa-angle-down drop-icon"></i>
+
+          </button>
+
+          <ul class="liquid-drop-menu">
+
+            <li><a href="../courses/all_courses.html">All Courses</a></li>
+
+            <li><a href="../courses/clouds.html">Cloud Technologies</a></li>
+
+            <li><a href="../courses/linux.html">Linux Distributions</a></li>
+
+            <li><a href="../courses/languages.html">Programming Languages</a></li>
+
+          </ul>
+
+        </li>
+
+
+
+        <li><a href="../contact.html">Contact</a></li>
+
+      </ul>
+
+
+
+      <div class="nav-actions">
+
+        
+
+        <div class="custom-search-container">
+
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+          <input type="text" placeholder="Search..." class="custom-search-input" id="my-custom-search">
+
+          <span class="search-shortcut">⌘ K</span>
+
+        </div>
+
+
+
+        <button id="custom-theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+
+          <i class="fa-solid fa-moon dark-icon"></i>
+
+          <i class="fa-solid fa-sun light-icon"></i>
+
+        </button>
+
+        
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const themeToggle = document.getElementById("custom-theme-toggle");
+
+    const htmlElement = document.documentElement;
+
+    const mobileToggle = document.getElementById("mobile-toggle");
+
+    const navMenu = document.getElementById("nav-menu");
+
+    const dropdownToggles = document.querySelectorAll(".liquid-drop-btn");
+
+
+
+    // Theme logic
+
+    const currentTheme = localStorage.getItem("theme") || "light";
+
+    if (currentTheme === "dark") htmlElement.setAttribute("data-bs-theme", "dark");
+
+
+
+    themeToggle.addEventListener("click", () => {
+
+      if (htmlElement.getAttribute("data-bs-theme") === "dark") {
+
+        htmlElement.removeAttribute("data-bs-theme");
+
+        localStorage.setItem("theme", "light");
+
+      } else {
+
+        htmlElement.setAttribute("data-bs-theme", "dark");
+
+        localStorage.setItem("theme", "dark");
+
+      }
+
+    });
+
+
+
+    // Mobile menu logic
+
+    mobileToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
+
+
+
+    // Dropdown logic
+
+    dropdownToggles.forEach(toggle => {
+
+      toggle.addEventListener("click", (e) => {
+
+        e.preventDefault(); 
+
+        const parentLi = toggle.parentElement;
+
+        document.querySelectorAll('.liquid-drop-item').forEach(item => {
+
+          if (item !== parentLi) {
+
+            item.classList.remove('open');
+
+            item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+
+          }
+
+        });
+
+        parentLi.classList.toggle("open");
+
+        const icon = toggle.querySelector('.drop-icon');
+
+        icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+
+      });
+
+    });
+
+    
+
+    document.addEventListener('click', (e) => {
+
+      if (!e.target.closest('.liquid-drop-item')) {
+
+        document.querySelectorAll('.liquid-drop-item').forEach(item => {
+
+          item.classList.remove('open');
+
+          item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+
+        });
+
+      }
+
+    });
+
+
+
+    // SEARCH LOGIC (Connects your custom box to Quarto natively)
+
+    const searchInput = document.getElementById("my-custom-search");
+
+
+
+    if (searchInput) {
+
+      document.addEventListener("keydown", (e) => {
+
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+
+          e.preventDefault(); 
+
+          searchInput.focus(); 
+
+        }
+
+      });
+
+
+
+      searchInput.addEventListener("keydown", (e) => {
+
+        if (e.key === "Enter") {
+
+          e.preventDefault(); 
+
+          const query = searchInput.value.trim();
+
+          
+
+          if (query !== "") {
+
+            // Find Quarto's real hidden search button
+
+            const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
+
+            
+
+            if (quartoBtn) {
+
+              quartoBtn.click(); // Open the modal
+
+              
+
+              // Wait for modal to appear, then type the query
+
+              setTimeout(() => {
+
+                const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
+
+                if (modalInput) {
+
+                  modalInput.value = query;
+
+                  modalInput.dispatchEvent(new Event("input", { bubbles: true }));
+
+                  modalInput.focus();
+
+                }
+
+              }, 200); 
+
+            } else {
+
+              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+
+            }
+
+          }
+
+        }
+
+      });
+
+    }
+
+  });
+
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Git &amp; GitHub</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+:root{--ac:#f97316}
+</style>
+<style>
+:root{
+  --bg:#07070b;--surface:#0e0e14;--card:#13131a;--card-h:#18181f;
+  --border:rgba(255,255,255,.07);--border-h:rgba(255,255,255,.14);
+  --t1:#f0eee8;--t2:#8a8a9a;--t3:#45454f;
+  --fn-head:'Outfit',sans-serif;--fn-body:'Instrument Sans',sans-serif;--fn-mono:'JetBrains Mono',monospace;
+  --r:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg)!important;font-family:var(--fn-body);color:var(--t1)}
+#quarto-content{padding:0!important;max-width:100%!important}
+nav.navbar,footer,.quarto-title-banner{display:none!important}
+a{text-decoration:none}
+.page{position:relative;overflow-x:hidden}
+
+/* COMMON BADGE */
+.common-banner{
+  background:color-mix(in srgb,var(--ac) 8%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--ac) 20%,transparent);
+  padding:.7rem clamp(1.5rem,7vw,7rem);
+  display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;
+}
+.cb-icon{font-size:1rem}
+.cb-text{font-family:var(--fn-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+.cb-desc{font-family:var(--fn-body);font-size:.8rem;color:var(--t2)}
+
+/* HERO */
+.c-hero{
+  min-height:80vh;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(4rem,9vw,7rem) clamp(1.5rem,7vw,7rem) clamp(3rem,5vw,4rem);
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 70% 60% at 10% 50%,rgba(249,115,22,.07) 0%,transparent 70%),#07070b;
+}
+.c-hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 60% 80% at 0% 50%,black 0%,transparent 70%);
+}
+.c-kicker{
+  font-family:var(--fn-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ac);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;position:relative;z-index:2;
+}
+.c-kicker::before{content:'';width:22px;height:1.5px;background:var(--ac)}
+.c-h1{
+  font-family:var(--fn-head)!important;font-size:clamp(3rem,7vw,6rem)!important;
+  font-weight:900!important;line-height:.97!important;color:var(--t1)!important;
+  letter-spacing:-.03em;margin-bottom:.4em!important;max-width:16ch;position:relative;z-index:2;
+}
+.hi{color:var(--ac)} .it{font-style:italic;color:var(--t2)}
+.c-desc{
+  font-family:var(--fn-body);font-size:clamp(.95rem,1.5vw,1.08rem);font-weight:400;
+  color:var(--t2);line-height:1.75;max-width:50ch;margin-bottom:2rem;position:relative;z-index:2;
+}
+.c-meta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.8rem;position:relative;z-index:2}
+.c-chip{
+  font-family:var(--fn-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--t2);background:rgba(255,255,255,.05);border:1px solid var(--border-h);
+  padding:.38rem 1rem;border-radius:100px;display:flex;align-items:center;gap:.4rem;
+}
+.c-chip b{color:var(--ac)}
+.c-hero-btns{display:flex;flex-wrap:wrap;gap:.9rem;position:relative;z-index:2}
+.btn-ac{
+  font-family:var(--fn-head);font-weight:700;font-size:.9rem;
+  color:#07070b!important;background:var(--ac);
+  padding:.95rem 2.3rem;border-radius:6px;transition:all .22s;
+  box-shadow:0 4px 24px rgba(249,115,22,.35);display:inline-flex;align-items:center;gap:.4rem;
+}
+.btn-ac:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn-ghost{
+  font-family:var(--fn-head);font-weight:600;font-size:.9rem;
+  color:var(--t2)!important;background:transparent;
+  padding:.95rem 2rem;border-radius:6px;border:1px solid var(--border-h);transition:all .22s;
+}
+.btn-ghost:hover{border-color:var(--ac);color:var(--t1)!important}
+
+/* SHARED SECTIONS */
+.s{padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,7vw,7rem);max-width:1400px;margin:0 auto}
+.s-alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.s-lbl{font-family:var(--fn-mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+.s-lbl::after{content:'';display:block;height:1px;width:28px;background:var(--ac);opacity:.5}
+.s-title{font-family:var(--fn-head)!important;font-size:clamp(1.8rem,3.5vw,2.8rem)!important;font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;margin-bottom:.4rem!important;line-height:1.08!important}
+.s-title em{font-style:italic;color:var(--ac)}
+.s-desc{font-family:var(--fn-body);font-size:.97rem;color:var(--t2);max-width:58ch;line-height:1.72;margin-bottom:2.8rem}
+
+/* COMMAND SHOWCASE */
+.cmd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.cmd-card{background:var(--card);padding:1.6rem;transition:background .2s;cursor:default}
+.cmd-card:hover{background:var(--card-h)}
+.cmd-cat{font-family:var(--fn-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);margin-bottom:.8rem;display:block}
+.cmd-name{font-family:var(--fn-head);font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:.5rem}
+.cmd-desc{font-family:var(--fn-body);font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:.9rem}
+.cmd-example{
+  font-family:var(--fn-mono);font-size:.73rem;
+  background:#0a0a0f;border:1px solid rgba(255,255,255,.06);border-left:2px solid var(--ac);
+  padding:.5rem .8rem;border-radius:0 4px 4px 0;color:#a3e635;
+  overflow-x:auto;white-space:nowrap;
+}
+
+/* ROADMAP */
+.roadmap{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.r-row{display:grid;grid-template-columns:52px 1fr;border-bottom:1px solid var(--border);transition:background .2s;cursor:default}
+.r-row:last-child{border-bottom:none}
+.r-row:hover{background:var(--card-h)}
+.r-n{display:flex;align-items:center;justify-content:center;font-family:var(--fn-mono);font-size:.75rem;font-weight:500;background:var(--card);color:var(--t3);border-right:1px solid var(--border)}
+.r-row.r-final .r-n{background:var(--ac);color:#07070b;font-size:.95rem}
+.r-b{padding:1.4rem 1.8rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.r-info{flex:1;min-width:180px}
+.r-phase{font-family:var(--fn-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);margin-bottom:.25rem;display:block}
+.r-title{font-family:var(--fn-head);font-weight:700;font-size:.92rem;color:var(--t1);margin-bottom:.2rem}
+.r-detail{font-family:var(--fn-body);font-size:.78rem;color:var(--t2);line-height:1.5}
+.r-wk{font-family:var(--fn-mono);font-size:.6rem;color:var(--t3);letter-spacing:.08em;white-space:nowrap}
+
+/* WHY GRID */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:border-color .2s,transform .2s}
+.why-card:hover{border-color:var(--ac);transform:translateY(-2px)}
+.why-num{font-family:var(--fn-head);font-size:2.5rem;font-weight:900;color:rgba(249,115,22,.12);line-height:1;margin-bottom:.6rem;display:block}
+.why-title{font-family:var(--fn-head);font-size:.95rem;font-weight:700;color:var(--t1);margin-bottom:.5rem}
+.why-body{font-family:var(--fn-body);font-size:.82rem;color:var(--t2);line-height:1.65}
+
+/* CTA */
+.c-cta{
+  text-align:center;padding:clamp(4rem,8vw,6rem) clamp(1.5rem,7vw,7rem);
+  background:var(--surface);border-top:1px solid var(--border);position:relative;overflow:hidden;
+}
+.c-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 60% at 50% 100%,rgba(249,115,22,.06) 0%,transparent 70%)}
+.cta-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fn-mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.25);padding:.35rem 1rem;border-radius:100px;margin-bottom:1.8rem}
+.cta-dot{width:5px;height:5px;border-radius:50%;background:var(--ac);animation:pd 2s ease-in-out infinite}
+@keyframes pd{0%,100%{transform:scale(1)}50%{transform:scale(1.6);opacity:.5}}
+.c-cta h2{font-family:var(--fn-head)!important;font-size:clamp(2rem,4.5vw,3.2rem)!important;font-weight:900!important;color:var(--t1)!important;letter-spacing:-.025em;margin:0 auto 1rem!important;max-width:22ch;line-height:1.08!important;position:relative;z-index:1}
+.c-cta h2 em{font-style:italic;color:var(--ac)}
+.c-cta p{font-family:var(--fn-body);font-size:1rem;color:var(--t2);max-width:46ch;margin:0 auto 2.5rem;line-height:1.7;position:relative;z-index:1}
+.cta-btns{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;position:relative;z-index:1}
+@media(max-width:640px){.c-hero{padding:4rem 1.5rem 2.5rem}.s{padding:3rem 1.5rem}}
+</style>
+
+<div class="page">
+
+<!-- common banner -->
+<div class="common-banner">
+  <span class="cb-icon">🔁</span>
+  <span class="cb-text">Mandatory Foundation</span>
+  <span class="cb-desc">This course is required before starting any other track. All students begin here.</span>
+</div>
+
+<!-- HERO -->
+<section class="c-hero">
+  <div class="c-kicker">Common Track · Foundation</div>
+  <h1 class="c-h1">
+    Git &amp;<br>
+    <span class="hi">GitHub</span><br>
+    <span class="it">for everyone.</span>
+  </h1>
+  <p class="c-desc">Version control is not optional. Git is the language every developer speaks — and GitHub is where your work lives, gets reviewed, and gets hired. Start here, regardless of what you plan to build.</p>
+  <div class="c-meta">
+    <span class="c-chip">⏱ Duration <b>2 Weeks</b></span>
+    <span class="c-chip">👥 Level <b>All Levels</b></span>
+    <span class="c-chip">📦 Projects <b>3 Real Repos</b></span>
+    <span class="c-chip">✅ Required <b>Before All Courses</b></span>
+  </div>
+  <div class="c-hero-btns">
+    <a href="../contact.html" class="btn-ac">Enroll Now →</a>
+    <a href="#curriculum" class="btn-ghost">View Curriculum</a>
+  </div>
+</section>
+
+<!-- WHY GIT -->
+<section class="s-alt">
+  <div class="s">
+    <div class="s-lbl">Why This First</div>
+    <h2 class="s-title anchored">Version control is the<br><em>first professional skill.</em></h2>
+    <p class="s-desc">Every other course involves code. That code needs to be tracked, backed up, collaborated on, and shipped. Git is how that happens. Employers expect it from day one.</p>
+    <div class="why-grid">
+      <div class="why-card"><span class="why-num">01</span><div class="why-title">Never Lose Work Again</div><div class="why-body">Git creates a complete history of every change. Roll back mistakes, compare versions, and work fearlessly knowing you can always recover.</div></div>
+      <div class="why-card"><span class="why-num">02</span><div class="why-title">Collaborate Like a Pro</div><div class="why-body">Branching and merging let multiple people work on the same project simultaneously — without overwriting each other. This is how every real team works.</div></div>
+      <div class="why-card"><span class="why-num">03</span><div class="why-title">GitHub is Your Portfolio</div><div class="why-body">Every project you build in every other course goes on GitHub. Recruiters look at your commit history. A green contribution graph speaks louder than a resume.</div></div>
+      <div class="why-card"><span class="why-num">04</span><div class="why-title">CI/CD and Automation</div><div class="why-body">GitHub Actions lets your code test, build, and deploy itself. You'll use it in the AWS and Web Development courses — but it starts here.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMANDS -->
+<div class="s" id="curriculum">
+  <div class="s-lbl">Core Commands</div>
+  <h2 class="s-title anchored">What You'll <em>Master</em></h2>
+  <p class="s-desc">You won't just memorise commands — you'll understand why each one exists and build muscle memory through real projects.</p>
+  <div class="cmd-grid">
+    <div class="cmd-card">
+      <span class="cmd-cat">Setup &amp; Init</span>
+      <div class="cmd-name">Repository Basics</div>
+      <div class="cmd-desc">Create repos, configure identity, understand the working tree, staging area, and commit history.</div>
+      <div class="cmd-example">git init · git clone · git config</div>
+    </div>
+    <div class="cmd-card">
+      <span class="cmd-cat">Daily Workflow</span>
+      <div class="cmd-name">Add, Commit, Push</div>
+      <div class="cmd-desc">Stage changes selectively, write meaningful commit messages, and push to remote repositories.</div>
+      <div class="cmd-example">git add · git commit · git push</div>
+    </div>
+    <div class="cmd-card">
+      <span class="cmd-cat">Branching</span>
+      <div class="cmd-name">Branches &amp; Merging</div>
+      <div class="cmd-desc">Feature branches, merge strategies (fast-forward vs three-way), resolving conflicts, and rebase basics.</div>
+      <div class="cmd-example">git branch · git merge · git rebase</div>
+    </div>
+    <div class="cmd-card">
+      <span class="cmd-cat">Collaboration</span>
+      <div class="cmd-name">Pull Requests &amp; Reviews</div>
+      <div class="cmd-desc">Fork workflows, opening PRs, reviewing code, requesting changes, and squash merges.</div>
+      <div class="cmd-example">gh pr create · git fetch · git pull</div>
+    </div>
+    <div class="cmd-card">
+      <span class="cmd-cat">History &amp; Debugging</span>
+      <div class="cmd-name">Log, Diff &amp; Blame</div>
+      <div class="cmd-desc">Navigate commit history, compare file versions, find who changed what and when using git blame and bisect.</div>
+      <div class="cmd-example">git log · git diff · git blame</div>
+    </div>
+    <div class="cmd-card">
+      <span class="cmd-cat">Advanced</span>
+      <div class="cmd-name">Stash, Tags &amp; GitHub Actions</div>
+      <div class="cmd-desc">Temporarily stash work, tag releases, and write a basic CI pipeline that runs tests on every push.</div>
+      <div class="cmd-example">git stash · git tag · gh workflow</div>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<section class="s-alt">
+  <div class="s">
+    <div class="s-lbl">2-Week Schedule</div>
+    <h2 class="s-title anchored">Session <em>by</em> Session</h2>
+    <p class="s-desc">Compact, intensive, and immediately applicable. By the end of week two, every other course will feel natural because you already know how to manage your code.</p>
+    <div class="roadmap">
+      <div class="r-row"><div class="r-n">W1</div><div class="r-b"><div class="r-info"><span class="r-phase">Week 1 · Core Git</span><div class="r-title">Local Git Mastery</div><div class="r-detail">init, add, commit, diff, log, stash, branching, and merging on your local machine</div></div><div class="r-wk">Sessions 1–3</div></div></div>
+      <div class="r-row"><div class="r-n">W2</div><div class="r-b"><div class="r-info"><span class="r-phase">Week 2 · GitHub</span><div class="r-title">Remote Repos, PRs &amp; GitHub Actions</div><div class="r-detail">Push to GitHub, fork, open a PR, review code, and write your first CI/CD workflow</div></div><div class="r-wk">Sessions 4–6</div></div></div>
+      <div class="r-row r-final"><div class="r-n">✦</div><div class="r-b"><div class="r-info"><span class="r-phase">Capstone</span><div class="r-title">Collaborative Project Submission</div><div class="r-detail">Work in pairs on a shared repo — branch, PR, review and merge. Your first open-source style contribution.</div></div><div class="r-wk">End of Week 2</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="c-cta">
+  <div class="cta-badge"><span class="cta-dot"></span>Required · Start Here</div>
+  <h2 class="anchored">Your code deserves<br>a <em>proper home.</em></h2>
+  <p>Git &amp; GitHub is the foundation every course builds on. Enroll in this track first — it takes two weeks and pays off for the rest of your career.</p>
+  <div class="cta-btns">
+    <a href="../contact.html" class="btn-ac">Book First Session →</a>
+    <a href="../learn/learn.html" class="btn-ghost">← Back to All Courses</a>
+  </div>
+</section>
+
+</div>
+
+
+
+</main> <!-- /main -->
+<footer class="akademiyaa-footer">
+
+  <div class="footer-grid-container">
+
+    
+
+    <div class="footer-col">
+
+      <h4 class="footer-heading">Main</h4>
+
+      <a href="../index.html">Home</a>
+
+      <a href="../contact.html">Contact</a>
+
+      <a href="../services/assistance.html">Work With Us</a>
+
+      <a href="../about.html">My Gear</a>
+
+    </div>
+
+    
+
+    <div class="footer-col">
+
+      <h4 class="footer-heading">Learn</h4>
+
+      <a href="../courses/clouds.html">Courses</a> <a href="../courses/coding.qmd">Tutorials</a>
+
+      <a href="../notes.qmd">Notes</a>
+
+    </div>
+
+    
+
+    <div class="footer-col">
+
+      <h4 class="footer-heading">Legal</h4>
+
+      <a href="../terms.qmd">Terms</a>
+
+      <a href="../privacy.qmd">Privacy</a>
+
+      <a href="../refund.qmd">Refund</a>
+
+    </div>
+
+    
+
+    <div class="footer-col">
+
+      <h4 class="footer-heading">Social</h4>
+
+      <a href="https://facebook.com/yourpage" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+
+      <a href="https://instagram.com/yourprofile" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+
+      <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+
+      <a href="https://youtube.com/yourchannel" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+
+    </div>
+
+
+
+  </div>
+
+  
+
+  <div class="footer-bottom">
+
+    <span class="footer-copyright">© 2026 Akademiyaa. All rights reserved.</span>
+
+    <span class="footer-made-with">Made with ❤️ in India</span>
+
+  </div>
+
+</footer>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/akademiyaa\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

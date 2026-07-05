@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Enterprise Linux Administration – Akademiyaa</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Syne:wght@400;700;800&amp;family=Geist:wght@300;400;500&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="linux-styles.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+<header class="custom-liquid-header">
+
+  <div class="nav-container">
+
+    
+
+    <a href="../index.html" class="nav-brand">
+
+      <span class="brand-brackets">&lt;/&gt;</span>Akademiyaa
+
+    </a>
+
+
+
+    <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation">
+
+      <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+
+
+    <nav class="nav-menu" id="nav-menu">
+
+      <ul class="nav-links">
+
+        <li><a href="../index.html">Home</a></li>
+
+        
+
+        <li class="liquid-drop-item">
+
+          <button class="liquid-drop-btn" aria-expanded="false">
+
+            Service <i class="fa-solid fa-angle-down drop-icon"></i>
+
+          </button>
+
+          <ul class="liquid-drop-menu">
+
+            <li><a href="../services/assistance.html">Remote Assistance</a></li>
+
+            <li><a href="../services/webdev.html">Web Development</a></li>
+
+          </ul>
+
+        </li>
+
+
+
+        <li class="liquid-drop-item">
+
+          <button class="liquid-drop-btn" aria-expanded="false">
+
+            Learn <i class="fa-solid fa-angle-down drop-icon"></i>
+
+          </button>
+
+          <ul class="liquid-drop-menu">
+
+            <li><a href="../courses/all_courses.html">All Courses</a></li>
+
+            <li><a href="../courses/clouds.html">Cloud Technologies</a></li>
+
+            <li><a href="../courses/linux.html">Linux Distributions</a></li>
+
+            <li><a href="../courses/languages.html">Programming Languages</a></li>
+
+          </ul>
+
+        </li>
+
+
+
+        <li><a href="../contact.html">Contact</a></li>
+
+      </ul>
+
+
+
+      <div class="nav-actions">
+
+        
+
+        <div class="custom-search-container">
+
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+          <input type="text" placeholder="Search..." class="custom-search-input" id="my-custom-search">
+
+          <span class="search-shortcut">⌘ K</span>
+
+        </div>
+
+
+
+        <button id="custom-theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+
+          <i class="fa-solid fa-moon dark-icon"></i>
+
+          <i class="fa-solid fa-sun light-icon"></i>
+
+        </button>
+
+        
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const themeToggle = document.getElementById("custom-theme-toggle");
+
+    const htmlElement = document.documentElement;
+
+    const mobileToggle = document.getElementById("mobile-toggle");
+
+    const navMenu = document.getElementById("nav-menu");
+
+    const dropdownToggles = document.querySelectorAll(".liquid-drop-btn");
+
+
+
+    // Theme logic
+
+    const currentTheme = localStorage.getItem("theme") || "light";
+
+    if (currentTheme === "dark") htmlElement.setAttribute("data-bs-theme", "dark");
+
+
+
+    themeToggle.addEventListener("click", () => {
+
+      if (htmlElement.getAttribute("data-bs-theme") === "dark") {
+
+        htmlElement.removeAttribute("data-bs-theme");
+
+        localStorage.setItem("theme", "light");
+
+      } else {
+
+        htmlElement.setAttribute("data-bs-theme", "dark");
+
+        localStorage.setItem("theme", "dark");
+
+      }
+
+    });
+
+
+
+    // Mobile menu logic
+
+    mobileToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
+
+
+
+    // Dropdown logic
+
+    dropdownToggles.forEach(toggle => {
+
+      toggle.addEventListener("click", (e) => {
+
+        e.preventDefault(); 
+
+        const parentLi = toggle.parentElement;
+
+        document.querySelectorAll('.liquid-drop-item').forEach(item => {
+
+          if (item !== parentLi) {
+
+            item.classList.remove('open');
+
+            item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+
+          }
+
+        });
+
+        parentLi.classList.toggle("open");
+
+        const icon = toggle.querySelector('.drop-icon');
+
+        icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+
+      });
+
+    });
+
+    
+
+    document.addEventListener('click', (e) => {
+
+      if (!e.target.closest('.liquid-drop-item')) {
+
+        document.querySelectorAll('.liquid-drop-item').forEach(item => {
+
+          item.classList.remove('open');
+
+          item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+
+        });
+
+      }
+
+    });
+
+
+
+    // SEARCH LOGIC (Connects your custom box to Quarto natively)
+
+    const searchInput = document.getElementById("my-custom-search");
+
+
+
+    if (searchInput) {
+
+      document.addEventListener("keydown", (e) => {
+
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+
+          e.preventDefault(); 
+
+          searchInput.focus(); 
+
+        }
+
+      });
+
+
+
+      searchInput.addEventListener("keydown", (e) => {
+
+        if (e.key === "Enter") {
+
+          e.preventDefault(); 
+
+          const query = searchInput.value.trim();
+
+          
+
+          if (query !== "") {
+
+            // Find Quarto's real hidden search button
+
+            const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
+
+            
+
+            if (quartoBtn) {
+
+              quartoBtn.click(); // Open the modal
+
+              
+
+              // Wait for modal to appear, then type the query
+
+              setTimeout(() => {
+
+                const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
+
+                if (modalInput) {
+
+                  modalInput.value = query;
+
+                  modalInput.dispatchEvent(new Event("input", { bubbles: true }));
+
+                  modalInput.focus();
+
+                }
+
+              }, 200); 
+
+            } else {
+
+              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+
+            }
+
+          }
+
+        }
+
+      });
+
+    }
+
+  });
+
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Enterprise Linux Administration</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+/* ============================================================
+   LINUX COURSE PAGE — Terminal Dark Aesthetic
+   ============================================================ */
+
+:root {
+  --bg-void:      #080c0a;
+  --bg-surface:   #0d1410;
+  --bg-card:      #111a14;
+  --bg-card-hover:#162019;
+  --green-dim:    #1a7a3c;
+  --green-core:   #22c55e;
+  --green-bright: #4ade80;
+  --green-glow:   rgba(34,197,94,0.18);
+  --red-rhel:     #e11d48;
+  --red-dim:      rgba(225,29,72,0.15);
+  --amber:        #f59e0b;
+  --text-primary: #e2f0e8;
+  --text-muted:   #6b8f74;
+  --text-dim:     #3d5c44;
+  --border:       rgba(34,197,94,0.12);
+  --border-bright:rgba(34,197,94,0.35);
+  --font-mono:    'JetBrains Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Geist', sans-serif;
+}
+
+/* Reset page chrome */
+body { background: var(--bg-void) !important; margin: 0; padding: 0; }
+#quarto-content { padding: 0 !important; }
+.page-layout-full #quarto-content { max-width: 100%; }
+nav.navbar, footer, .quarto-title-banner { display: none !important; }
+
+/* ── SCANLINE OVERLAY ── */
+.linux-page::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.06) 2px,
+    rgba(0,0,0,0.06) 4px
+  );
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: flex-start;
+  padding: clamp(3rem,8vw,7rem) clamp(1.5rem,6vw,7rem);
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 40%, rgba(34,197,94,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(225,29,72,0.05) 0%, transparent 60%),
+    var(--bg-void);
+}
+
+/* grid lines in hero */
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--green-core); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: .7rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block; width: 30px; height: 1px;
+  background: var(--green-core);
+}
+
+.hero h1 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.8rem, 7vw, 6rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.02 !important;
+  color: var(--text-primary) !important;
+  margin: 0 0 .3em !important; max-width: 14ch;
+  letter-spacing: -.02em;
+}
+
+.hero h1 .accent { color: var(--green-core); }
+.hero h1 .rhel   { color: var(--red-rhel); }
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--text-muted); max-width: 52ch;
+  line-height: 1.65; margin-bottom: 2.5rem;
+}
+
+/* terminal prompt animation */
+.terminal-prompt {
+  font-family: var(--font-mono);
+  font-size: .88rem;
+  color: var(--text-muted);
+  display: flex; align-items: center; gap: .5rem;
+  margin-bottom: 3rem;
+}
+.prompt-user  { color: var(--green-bright); }
+.prompt-host  { color: var(--amber); }
+.prompt-path  { color: var(--text-muted); }
+.prompt-cmd   { color: var(--text-primary); }
+.cursor {
+  display: inline-block; width: 9px; height: 1.1em;
+  background: var(--green-core);
+  animation: blink 1.1s step-end infinite;
+  vertical-align: text-bottom; margin-left: 2px;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero-cta {
+  display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+  position: relative; z-index: 2;
+}
+
+.btn-enroll {
+  font-family: var(--font-mono);
+  font-size: .88rem; letter-spacing: .05em;
+  color: var(--bg-void) !important;
+  background: var(--green-core);
+  padding: .85rem 2.2rem;
+  border: none; border-radius: 3px;
+  text-decoration: none !important;
+  transition: all .2s ease;
+  box-shadow: 0 0 24px rgba(34,197,94,.3);
+  display: inline-flex; align-items: center; gap: .5rem;
+}
+.btn-enroll:hover {
+  background: var(--green-bright);
+  box-shadow: 0 0 40px rgba(34,197,94,.5);
+  transform: translateY(-2px);
+}
+.btn-enroll::before { content: '$ '; opacity: .6; }
+
+.btn-outline {
+  font-family: var(--font-mono);
+  font-size: .88rem; letter-spacing: .05em;
+  color: var(--green-core) !important;
+  background: transparent;
+  padding: .85rem 2rem;
+  border: 1px solid var(--border-bright); border-radius: 3px;
+  text-decoration: none !important;
+  transition: all .2s ease;
+}
+.btn-outline:hover {
+  background: var(--green-glow);
+  border-color: var(--green-core);
+}
+
+/* floating stat chips */
+.hero-stats {
+  position: absolute; right: clamp(2rem,6vw,6rem); top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 1.1rem;
+  z-index: 2;
+}
+@media(max-width:900px) { .hero-stats { display: none; } }
+
+.stat-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green-core);
+  padding: 1rem 1.4rem;
+  border-radius: 4px;
+  min-width: 170px;
+  backdrop-filter: blur(10px);
+  animation: floatIn .6s ease both;
+}
+.stat-chip:nth-child(2) { animation-delay: .15s; border-left-color: var(--amber); }
+.stat-chip:nth-child(3) { animation-delay: .3s;  border-left-color: var(--red-rhel); }
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 800;
+  color: var(--text-primary); display: block; line-height: 1;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: .68rem; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .15em;
+  margin-top: .3rem; display: block;
+}
+
+/* ── SECTION WRAPPER ── */
+.section-wrap {
+  padding: clamp(4rem,8vw,7rem) clamp(1.5rem,6vw,7rem);
+  position: relative; z-index: 1;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: .7rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--green-dim); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .6rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1; max-width: 60px; height: 1px;
+  background: linear-gradient(90deg, var(--green-dim), transparent);
+}
+
+/* ── SECTION HEADING ── */
+.section-heading {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.8rem,4vw,3rem) !important;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+  margin: 0 0 .5rem !important;
+  letter-spacing: -.02em;
+}
+.section-sub {
+  font-family: var(--font-body);
+  font-size: 1.05rem; color: var(--text-muted);
+  max-width: 60ch; line-height: 1.6;
+  margin-bottom: 3.5rem;
+}
+
+/* ── MODULES GRID ── */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 6px; overflow: hidden;
+}
+
+.module-card {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  position: relative; overflow: hidden;
+  transition: background .25s ease;
+  cursor: default;
+}
+.module-card:hover { background: var(--bg-card-hover); }
+
+.module-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--card-accent, var(--green-core));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s ease;
+}
+.module-card:hover::before { transform: scaleX(1); }
+
+.module-card.mod-1 { --card-accent: var(--green-core); }
+.module-card.mod-2 { --card-accent: var(--red-rhel); }
+.module-card.mod-3 { --card-accent: var(--amber); }
+.module-card.mod-4 { --card-accent: #38bdf8; }
+
+/* module number watermark */
+.module-card::after {
+  content: attr(data-num);
+  position: absolute; bottom: -10px; right: 10px;
+  font-family: var(--font-display); font-size: 5rem; font-weight: 800;
+  color: rgba(34,197,94,.04); line-height: 1; pointer-events: none;
+  user-select: none;
+}
+
+.mod-icon {
+  width: 44px; height: 44px;
+  background: var(--green-glow);
+  border: 1px solid var(--border-bright);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; margin-bottom: 1.4rem;
+  position: relative; z-index: 1;
+}
+.module-card.mod-2 .mod-icon { background: var(--red-dim); border-color: rgba(225,29,72,.3); }
+.module-card.mod-3 .mod-icon { background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.25); }
+.module-card.mod-4 .mod-icon { background: rgba(56,189,248,.08); border-color: rgba(56,189,248,.2); }
+
+.mod-tag {
+  font-family: var(--font-mono);
+  font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--green-core); margin-bottom: .6rem; display: block;
+}
+.module-card.mod-2 .mod-tag { color: var(--red-rhel); }
+.module-card.mod-3 .mod-tag { color: var(--amber); }
+.module-card.mod-4 .mod-tag { color: #38bdf8; }
+
+.mod-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: .8rem;
+  line-height: 1.2;
+}
+.mod-desc {
+  font-family: var(--font-body);
+  font-size: .92rem; color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.mod-topics {
+  margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: .4rem;
+}
+.mod-topic {
+  font-family: var(--font-mono); font-size: .68rem;
+  color: var(--text-dim); background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  padding: .2rem .55rem; border-radius: 2px;
+  transition: color .2s, border-color .2s;
+}
+.module-card:hover .mod-topic {
+  color: var(--green-core);
+  border-color: var(--border-bright);
+}
+
+/* ── LEARNING PATH ── */
+.path-section {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.path-timeline {
+  display: flex; flex-direction: column;
+  gap: 0; max-width: 750px;
+}
+
+.path-step {
+  display: flex; gap: 2rem; padding: 2rem 0;
+  border-bottom: 1px dashed var(--border);
+  position: relative;
+  opacity: 0;
+  animation: stepIn .5s ease forwards;
+}
+.path-step:last-child { border-bottom: none; }
+.path-step:nth-child(1) { animation-delay: .1s; }
+.path-step:nth-child(2) { animation-delay: .2s; }
+.path-step:nth-child(3) { animation-delay: .3s; }
+.path-step:nth-child(4) { animation-delay: .4s; }
+.path-step:nth-child(5) { animation-delay: .5s; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.step-num {
+  font-family: var(--font-mono); font-size: .7rem;
+  color: var(--text-dim); flex-shrink: 0;
+  padding-top: .15rem;
+  letter-spacing: .08em;
+}
+
+.step-connector {
+  display: flex; flex-direction: column; align-items: center;
+  flex-shrink: 0;
+}
+.step-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--green-core);
+  box-shadow: 0 0 10px var(--green-core);
+  flex-shrink: 0; margin-top: .25rem;
+}
+.path-step.step-cert .step-dot {
+  background: var(--amber);
+  box-shadow: 0 0 10px var(--amber);
+}
+
+.step-body { flex: 1; }
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: .35rem;
+}
+.step-detail {
+  font-family: var(--font-body);
+  font-size: .88rem; color: var(--text-muted); line-height: 1.6;
+}
+.step-duration {
+  font-family: var(--font-mono); font-size: .68rem;
+  color: var(--green-dim); margin-top: .5rem; letter-spacing: .1em;
+}
+.path-step.step-cert .step-duration { color: var(--amber); }
+
+/* ── TOOLS STRIP ── */
+.tools-strip {
+  background: var(--bg-void);
+  padding: 3rem clamp(1.5rem,6vw,7rem);
+  border-bottom: 1px solid var(--border);
+}
+
+.tools-label {
+  font-family: var(--font-mono); font-size: .7rem;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 1.6rem;
+  text-align: center;
+}
+
+.tools-row {
+  display: flex; flex-wrap: wrap;
+  gap: .8rem; justify-content: center;
+}
+
+.tool-pill {
+  font-family: var(--font-mono); font-size: .78rem;
+  color: var(--text-muted);
+  padding: .45rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  transition: all .2s ease;
+  display: flex; align-items: center; gap: .4rem;
+}
+.tool-pill:hover {
+  color: var(--green-core);
+  border-color: var(--border-bright);
+  background: var(--green-glow);
+  transform: translateY(-2px);
+}
+.tool-pill .dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green-core); opacity: .6;
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  padding: clamp(4rem,8vw,7rem) clamp(1.5rem,6vw,7rem);
+  position: relative; overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%, rgba(34,197,94,0.07) 0%, transparent 70%),
+    var(--bg-void);
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 100%);
+}
+
+.cta-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-mono); font-size: .7rem;
+  color: var(--green-core); letter-spacing: .15em; text-transform: uppercase;
+  background: var(--green-glow); border: 1px solid var(--border-bright);
+  padding: .4rem 1rem; border-radius: 100px; margin-bottom: 2rem;
+}
+.cta-badge .blink {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green-core);
+  animation: blink 1.1s step-end infinite;
+}
+
+.cta-heading {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2rem,5vw,3.8rem) !important;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -.02em;
+  margin: 0 auto 1rem !important; max-width: 20ch;
+  position: relative; z-index: 1;
+}
+
+.cta-body {
+  font-family: var(--font-body);
+  font-size: 1.05rem; color: var(--text-muted);
+  max-width: 48ch; margin: 0 auto 2.5rem;
+  line-height: 1.65; position: relative; z-index: 1;
+}
+
+.cta-actions {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  justify-content: center; position: relative; z-index: 1;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px) {
+  .modules-grid { grid-template-columns: 1fr; }
+  .hero { padding: 4rem 1.5rem 3rem; }
+  .path-step { flex-direction: column; gap: .8rem; }
+}
+
+/* ── ENTRANCE ANIMATIONS ── */
+.fade-up {
+  opacity: 0;
+  animation: fadeUp .6s ease forwards;
+}
+.fade-up:nth-child(1) { animation-delay: .1s; }
+.fade-up:nth-child(2) { animation-delay: .2s; }
+.fade-up:nth-child(3) { animation-delay: .3s; }
+.fade-up:nth-child(4) { animation-delay: .4s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<div class="linux-page">
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-eyebrow">Enterprise Linux Training</div>
+
+  <h1>
+    Master<br>
+    <span class="accent">Linux</span> &amp;<br>
+    <span class="rhel">RHEL</span>
+  </h1>
+
+  <p class="hero-sub">
+    From your first terminal command to managing production-grade
+    Red Hat servers — a curriculum built for sysadmins who mean business.
+  </p>
+
+  <div class="terminal-prompt">
+    <span class="prompt-user">you</span><span style="color:var(--text-dim)">@</span><span class="prompt-host">rhel9</span>
+    <span class="prompt-path">~/career $</span>
+    <span class="prompt-cmd">enroll --course linux-admin</span>
+    <span class="cursor"></span>
+  </div>
+
+  <div class="hero-cta">
+    <a href="../contact.html" class="btn-enroll">Enroll Now</a>
+    <a href="#modules" class="btn-outline">View Curriculum</a>
+  </div>
+
+  <!-- Floating stats -->
+  <div class="hero-stats">
+    <div class="stat-chip">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Core Modules</span>
+    </div>
+    <div class="stat-chip">
+      <span class="stat-num">RHCSA</span>
+      <span class="stat-label">Cert Aligned</span>
+    </div>
+    <div class="stat-chip">
+      <span class="stat-num">∞</span>
+      <span class="stat-label">Lab Access</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TOOLS STRIP ══════════════ -->
+<div class="tools-strip">
+  <div class="tools-label">Technologies &amp; Tools Covered</div>
+  <div class="tools-row">
+    <span class="tool-pill"><span class="dot"></span>RHEL 9</span>
+    <span class="tool-pill"><span class="dot"></span>systemd</span>
+    <span class="tool-pill"><span class="dot"></span>dnf / rpm</span>
+    <span class="tool-pill"><span class="dot"></span>SELinux</span>
+    <span class="tool-pill"><span class="dot"></span>firewalld</span>
+    <span class="tool-pill"><span class="dot"></span>LVM</span>
+    <span class="tool-pill"><span class="dot"></span>Bash Scripting</span>
+    <span class="tool-pill"><span class="dot"></span>SSH / OpenSSH</span>
+    <span class="tool-pill"><span class="dot"></span>Cron / at</span>
+    <span class="tool-pill"><span class="dot"></span>NFS / Samba</span>
+    <span class="tool-pill"><span class="dot"></span>grub2</span>
+    <span class="tool-pill"><span class="dot"></span>journalctl</span>
+  </div>
+</div>
+
+<!-- ══════════════ MODULES ══════════════ -->
+<section class="section-wrap" id="modules">
+  <div class="section-label">Curriculum</div>
+  <h2 class="section-heading anchored">Four Core Modules</h2>
+  <p class="section-sub">
+    Each module builds on the last — from foundational CLI fluency to
+    automated, production-hardened server management.
+  </p>
+
+  <div class="modules-grid">
+
+    <div class="module-card mod-1 fade-up" data-num="01">
+      <div class="mod-icon">🐧</div>
+      <span class="mod-tag">Module 01</span>
+      <div class="mod-title">Linux Fundamentals</div>
+      <p class="mod-desc">
+        Build unshakeable foundations. Navigate the filesystem hierarchy,
+        master permissions and ownership, and get comfortable with the
+        terminal before diving deeper.
+      </p>
+      <div class="mod-topics">
+        <span class="mod-topic">CLI navigation</span>
+        <span class="mod-topic">chmod / chown</span>
+        <span class="mod-topic">Filesystem Hierarchy</span>
+        <span class="mod-topic">Processes &amp; Signals</span>
+        <span class="mod-topic">vim / nano</span>
+        <span class="mod-topic">Pipelines</span>
+      </div>
+    </div>
+
+    <div class="module-card mod-2 fade-up" data-num="02">
+      <div class="mod-icon">🔴</div>
+      <span class="mod-tag">Module 02</span>
+      <div class="mod-title">Red Hat System Administration</div>
+      <p class="mod-desc">
+        Go deep on RHEL 9. Master package management, user and group
+        administration, systemd service control, and storage provisioning
+        with LVM.
+      </p>
+      <div class="mod-topics">
+        <span class="mod-topic">dnf / rpm</span>
+        <span class="mod-topic">useradd / groupmod</span>
+        <span class="mod-topic">systemctl</span>
+        <span class="mod-topic">LVM &amp; Partitioning</span>
+        <span class="mod-topic">journalctl</span>
+        <span class="mod-topic">grub2</span>
+      </div>
+    </div>
+
+    <div class="module-card mod-3 fade-up" data-num="03">
+      <div class="mod-icon">🛡️</div>
+      <span class="mod-tag">Module 03</span>
+      <div class="mod-title">Security &amp; Networking</div>
+      <p class="mod-desc">
+        Lock down your servers. Configure firewalld zones, write and audit
+        SELinux policies, and establish hardened SSH access for safe remote
+        administration.
+      </p>
+      <div class="mod-topics">
+        <span class="mod-topic">firewalld</span>
+        <span class="mod-topic">SELinux policies</span>
+        <span class="mod-topic">SSH hardening</span>
+        <span class="mod-topic">PAM</span>
+        <span class="mod-topic">auditd</span>
+        <span class="mod-topic">fail2ban</span>
+      </div>
+    </div>
+
+    <div class="module-card mod-4 fade-up" data-num="04">
+      <div class="mod-icon">⚙️</div>
+      <span class="mod-tag">Module 04</span>
+      <div class="mod-title">Automation &amp; Scripting</div>
+      <p class="mod-desc">
+        Stop clicking and start scripting. Write robust Bash scripts to
+        automate routine admin tasks, handle errors gracefully, and deploy
+        servers with speed and consistency.
+      </p>
+      <div class="mod-topics">
+        <span class="mod-topic">Bash scripting</span>
+        <span class="mod-topic">cron &amp; at</span>
+        <span class="mod-topic">Functions &amp; Arrays</span>
+        <span class="mod-topic">Error handling</span>
+        <span class="mod-topic">Heredocs</span>
+        <span class="mod-topic">Logging</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ LEARNING PATH ══════════════ -->
+<section class="path-section">
+  <div class="section-wrap">
+    <div class="section-label">Learning Path</div>
+    <h2 class="section-heading anchored">Your Roadmap to RHCSA</h2>
+    <p class="section-sub">
+      A structured, no-fluff progression from zero to certified Red Hat
+      System Administrator.
+    </p>
+
+    <div class="path-timeline">
+
+      <div class="path-step">
+        <span class="step-num">01</span>
+        <div class="step-connector"><div class="step-dot"></div></div>
+        <div class="step-body">
+          <div class="step-title">Set Up Your Lab Environment</div>
+          <div class="step-detail">Install RHEL 9 in a VM or spin up a cloud instance. Learn how to access the terminal, configure a static IP, and navigate your first shell session.</div>
+          <div class="step-duration">⏱ Week 1 — ~6 hrs</div>
+        </div>
+      </div>
+
+      <div class="path-step">
+        <span class="step-num">02</span>
+        <div class="step-connector"><div class="step-dot"></div></div>
+        <div class="step-body">
+          <div class="step-title">CLI Fluency &amp; Filesystem Mastery</div>
+          <div class="step-detail">Get comfortable with file operations, searching, redirection, and permissions. Practice with real-world scenarios, not contrived exercises.</div>
+          <div class="step-duration">⏱ Weeks 2–3 — ~10 hrs</div>
+        </div>
+      </div>
+
+      <div class="path-step">
+        <span class="step-num">03</span>
+        <div class="step-connector"><div class="step-dot"></div></div>
+        <div class="step-body">
+          <div class="step-title">RHEL Administration Deep-Dive</div>
+          <div class="step-detail">Manage packages, users, services, and storage. Configure a multi-disk LVM layout and understand how RHEL boots and recovers.</div>
+          <div class="step-duration">⏱ Weeks 4–6 — ~16 hrs</div>
+        </div>
+      </div>
+
+      <div class="path-step">
+        <span class="step-num">04</span>
+        <div class="step-connector"><div class="step-dot"></div></div>
+        <div class="step-body">
+          <div class="step-title">Harden &amp; Automate Your Server</div>
+          <div class="step-detail">Apply SELinux policies, configure a stateful firewall, and write Bash automation scripts that run reliably in production.</div>
+          <div class="step-duration">⏱ Weeks 7–9 — ~12 hrs</div>
+        </div>
+      </div>
+
+      <div class="path-step step-cert">
+        <span class="step-num">✦</span>
+        <div class="step-connector"><div class="step-dot"></div></div>
+        <div class="step-body">
+          <div class="step-title">RHCSA Exam Ready</div>
+          <div class="step-detail">Complete timed mock exams that mirror the real EX200. Get personalised feedback and targeted revision until you're exam-confident.</div>
+          <div class="step-duration">🏆 Week 10 — Exam Simulation</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA ══════════════ -->
+<section class="cta-section">
+  <div class="cta-badge"><span class="blink"></span> Enrolment Open</div>
+  <h2 class="cta-heading anchored">Ready to Own the Command Line?</h2>
+  <p class="cta-body">
+    Join professionals who've levelled up their Linux skills with a
+    curriculum built by practitioners, not theorists.
+  </p>
+  <div class="cta-actions">
+    <a href="../contact.html" class="btn-enroll">Start Learning</a>
+    <a href="../contact.html" class="btn-outline">Talk to an Advisor</a>
+  </div>
+</section>
+
+</div>
+
+
+
+</main> <!-- /main -->
+<footer class="akademiyaa-footer">
+
+  <div class="footer-grid-container">
+
+    
+
+    <div class="footer-col">
+
+      <h4 class="footer-heading">Main</h4>
+
+      <a href="../index.html">Home</a>
+
+      <a href="../contact.html">Contact</a>
+
+      <a href="../services/assistance.html">Work With Us</a>
+
+      <a href="../about.html">My Gear</a>
+
+    </div>
+
+    
+
+    <div class="footer-col">
+
+      <h4 class="footer-heading">Learn</h4>
+
+      <a href="../courses/clouds.html">Courses</a> <a href="../courses/coding.qmd">Tutorials</a>
+
+      <a href="../notes.qmd">Notes</a>
+
+    </div>
+
+    
+
+    <div class="footer-col">
+
+      <h4 class="footer-heading">Legal</h4>
+
+      <a href="../terms.qmd">Terms</a>
+
+      <a href="../privacy.qmd">Privacy</a>
+
+      <a href="../refund.qmd">Refund</a>
+
+    </div>
+
+    
+
+    <div class="footer-col">
+
+      <h4 class="footer-heading">Social</h4>
+
+      <a href="https://facebook.com/yourpage" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+
+      <a href="https://instagram.com/yourprofile" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+
+      <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+
+      <a href="https://youtube.com/yourchannel" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+
+    </div>
+
+
+
+  </div>
+
+  
+
+  <div class="footer-bottom">
+
+    <span class="footer-copyright">© 2026 Akademiyaa. All rights reserved.</span>
+
+    <span class="footer-made-with">Made with ❤️ in India</span>
+
+  </div>
+
+</footer>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/akademiyaa\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
