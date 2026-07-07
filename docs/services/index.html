@@ -115,34 +115,6 @@ ul.task-list li input[type="checkbox"] {
 
         <li><a href="../services/index.html">Services</a></li>
 
-        
-
-
-
-        <li class="liquid-drop-item">
-
-          <button class="liquid-drop-btn" aria-expanded="false">
-
-            Learn <i class="fa-solid fa-angle-down drop-icon"></i>
-
-          </button>
-
-          <ul class="liquid-drop-menu">
-
-            <li><a href="../courses/all_courses.html">All Courses</a></li>
-
-            <li><a href="../courses/clouds.html">Cloud Technologies</a></li>
-
-            <li><a href="../courses/linux.html">Linux Distributions</a></li>
-
-            <li><a href="../courses/languages.html">Programming Languages</a></li>
-
-          </ul>
-
-        </li>
-
-
-
         <li><a href="../contact.html">Contact</a></li>
 
       </ul>
@@ -287,13 +259,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // SEARCH LOGIC (Connects your custom box to Quarto natively)
+    // SEARCH LOGIC (Robust Quarto Modal Hijack)
 
     const searchInput = document.getElementById("my-custom-search");
 
 
 
     if (searchInput) {
+
+      // Handle Cmd/Ctrl + K shortcut
 
       document.addEventListener("keydown", (e) => {
 
@@ -309,6 +283,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+      // Handle hitting Enter in your custom box
+
       searchInput.addEventListener("keydown", (e) => {
 
         if (e.key === "Enter") {
@@ -321,7 +297,7 @@ ul.task-list li input[type="checkbox"] {
 
           if (query !== "") {
 
-            // Find Quarto's real hidden search button
+            // 1. Find and click Quarto's native hidden button
 
             const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
 
@@ -333,27 +309,63 @@ ul.task-list li input[type="checkbox"] {
 
               
 
-              // Wait for modal to appear, then type the query
+              // 2. Poll the DOM every 100ms until the modal actually exists
 
-              setTimeout(() => {
+              let attempts = 0;
+
+              const injectSearch = setInterval(() => {
 
                 const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
 
+                
+
                 if (modalInput) {
 
-                  modalInput.value = query;
+                  clearInterval(injectSearch); // Modal found, stop polling!
+
+                  
+
+                  // 3. Algolia/React Bypass: Force the value into the input's native setter
+
+                  const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+
+                  nativeSetter.call(modalInput, query);
+
+                  
+
+                  // 4. Dispatch the event so Quarto triggers the live search
 
                   modalInput.dispatchEvent(new Event("input", { bubbles: true }));
 
                   modalInput.focus();
 
+                  
+
+                  // Optional: Clear your custom search box after porting the text
+
+                  searchInput.value = ""; 
+
                 }
 
-              }, 200); 
+                
+
+                // Safety catch: Give up after 2.5 seconds if the modal never loads
+
+                if (++attempts > 25) {
+
+                    clearInterval(injectSearch);
+
+                    console.error("Quarto search modal failed to load in time.");
+
+                }
+
+              }, 100); 
+
+              
 
             } else {
 
-              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+                console.error("Quarto search button not found. Ensure search is enabled in _quarto.yml.");
 
             }
 
@@ -364,8 +376,6 @@ ul.task-list li input[type="checkbox"] {
       });
 
     }
-
-  });
 
 </script>
 

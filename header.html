@@ -13,30 +13,11 @@
       <ul class="nav-links">
         <li><a href="/index.qmd">Home</a></li>
         <li><a href="/services/index.qmd">Services</a></li>
-        
-
-        <li class="liquid-drop-item">
-          <button class="liquid-drop-btn" aria-expanded="false">
-            Learn <i class="fa-solid fa-angle-down drop-icon"></i>
-          </button>
-          <ul class="liquid-drop-menu">
-            <li><a href="/courses/all_courses.qmd">All Courses</a></li>
-            <li><a href="/courses/clouds.qmd">Cloud Technologies</a></li>
-            <li><a href="/courses/linux.qmd">Linux Distributions</a></li>
-            <li><a href="/courses/languages.qmd">Programming Languages</a></li>
-          </ul>
-        </li>
-
         <li><a href="/contact.qmd">Contact</a></li>
       </ul>
 
+
       <div class="nav-actions">
-        
-        <div class="custom-search-container">
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="text" placeholder="Search..." class="custom-search-input" id="my-custom-search">
-          <span class="search-shortcut">⌘ K</span>
-        </div>
 
         <button id="custom-theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
           <i class="fa-solid fa-moon dark-icon"></i>
@@ -56,7 +37,7 @@
     const navMenu = document.getElementById("nav-menu");
     const dropdownToggles = document.querySelectorAll(".liquid-drop-btn");
 
-    // Theme logic
+    // ─── 1. Theme Logic ───────────────────────────────────────────
     const currentTheme = localStorage.getItem("theme") || "light";
     if (currentTheme === "dark") htmlElement.setAttribute("data-bs-theme", "dark");
 
@@ -70,23 +51,28 @@
       }
     });
 
-    // Mobile menu logic
+    // ─── 2. Mobile Menu Logic ─────────────────────────────────────
     mobileToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
 
-    // Dropdown logic
+    // ─── 3. Dropdown Logic ────────────────────────────────────────
     dropdownToggles.forEach(toggle => {
       toggle.addEventListener("click", (e) => {
         e.preventDefault(); 
         const parentLi = toggle.parentElement;
+        
         document.querySelectorAll('.liquid-drop-item').forEach(item => {
           if (item !== parentLi) {
             item.classList.remove('open');
-            item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+            const icon = item.querySelector('.drop-icon');
+            if (icon) icon.style.transform = 'rotate(0deg)';
           }
         });
+        
         parentLi.classList.toggle("open");
         const icon = toggle.querySelector('.drop-icon');
-        icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+        if (icon) {
+          icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
       });
     });
     
@@ -94,15 +80,17 @@
       if (!e.target.closest('.liquid-drop-item')) {
         document.querySelectorAll('.liquid-drop-item').forEach(item => {
           item.classList.remove('open');
-          item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+          const icon = item.querySelector('.drop-icon');
+          if (icon) icon.style.transform = 'rotate(0deg)';
         });
       }
     });
 
-    // SEARCH LOGIC (Connects your custom box to Quarto natively)
+    // ─── 4. Robust Search Hijack (Quarto/Algolia Bypass) ──────────
     const searchInput = document.getElementById("my-custom-search");
 
     if (searchInput) {
+      // Handle Cmd/Ctrl + K shortcut
       document.addEventListener("keydown", (e) => {
         if ((e.metaKey || e.ctrlKey) && e.key === "k") {
           e.preventDefault(); 
@@ -110,33 +98,66 @@
         }
       });
 
+      // SEARCH LOGIC (Clean & Failsafe)
+    const searchInput = document.getElementById("my-custom-search");
+
+    if (searchInput) {
+      // 1. Handle Cmd/Ctrl + K shortcut
+      document.addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+          e.preventDefault(); 
+          searchInput.focus(); 
+        }
+      });
+
+      // 2. Handle hitting Enter
       searchInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
           e.preventDefault(); 
           const query = searchInput.value.trim();
           
           if (query !== "") {
-            // Find Quarto's real hidden search button
+            // Find Quarto's native hidden button
             const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
             
             if (quartoBtn) {
-              quartoBtn.click(); // Open the modal
+              quartoBtn.click(); // Trigger the modal
               
-              // Wait for modal to appear, then type the query
-              setTimeout(() => {
-                const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
+              // Safely poll for the modal without fragile prototype hacks
+              let attempts = 0;
+              const checkModal = setInterval(() => {
+                // Look for Quarto's actual search input box
+                const modalInput = document.querySelector(".aa-Input, #quarto-search-input, .search-input");
+                
                 if (modalInput) {
+                  clearInterval(checkModal); // Modal found, stop polling
+                  
+                  // Set value cleanly
                   modalInput.value = query;
+                  
+                  // Fire standard events to wake up the search engine
                   modalInput.dispatchEvent(new Event("input", { bubbles: true }));
-                  modalInput.focus();
+                  modalInput.dispatchEvent(new Event("change", { bubbles: true }));
+                  
+                  // Clear your custom box
+                  searchInput.value = ""; 
                 }
-              }, 200); 
+                
+                // Failsafe: If modal fails to load after 2.5 seconds, force URL search
+                if (++attempts > 25) {
+                    clearInterval(checkModal);
+                    window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+                }
+              }, 100); 
+              
             } else {
-              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+                // Ultimate Failsafe: If no Quarto button exists, force URL search
+                window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
             }
           }
         }
       });
+     }
     }
   });
 </script>

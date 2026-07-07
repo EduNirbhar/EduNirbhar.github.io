@@ -1,8 +1,8 @@
 <header class="custom-liquid-header">
   <div class="nav-container">
     
-    <a href="/index.qmd" class="nav-brand">
-      <span class="brand-brackets">&lt;/&gt;</span>Akademiyaa
+   <a href="/index.qmd" class="nav-brand">
+      <img src="/images/edunirbhar.png" alt="" class="brand-logo logo-light-mode">
     </a>
 
     <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation">
@@ -10,32 +10,9 @@
     </button>
 
     <nav class="nav-menu" id="nav-menu">
-      
       <ul class="nav-links">
         <li><a href="/index.qmd">Home</a></li>
-        
-        <li class="liquid-drop-item">
-          <button class="liquid-drop-btn" aria-expanded="false">
-            Service <i class="fa-solid fa-angle-down drop-icon"></i>
-          </button>
-          <ul class="liquid-drop-menu">
-            <li><a href="/services/assistance.qmd">Remote Assistance</a></li>
-            <li><a href="/services/webdev.qmd">Web Development</a></li>
-          </ul>
-        </li>
-
-        <li class="liquid-drop-item">
-          <button class="liquid-drop-btn" aria-expanded="false">
-            Learn <i class="fa-solid fa-angle-down drop-icon"></i>
-          </button>
-          <ul class="liquid-drop-menu">
-            <li><a href="/courses/all_courses.qmd">All Courses</a></li>
-            <li><a href="/courses/clouds.qmd">Cloud Technologies</a></li>
-            <li><a href="/courses/linux.qmd">Linux Distributions</a></li>
-            <li><a href="/courses/languages.qmd">Programming Languages</a></li>
-          </ul>
-        </li>
-
+        <li><a href="/services/index.qmd">Services</a></li>
         <li><a href="/contact.qmd">Contact</a></li>
       </ul>
 
@@ -43,7 +20,7 @@
         
         <div class="custom-search-container">
           <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="text" placeholder="Search..." class="custom-search-input">
+          <input type="text" placeholder="Search..." class="custom-search-input" id="my-custom-search">
           <span class="search-shortcut">⌘ K</span>
         </div>
 
@@ -65,13 +42,10 @@
     const navMenu = document.getElementById("nav-menu");
     const dropdownToggles = document.querySelectorAll(".liquid-drop-btn");
 
-    // 1. Theme initialization
+    // Theme logic
     const currentTheme = localStorage.getItem("theme") || "light";
-    if (currentTheme === "dark") {
-      htmlElement.setAttribute("data-bs-theme", "dark");
-    }
+    if (currentTheme === "dark") htmlElement.setAttribute("data-bs-theme", "dark");
 
-    // 2. Theme Toggle
     themeToggle.addEventListener("click", () => {
       if (htmlElement.getAttribute("data-bs-theme") === "dark") {
         htmlElement.removeAttribute("data-bs-theme");
@@ -82,39 +56,26 @@
       }
     });
 
-    // 3. Mobile Hamburger Toggle
-    mobileToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-    });
+    // Mobile menu logic
+    mobileToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
 
-    // 4. Dropdown Menu Logic (Now immune to Bootstrap)
+    // Dropdown logic
     dropdownToggles.forEach(toggle => {
       toggle.addEventListener("click", (e) => {
         e.preventDefault(); 
         const parentLi = toggle.parentElement;
-        
-        // Close other open dropdowns
         document.querySelectorAll('.liquid-drop-item').forEach(item => {
           if (item !== parentLi) {
             item.classList.remove('open');
             item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
           }
         });
-
-        // Toggle current dropdown
         parentLi.classList.toggle("open");
-        
-        // Rotate the arrow icon
         const icon = toggle.querySelector('.drop-icon');
-        if (parentLi.classList.contains("open")) {
-          icon.style.transform = 'rotate(180deg)';
-        } else {
-          icon.style.transform = 'rotate(0deg)';
-        }
+        icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
       });
     });
     
-    // Close dropdowns when clicking anywhere outside of them
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.liquid-drop-item')) {
         document.querySelectorAll('.liquid-drop-item').forEach(item => {
@@ -123,39 +84,45 @@
         });
       }
     });
-    
-  // 5. Search Box Functionality
-    const searchInput = document.querySelector(".custom-search-input");
+
+    // SEARCH LOGIC (Connects your custom box to Quarto natively)
+    const searchInput = document.getElementById("my-custom-search");
 
     if (searchInput) {
-      // Action A: Make the Cmd+K / Ctrl+K shortcut focus the search box
       document.addEventListener("keydown", (e) => {
-        // Check if Cmd (Mac) or Ctrl (Windows) is held down AND the key is 'k'
         if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-          e.preventDefault(); // Stop the browser's default search bar from opening
-          searchInput.focus(); // Put the cursor in YOUR search box
+          e.preventDefault(); 
+          searchInput.focus(); 
         }
       });
 
-      // Action B: Execute search when the user presses "Enter"
-      searchInput.addEventListener("keypress", (e) => {
+      searchInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-          e.preventDefault(); // Stop any default form submission
+          e.preventDefault(); 
           const query = searchInput.value.trim();
           
           if (query !== "") {
-            // Option 1: Redirect to a custom search page (Recommended)
-            // Change '/search.html' to wherever your actual search page is located
-           // window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+            // Find Quarto's real hidden search button
+            const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
             
-            /* Option 2: If you want to trigger Quarto's default hidden search modal instead, 
-               comment out window.location above, and uncomment the two lines below: */
-             const quartoSearchBtn = document.getElementById("quarto-search");
-             if (quartoSearchBtn) quartoSearchBtn.click();
+            if (quartoBtn) {
+              quartoBtn.click(); // Open the modal
+              
+              // Wait for modal to appear, then type the query
+              setTimeout(() => {
+                const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
+                if (modalInput) {
+                  modalInput.value = query;
+                  modalInput.dispatchEvent(new Event("input", { bubbles: true }));
+                  modalInput.focus();
+                }
+              }, 200); 
+            } else {
+              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+            }
           }
         }
       });
     }
-
   });
 </script>

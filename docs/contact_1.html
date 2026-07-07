@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EduNirbhar – Akademiyaa</title>
+<title>quarto-input14423e5213e581fe – Akademiyaa</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -84,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 <header class="custom-liquid-header">
 
   <div class="nav-container">
@@ -121,9 +122,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-
-
       <div class="nav-actions">
+
+        
+
+        <div class="custom-search-container">
+
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+          <input type="text" placeholder="Search..." class="custom-search-input" id="my-custom-search">
+
+          <span class="search-shortcut">⌘ K</span>
+
+        </div>
 
 
 
@@ -163,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // ─── 1. Theme Logic ───────────────────────────────────────────
+    // Theme logic
 
     const currentTheme = localStorage.getItem("theme") || "light";
 
@@ -191,13 +202,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // ─── 2. Mobile Menu Logic ─────────────────────────────────────
+    // Mobile menu logic
 
     mobileToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
 
 
 
-    // ─── 3. Dropdown Logic ────────────────────────────────────────
+    // Dropdown logic
 
     dropdownToggles.forEach(toggle => {
 
@@ -207,33 +218,23 @@ ul.task-list li input[type="checkbox"] {
 
         const parentLi = toggle.parentElement;
 
-        
-
         document.querySelectorAll('.liquid-drop-item').forEach(item => {
 
           if (item !== parentLi) {
 
             item.classList.remove('open');
 
-            const icon = item.querySelector('.drop-icon');
-
-            if (icon) icon.style.transform = 'rotate(0deg)';
+            item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
 
           }
 
         });
 
-        
-
         parentLi.classList.toggle("open");
 
         const icon = toggle.querySelector('.drop-icon');
 
-        if (icon) {
-
-          icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
-
-        }
+        icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
 
       });
 
@@ -249,9 +250,7 @@ ul.task-list li input[type="checkbox"] {
 
           item.classList.remove('open');
 
-          const icon = item.querySelector('.drop-icon');
-
-          if (icon) icon.style.transform = 'rotate(0deg)';
+          item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
 
         });
 
@@ -261,15 +260,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // ─── 4. Robust Search Hijack (Quarto/Algolia Bypass) ──────────
+    // SEARCH LOGIC (Connects your custom box to Quarto natively)
 
     const searchInput = document.getElementById("my-custom-search");
 
 
 
     if (searchInput) {
-
-      // Handle Cmd/Ctrl + K shortcut
 
       document.addEventListener("keydown", (e) => {
 
@@ -284,32 +281,6 @@ ul.task-list li input[type="checkbox"] {
       });
 
 
-
-      // SEARCH LOGIC (Clean & Failsafe)
-
-    const searchInput = document.getElementById("my-custom-search");
-
-
-
-    if (searchInput) {
-
-      // 1. Handle Cmd/Ctrl + K shortcut
-
-      document.addEventListener("keydown", (e) => {
-
-        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-
-          e.preventDefault(); 
-
-          searchInput.focus(); 
-
-        }
-
-      });
-
-
-
-      // 2. Handle hitting Enter
 
       searchInput.addEventListener("keydown", (e) => {
 
@@ -323,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
 
           if (query !== "") {
 
-            // Find Quarto's native hidden button
+            // Find Quarto's real hidden search button
 
             const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
 
@@ -331,69 +302,31 @@ ul.task-list li input[type="checkbox"] {
 
             if (quartoBtn) {
 
-              quartoBtn.click(); // Trigger the modal
+              quartoBtn.click(); // Open the modal
 
               
 
-              // Safely poll for the modal without fragile prototype hacks
+              // Wait for modal to appear, then type the query
 
-              let attempts = 0;
+              setTimeout(() => {
 
-              const checkModal = setInterval(() => {
-
-                // Look for Quarto's actual search input box
-
-                const modalInput = document.querySelector(".aa-Input, #quarto-search-input, .search-input");
-
-                
+                const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
 
                 if (modalInput) {
 
-                  clearInterval(checkModal); // Modal found, stop polling
-
-                  
-
-                  // Set value cleanly
-
                   modalInput.value = query;
-
-                  
-
-                  // Fire standard events to wake up the search engine
 
                   modalInput.dispatchEvent(new Event("input", { bubbles: true }));
 
-                  modalInput.dispatchEvent(new Event("change", { bubbles: true }));
-
-                  
-
-                  // Clear your custom box
-
-                  searchInput.value = ""; 
+                  modalInput.focus();
 
                 }
 
-                
-
-                // Failsafe: If modal fails to load after 2.5 seconds, force URL search
-
-                if (++attempts > 25) {
-
-                    clearInterval(checkModal);
-
-                    window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
-
-                }
-
-              }, 100); 
-
-              
+              }, 200); 
 
             } else {
 
-                // Ultimate Failsafe: If no Quarto button exists, force URL search
-
-                window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
 
             }
 
@@ -403,250 +336,99 @@ ul.task-list li input[type="checkbox"] {
 
       });
 
-     }
-
     }
 
   });
 
 </script>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">EduNirbhar</h1>
+
+
+
+<section id="get-in-touch" class="level1">
+<h1>Get in Touch</h1>
+<p>We are available for questions, feedback, or collaboration opportunities. Let us know how we can help! We’re here to help you move your projects forward. Whether it is professional academic documentation or a custom cloud curriculum, let’s start a conversation.</p>
+<div class="contact-card">
+<div class="grid" style="margin: 0;">
+<div class="g-col-12 g-col-lg-5 contact-sidebar">
+<p>CONTACT US</p>
+  <div class="contact-info-block mt-4">
+    <i class="fas fa-phone"></i>
+    <span>+91-7908812993</span>
+  </div>
+
+
+<p>Service related Queries:</p>
+  <div class="contact-info-block">
+    <i class="fas fa-envelope"></i>
+    <span>connect.akademiya@gmail.com</span>
+  </div>
+  
+  
+<p>Course related Queries:</p>
+  <div class="contact-info-block">
+    <i class="fas fa-envelope"></i>
+    <span>info.akademiyaa@yahoo.com</span>
+  </div>
+
+  <div class="contact-info-block">
+    <i class="fas fa-map-marker-alt"></i>
+    <span>India</span>
+  </div>
+
+  <div class="hours-block">
+    Monday–Friday<br>
+    9:00 AM – 6:00 PM
+  </div>
+
+  <div class="social-icons-contact">
+    <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
+<div class="g-col-12 g-col-lg-7 contact-form-area">
+  <form action="https://api.web3forms.com/submit" method="POST" class="needs-validation">
+    
+    <input type="hidden" name="access_key" value="94f5a920-7b1a-48fb-b7fc-bf44231dda32">
+    
+    <div class="grid">
+      <div class="g-col-12 g-col-sm-6">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" name="First Name" class="form-control" placeholder="Name" required="">
+      </div>
+      <div class="g-col-12 g-col-sm-6">
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" name="Last Name" class="form-control" placeholder="Surname" required="">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="janedoe@example.com" required="">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" name="Phone" class="form-control" placeholder="+1 (555) 000-0000">
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="Message" class="form-control" rows="5" placeholder="Your message..." required=""></textarea>
+    </div>
+
+    <div class="text-end mt-3">
+      <button type="submit" class="btn-primary-wd">Send message</button>
+    </div>
+  
+  </form>
+</div>
+</div>
 </div>
 
 
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="home-page">
-  <section class="hero-section">
-    <div class="hero-content">
-      
-      <h1>
-        EduNirbhar<br>
-        <em>One Stop Solution for Academicians</em>
-      </h1>
-      
-      <p class="hero-body">
-        I provide specialized remote assistance to professors and researchers in  documentation, academic workflows etc. I also build fast, minimal websites for portfolios, research projects, and businesses.
-      </p>
-
-  </div></section>
-  
-  
-  <section class="home-page">
-  
-    <h2 class="centered-title anchored">Why Choosing Us?</h2>
-    
-    <div class="glass-grid why-grid">
-    
-  <div class="glass-card why-item">
-  <h4 class="anchored">Documentation Excellence</h4>
-  <p>Excel that computes flawlessly. Word docs that read like a professional wrote them. Decks that don't feel like clipart from 2003. No broken formulas. No formatting fights. Just clean, polished work — every time.</p>
-</div>  
-  
-   <div class="glass-card why-item">
-    <h4 class="anchored">Just You &amp; Me</h4>
-    <p>No account managers. No junior staff. No offshore subcontractors. You email me, I do the work, you get the results. Simple. Consistent. Accountable.</p>
-  </div>
-  
-  <div class="glass-card why-item">
-    <h4 class="anchored">No Surprises, Ever</h4>
-    <p>Fixed price, upfront. Strict confidentiality, always. Your data stays private. Your budget stays predictable. Transparency isn't a perk here — it's the baseline.</p>
-  </div>
-  
-<div class="glass-card why-item">
-  <h4 class="anchored">Transparent Communication</h4>
-  <p>Real replies within 24 hours — not "got it," an actual answer. Automatic updates at key milestones, so you never have to ask "how's it going?" Async-friendly, time-zone-proof. No ghosting. No chasing. No "sorry for the delay" three weeks later.</p>
-</div>
-  
-<div class="glass-card why-item">
-  <h4 class="anchored">Perfect, Or We Keep Going</h4>
-  <p>Unlimited revisions — genuinely unlimited. Not "3 rounds then $50 a change." Deadlines are absolute: promised Friday 3 PM, delivered Friday 3 PM. Something's off? Fixed same day. Want a different approach? Done. No extra fees, no scope-creep debates, no guilt for asking. We're finished when you're satisfied — not when I decide we are.</p>
-</div>
-  
-  
- <div class="glass-card why-item">
-  <h4 class="anchored">You Own Everything</h4>
-  <p>Every project ships fully commented and source-complete: .tex you can recompile, .qmd you can regenerate, .R and .py you can rerun on new data, .docx templates you can reuse, .xlsx models you can extend. No locked formats and watermarks. Update it yourself in minutes. Your files. Your control. Permanently.</p>
-</div>
-
-    </div>
-
-    <div class="trust-signals">
-      <div class="trust-grid">
-        
-        <div class="trust-stat">
-          <div class="stat-num">50+</div>
-          <div class="stat-label">Projects Delivered</div>
-        </div>
-        
-        <div class="trust-stat">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">On-Time Delivery</div>
-        </div>
-        
-        <div class="trust-stat">
-          <div class="stat-num">&lt;24h</div>
-          <div class="stat-label">Avg Response Time</div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-  
- 
- 
- <section class="home-page">
-  <h2 class="centered-title anchored">How we Work Together?</h2>
-  
-  <div class="uplift-stair-container">
-    
-    <!-- Step 1 (Bottom Left - The Foundation) -->
-    <div class="uplift-step step-1">
-      <div class="stair-text-top">
-        <span class="stair-eyebrow">Phase 01</span>
-        <h4 class="anchored">Share requirements</h4>
-      </div>
-      <div class="stair-line"><div class="stair-node"></div></div>
-      <div class="stair-text-bottom">
-        <p>Email or call with project details — type, deadline, and scope.</p>
-      </div>
-    </div>
-
-    <!-- Step 2 (Middle - The Ascent) -->
-    <div class="uplift-step step-2">
-      <div class="stair-text-top">
-        <span class="stair-eyebrow">Phase 02</span>
-        <h4 class="anchored">Align on scope</h4>
-      </div>
-      <!-- The explicit line with a joint node -->
-      <div class="stair-line"><div class="stair-node"></div></div>
-      <div class="stair-text-bottom">
-        <p>Brief discussion to confirm deliverables and format to prevent rework.</p>
-      </div>
-    </div>
-
-    <!-- Step 3 (Top Right - The Summit) -->
-    <div class="uplift-step step-3">
-      <div class="stair-text-top">
-        <span class="stair-eyebrow">Phase 03</span>
-        <h4 class="anchored">Deliver &amp; Refine</h4>
-      </div>
-      <div class="stair-line"><div class="stair-node"></div></div>
-      <div class="stair-text-bottom">
-        <p>First draft for your feedback, then revision rounds until perfect.</p>
-      </div>
-    </div>
-
-  </div>
 </section>
- 
- 
-
-  
-  <section class="section">
-  <h2 class="centered-title anchored">Who Is EduNirbhar For?</h2>
-  
-  <div class="clean-tree-container">
-    
-    <!-- ==========================================
-         TREE 1: ACADEMICIANS 
-         ========================================== -->
-    <div class="tree-group">
-      
-      <div class="tree-root">
-        <div class="root-pill">
-          <h3 class="anchored">Academicians</h3>
-        </div>
-      </div>
-      
-      <div class="tree-branches">
-        <div class="tree-node">
-          <div class="node-pill">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>University Prof.</span>
-          </div>
-        </div>
-        <div class="tree-node">
-          <div class="node-pill">
-            <i class="fa-solid fa-flask"></i>
-            <span>Doctoral Fellows</span>
-          </div>
-        </div>
-        <div class="tree-node">
-          <div class="node-pill">
-            <i class="fa-solid fa-book-open-reader"></i>
-            <span>Academic Scholars</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==========================================
-         TREE 2: FRESHERS / STUDENTS 
-         ========================================== -->
-    <div class="tree-group">
-      
-      <div class="tree-root">
-        <div class="root-pill">
-          <h3 class="anchored">Freshers / Students</h3>
-        </div>
-      </div>
-      
-      <div class="tree-branches">
-        <div class="tree-node">
-          <div class="node-pill">
-            <i class="fa-solid fa-network-wired"></i>
-            <span>Join as a Freelancer</span>
-          </div>
-        </div>
-        <div class="tree-node">
-          <div class="node-pill">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>AI &amp; Tech Upskill</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-</section>
-
-
-
-
-<section class="content-section">
-  <div class="wd-cta">
-    
-    <h2 class="anchored">You deserve better<br>than "good enough</h2>
-    
-  
-    <div class="hero-actions">
-      <a href="./services/assistance.qmd" class="btn-primary">View Services ↗</a>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-</div>
-
-
 
 </main> <!-- /main -->
 <footer class="akademiyaa-footer">

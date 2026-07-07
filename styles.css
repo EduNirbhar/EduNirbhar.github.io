@@ -77,10 +77,10 @@ header#title-block-header {
 #quarto-header {
   position: absolute !important;
   top: -9999px !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
+  left: -9999px !important;
+  pointer-events: none !important;
 }
+
 
 
 /* ==========================================================================
@@ -3895,3 +3895,6 @@ body { overflow-x: hidden; }
   color: var(--color-light) !important;
   border-color: var(--color-orange) !important;
 }
+
+
+

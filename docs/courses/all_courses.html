@@ -115,37 +115,13 @@ ul.task-list li input[type="checkbox"] {
 
         <li><a href="../services/index.html">Services</a></li>
 
-        
-
-
-
-        <li class="liquid-drop-item">
-
-          <button class="liquid-drop-btn" aria-expanded="false">
-
-            Learn <i class="fa-solid fa-angle-down drop-icon"></i>
-
-          </button>
-
-          <ul class="liquid-drop-menu">
-
-            <li><a href="../courses/all_courses.html">All Courses</a></li>
-
-            <li><a href="../courses/clouds.html">Cloud Technologies</a></li>
-
-            <li><a href="../courses/linux.html">Linux Distributions</a></li>
-
-            <li><a href="../courses/languages.html">Programming Languages</a></li>
-
-          </ul>
-
-        </li>
-
-
-
         <li><a href="../contact.html">Contact</a></li>
 
       </ul>
+
+
+
+<div id="quarto-search" style="display: none;"></div>
 
 
 
@@ -201,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // Theme logic
+    // ─── 1. Theme Logic ───────────────────────────────────────────
 
     const currentTheme = localStorage.getItem("theme") || "light";
 
@@ -229,13 +205,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // Mobile menu logic
+    // ─── 2. Mobile Menu Logic ─────────────────────────────────────
 
     mobileToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
 
 
 
-    // Dropdown logic
+    // ─── 3. Dropdown Logic ────────────────────────────────────────
 
     dropdownToggles.forEach(toggle => {
 
@@ -245,23 +221,33 @@ ul.task-list li input[type="checkbox"] {
 
         const parentLi = toggle.parentElement;
 
+        
+
         document.querySelectorAll('.liquid-drop-item').forEach(item => {
 
           if (item !== parentLi) {
 
             item.classList.remove('open');
 
-            item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+            const icon = item.querySelector('.drop-icon');
+
+            if (icon) icon.style.transform = 'rotate(0deg)';
 
           }
 
         });
 
+        
+
         parentLi.classList.toggle("open");
 
         const icon = toggle.querySelector('.drop-icon');
 
-        icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+        if (icon) {
+
+          icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+
+        }
 
       });
 
@@ -277,7 +263,9 @@ ul.task-list li input[type="checkbox"] {
 
           item.classList.remove('open');
 
-          item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+          const icon = item.querySelector('.drop-icon');
+
+          if (icon) icon.style.transform = 'rotate(0deg)';
 
         });
 
@@ -287,13 +275,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // SEARCH LOGIC (Connects your custom box to Quarto natively)
+    // ─── 4. Robust Search Hijack (Quarto/Algolia Bypass) ──────────
 
     const searchInput = document.getElementById("my-custom-search");
 
 
 
     if (searchInput) {
+
+      // Handle Cmd/Ctrl + K shortcut
 
       document.addEventListener("keydown", (e) => {
 
@@ -309,6 +299,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+      // Handle hitting Enter in the custom box
+
       searchInput.addEventListener("keydown", (e) => {
 
         if (e.key === "Enter") {
@@ -321,7 +313,7 @@ ul.task-list li input[type="checkbox"] {
 
           if (query !== "") {
 
-            // Find Quarto's real hidden search button
+            // Find Quarto's native hidden button
 
             const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
 
@@ -329,31 +321,67 @@ ul.task-list li input[type="checkbox"] {
 
             if (quartoBtn) {
 
-              quartoBtn.click(); // Open the modal
+              quartoBtn.click(); // Trigger the modal creation
 
               
 
-              // Wait for modal to appear, then type the query
+              // Poll the DOM until Algolia/React injects the modal
 
-              setTimeout(() => {
+              let attempts = 0;
+
+              const injectSearch = setInterval(() => {
 
                 const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
 
+                
+
                 if (modalInput) {
 
-                  modalInput.value = query;
+                  clearInterval(injectSearch); // Modal found, stop polling!
+
+                  
+
+                  // The Native Bypass: Force value past React's synthetic event wrapper
+
+                  const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+
+                  nativeSetter.call(modalInput, query);
+
+                  
+
+                  // Dispatch a real input event so the live search triggers
 
                   modalInput.dispatchEvent(new Event("input", { bubbles: true }));
 
                   modalInput.focus();
 
+                  
+
+                  // Clear the custom input box
+
+                  searchInput.value = ""; 
+
                 }
 
-              }, 200); 
+                
+
+                // Safety timeout (~2.5 seconds max)
+
+                if (++attempts > 25) {
+
+                    clearInterval(injectSearch);
+
+                    console.error("Quarto search modal failed to load within 2.5 seconds.");
+
+                }
+
+              }, 100); 
+
+              
 
             } else {
 
-              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+                console.error("Quarto search button not found. Ensure search is enabled in _quarto.yml.");
 
             }
 

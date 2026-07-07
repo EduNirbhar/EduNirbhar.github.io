@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Quarto + AI Websites – Akademiyaa</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -31,15 +34,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6b423f165eeea3787de40cb4f8e821c3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,9 +91,9 @@ ul.task-list li input[type="checkbox"] {
 
     
 
-    <a href="../index.html" class="nav-brand">
+   <a href="../index.html" class="nav-brand">
 
-      <span class="brand-brackets">&lt;/&gt;</span>Akademiyaa
+      <img src="../images/edunirbhar.png" alt="" class="brand-logo logo-light-mode">
 
     </a>
 
@@ -111,55 +113,15 @@ ul.task-list li input[type="checkbox"] {
 
         <li><a href="../index.html">Home</a></li>
 
-        
-
-        <li class="liquid-drop-item">
-
-          <button class="liquid-drop-btn" aria-expanded="false">
-
-            Service <i class="fa-solid fa-angle-down drop-icon"></i>
-
-          </button>
-
-          <ul class="liquid-drop-menu">
-
-            <li><a href="../services/assistance.html">Remote Assistance</a></li>
-
-            <li><a href="../services/webdev.html">Web Development</a></li>
-
-          </ul>
-
-        </li>
-
-
-
-        <li class="liquid-drop-item">
-
-          <button class="liquid-drop-btn" aria-expanded="false">
-
-            Learn <i class="fa-solid fa-angle-down drop-icon"></i>
-
-          </button>
-
-          <ul class="liquid-drop-menu">
-
-            <li><a href="../courses/all_courses.html">All Courses</a></li>
-
-            <li><a href="../courses/clouds.html">Cloud Technologies</a></li>
-
-            <li><a href="../courses/linux.html">Linux Distributions</a></li>
-
-            <li><a href="../courses/languages.html">Programming Languages</a></li>
-
-          </ul>
-
-        </li>
-
-
+        <li><a href="../services/index.html">Services</a></li>
 
         <li><a href="../contact.html">Contact</a></li>
 
       </ul>
+
+
+
+<div id="quarto-search" style="display: none;"></div>
 
 
 
@@ -215,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // Theme logic
+    // ─── 1. Theme Logic ───────────────────────────────────────────
 
     const currentTheme = localStorage.getItem("theme") || "light";
 
@@ -243,13 +205,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // Mobile menu logic
+    // ─── 2. Mobile Menu Logic ─────────────────────────────────────
 
     mobileToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
 
 
 
-    // Dropdown logic
+    // ─── 3. Dropdown Logic ────────────────────────────────────────
 
     dropdownToggles.forEach(toggle => {
 
@@ -259,23 +221,33 @@ ul.task-list li input[type="checkbox"] {
 
         const parentLi = toggle.parentElement;
 
+        
+
         document.querySelectorAll('.liquid-drop-item').forEach(item => {
 
           if (item !== parentLi) {
 
             item.classList.remove('open');
 
-            item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+            const icon = item.querySelector('.drop-icon');
+
+            if (icon) icon.style.transform = 'rotate(0deg)';
 
           }
 
         });
 
+        
+
         parentLi.classList.toggle("open");
 
         const icon = toggle.querySelector('.drop-icon');
 
-        icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+        if (icon) {
+
+          icon.style.transform = parentLi.classList.contains("open") ? 'rotate(180deg)' : 'rotate(0deg)';
+
+        }
 
       });
 
@@ -291,7 +263,9 @@ ul.task-list li input[type="checkbox"] {
 
           item.classList.remove('open');
 
-          item.querySelector('.drop-icon').style.transform = 'rotate(0deg)';
+          const icon = item.querySelector('.drop-icon');
+
+          if (icon) icon.style.transform = 'rotate(0deg)';
 
         });
 
@@ -301,13 +275,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-    // SEARCH LOGIC (Connects your custom box to Quarto natively)
+    // ─── 4. Robust Search Hijack (Quarto/Algolia Bypass) ──────────
 
     const searchInput = document.getElementById("my-custom-search");
 
 
 
     if (searchInput) {
+
+      // Handle Cmd/Ctrl + K shortcut
 
       document.addEventListener("keydown", (e) => {
 
@@ -323,6 +299,32 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+      // SEARCH LOGIC (Clean & Failsafe)
+
+    const searchInput = document.getElementById("my-custom-search");
+
+
+
+    if (searchInput) {
+
+      // 1. Handle Cmd/Ctrl + K shortcut
+
+      document.addEventListener("keydown", (e) => {
+
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+
+          e.preventDefault(); 
+
+          searchInput.focus(); 
+
+        }
+
+      });
+
+
+
+      // 2. Handle hitting Enter
+
       searchInput.addEventListener("keydown", (e) => {
 
         if (e.key === "Enter") {
@@ -335,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 
           if (query !== "") {
 
-            // Find Quarto's real hidden search button
+            // Find Quarto's native hidden button
 
             const quartoBtn = document.querySelector("#quarto-search, .quarto-search-button");
 
@@ -343,31 +345,69 @@ ul.task-list li input[type="checkbox"] {
 
             if (quartoBtn) {
 
-              quartoBtn.click(); // Open the modal
+              quartoBtn.click(); // Trigger the modal
 
               
 
-              // Wait for modal to appear, then type the query
+              // Safely poll for the modal without fragile prototype hacks
 
-              setTimeout(() => {
+              let attempts = 0;
 
-                const modalInput = document.querySelector("#quarto-search-input, .aa-Input");
+              const checkModal = setInterval(() => {
+
+                // Look for Quarto's actual search input box
+
+                const modalInput = document.querySelector(".aa-Input, #quarto-search-input, .search-input");
+
+                
 
                 if (modalInput) {
 
+                  clearInterval(checkModal); // Modal found, stop polling
+
+                  
+
+                  // Set value cleanly
+
                   modalInput.value = query;
+
+                  
+
+                  // Fire standard events to wake up the search engine
 
                   modalInput.dispatchEvent(new Event("input", { bubbles: true }));
 
-                  modalInput.focus();
+                  modalInput.dispatchEvent(new Event("change", { bubbles: true }));
+
+                  
+
+                  // Clear your custom box
+
+                  searchInput.value = ""; 
 
                 }
 
-              }, 200); 
+                
+
+                // Failsafe: If modal fails to load after 2.5 seconds, force URL search
+
+                if (++attempts > 25) {
+
+                    clearInterval(checkModal);
+
+                    window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+
+                }
+
+              }, 100); 
+
+              
 
             } else {
 
-              window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+                // Ultimate Failsafe: If no Quarto button exists, force URL search
+
+                window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
 
             }
 
@@ -376,6 +416,8 @@ ul.task-list li input[type="checkbox"] {
         }
 
       });
+
+     }
 
     }
 
@@ -574,7 +616,7 @@ body{background:var(--bg)!important;font-family:var(--fn-body);color:var(--t1)}
 
       <a href="../contact.html">Contact</a>
 
-      <a href="../services/assistance.html">Work With Us</a>
+      <a href="../services/assistance.qmd">Work With Us</a>
 
       <a href="../about.html">My Gear</a>
 

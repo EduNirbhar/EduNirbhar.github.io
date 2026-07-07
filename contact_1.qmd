@@ -20,16 +20,35 @@ We are available for questions, feedback, or collaboration opportunities. Let us
     <span>+91-7908812993</span>
   </div>
 
+
+<p>Service related Queries:</p>
   <div class="contact-info-block">
     <i class="fas fa-envelope"></i>
-    <span>contact.edunirbhar@gmail.com</span>
+    <span>connect.akademiya@gmail.com</span>
   </div>
   
+  
+<p>Course related Queries:</p>
+  <div class="contact-info-block">
+    <i class="fas fa-envelope"></i>
+    <span>info.akademiyaa@yahoo.com</span>
+  </div>
+
   <div class="contact-info-block">
     <i class="fas fa-map-marker-alt"></i>
     <span>India</span>
   </div>
 
+  <div class="hours-block">
+    Monday–Friday<br>
+    9:00 AM – 6:00 PM
+  </div>
+
+  <div class="social-icons-contact">
+    <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
 ```
 :::
 

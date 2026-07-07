@@ -212,6 +212,7 @@ format:
   
     <div class="hero-actions">
       <a href="/services/assistance.qmd" class="btn-primary">View Services ↗</a>
+      <a href="/learn/learn" class="btn-ghost">Explore Skills ↗</a>
     </div>
 
   </div>
